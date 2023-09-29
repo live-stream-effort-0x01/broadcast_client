@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+
+*{
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  background-color:#000029;
+}
+
+header {
+  padding: 2rem;
+}
+
+.navigation {
+  border-bottom: 5px solid white;
+  display: flex;
+  font-size: 32px;
+  font-weight: 500;
+
+  flex-direction: row;
+  justify-content: flex-end;
+
+  padding-bottom: 10px;
+}
+
+.navigation-element{
+  text-decoration: none !important;
+  margin-right: 1rem;
+}
+
+.demo-title {
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+
+.dialog-header, .dialog-label, .dialog-button{
+  color: black !important;
+  font-size: 16px;
+}
+
+.dialog-button {
+  margin-top: 20px;
+}
+
+.cards {
+  display: grid;
+  height: 100vh;
+  grid-gap: 10rem 1rem;
+  grid-template: repeat(auto-fill, minmax(200px, 1fr)) / 1fr 1fr 1fr;
+}
+
+.card {
+}
+
+.card-image {
+  border-radius: 10px;
+}
+
+main {
+  padding: 2rem;
+  overflow-y:auto;
+}
+
+footer {
+  background-color: darkblue;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+}
