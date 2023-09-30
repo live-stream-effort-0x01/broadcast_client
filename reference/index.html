@@ -9,26 +9,9 @@
 </head>
 
 <body>
-    <!-- login modal -->
-    <dialog data-modal-login>
-        <h1 class="login-header">Please Login</p>
-        <form method="dialog">
-            <label for="username" class="login-label">Username</label>
-            <br>
-            <input type="text" id="username" name="username">
-            <br>
-            <br>
-            <label for="password" class="login-label">Password:</label>
-            <br>
-            <input type="text" id="password" name="password">
-            <br>
-          <button class="login-button" data-modal-login>Submit</button>
-          <button class="login-button" data-modal-login>Cancel</button>
-        </form>
-    </dialog>
 
     <!-- login modal -->
-    <dialog open data-modal-login>
+    <dialog data-modal-login>
         <h1 class="dialog-header">Please Login</p>
         <form method="dialog">
             <label for="username" class="dialog-label">Username</label>
@@ -65,7 +48,7 @@
 
     <!-- this will contain nav bar -->
     <header>
-        <nav class="navigation">
+        <nav id="push-to-end" class="navigation">
             <a href="#" class="navigation-element">Login</a>
             <a href="#" class="navigation-element">Sign-Up</a>
         </nav>

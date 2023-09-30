@@ -23,15 +23,29 @@ header {
   font-weight: 500;
 
   flex-direction: row;
-  justify-content: flex-end;
+  
 
   padding-bottom: 10px;
+}
+
+#push-to-end{
+  justify-content: flex-end;
+}
+
+#inbetween{
+  justify-content: space-between;
 }
 
 .navigation-element{
   text-decoration: none !important;
   margin-right: 1rem;
 }
+
+
+.navigation-element:hover {
+  color: #dcc2ff;
+}
+
 
 .demo-title {
   font-weight: 600;
@@ -59,6 +73,23 @@ header {
 
 .card-image {
   border-radius: 10px;
+}
+
+.stream-button {
+  background-color: #00000000;
+  border-color: #75E58D;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: #75E58D;
+  border-width: medium;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.stream-button:hover {
+  color: #00ff59;
+  border-color: #00ff59;
 }
 
 main {
