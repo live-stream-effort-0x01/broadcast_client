@@ -4,16 +4,25 @@
   --color-white:#FFFFFF;
   --color-green:#6FCF97;
   --color-yellow:#FFFB90;
+  --color-title:rgba(255, 255, 255, 1);
   /* color bg */
   --bg-home:#10141E;
+  --bg-dark: rgba(16, 20, 30, 0.5);
+
   /* size text */
   --size-text-1:1.5rem;
+  --size-text-2:0.813rem;
+  --size-text-3:1.125rem;
+  --size-text-4:2rem;
   /* weight */
   --weight-500:500;
+  --weight-300:300
   /* font family */
-  --font-btn:'Outfit';
+
   /* line height */
   --line-height-1:1.9rem;
+  --line-height-2:1.024rem;
+  --line-height-2:1.148rem;
 }
 
 body {
@@ -64,6 +73,7 @@ p {
   /* CSS rules for mobile phones */
   :root{
     --size-text-1:1rem;
+    --size-text-4:1.4rem;
   }
 }
 
