@@ -5,7 +5,6 @@ import Card from '~/components/Card/Card';
 import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import {
   createResource,
-  createSignal,
   createEffect 
 } from "solid-js";
 
@@ -15,16 +14,16 @@ export default function Home() {
   createEffect(()=>{
     refetch()
   },[broadcasts])
-  const navBarItems = broadcasts()?.map((item:any,index:number) => {
-    return<Card key={index} props={item} />
-  });
-
+  console.log(broadcasts())
   return (
     <main class='home-warrper' >
       <div class='home-header'><NavBar/></div>
       <div class='home-container'>    
         <div class='home-title'>Recommended for you</div>
-        <div class='home-list'>{navBarItems}
+        <div class='home-list'>
+        {broadcasts()?.map((item:any, index) => (
+          <Card key={index} props={item} />  
+           ))}
         </div>
       </div>
       </main>

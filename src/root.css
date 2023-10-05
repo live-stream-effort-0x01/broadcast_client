@@ -8,6 +8,7 @@
   /* color bg */
   --bg-home:#10141E;
   --bg-dark: rgba(16, 20, 30, 0.5);
+  --bg-btn-mobile:#7c839580;
 
   /* size text */
   --size-text-1:1.5rem;
@@ -72,7 +73,7 @@ p {
 @media only screen and (max-width: 767px) {
   /* CSS rules for mobile phones */
   :root{
-    --size-text-1:1rem;
+    /* --size-text-1:1rem; */
     --size-text-4:1.4rem;
   }
 }

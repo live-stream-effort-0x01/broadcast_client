@@ -20,6 +20,9 @@ export const getBroadcasts = async () => {
   
     return result;
   } catch (error) {
-    throw error;
+   const result: Broadcasts[] =[]
+   console.log(error)
+   return result
+   
   }
 };

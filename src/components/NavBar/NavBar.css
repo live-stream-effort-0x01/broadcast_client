@@ -50,7 +50,9 @@
     color: var(--color-yellow);
     border: solid 0.25rem var(--color-yellow);
 }
-
+.header-drawer {
+  display: none;
+}
 @media only screen and (min-width: 1025px) {
     /* CSS rules for desktop */
   }
@@ -62,16 +64,44 @@
   }
   @media only screen and (max-width: 767px) {
     /* CSS rules for mobile phones */
+    .header-drawer{
+   
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+      font-size: var(--size-text-1);
+      line-height: var(--line-height);
+      width: 100%;
+    }
+    .show{
+      display: none;
+    }
+    .navigation{
+      align-items: flex-start;
+      width: 100%;
+      position: relative;
+    }
+    .flex-end{
+      align-items: flex-start;
+    }
+    .header-wapper{
+      align-items: flex-start;
+      width: 100%;
+    .navigation-element{
+    font-size: var(--size-text-1);
+    line-height: var(--line-height);
+    margin-right: 1.5rem;
+}
+.navigation-element{
+ 
+  margin-right: 0;
+}
   }
-  
-  @media (min-width: 480px) {
-    h1 {
-      max-width: none;
-    }
-  
-    p {
-      max-width: none;
-    }
+  /* .header-line{
+    margin-top: 0.2rem;
+  } */
   }
   
   @media only screen and (max-width: 414px) {
