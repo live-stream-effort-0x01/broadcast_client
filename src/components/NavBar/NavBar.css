@@ -1,0 +1,86 @@
+.header-wapper{
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+  
+}
+.navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.938rem 0;
+}
+.navigation-element{
+    font-size: var(--size-text-1);
+    line-height: var(--line-height);
+    margin-right: 1.5rem;
+}
+.flex-end{
+    justify-content: flex-end;
+}
+.flex-end > .navigation-element{
+    color: var(--color-white);
+   
+}
+.between{
+    justify-content: space-between;
+}
+.between > .navigation-element{
+    color: var(--color-green);
+    font-weight: var(--weight-500);
+}
+.header-line{
+    width: 100%;
+    border: solid 0.16rem var(--color-white);
+}
+.stream-button{
+    font-size: var(--size-text-1);
+    line-height: var(--line-height);
+    border-radius: 0.625rem;
+    background-color: initial;
+    box-shadow: none;
+    padding: 0.375rem 2.2rem;
+  
+}
+.green{
+    color: var(--color-green);
+    border: solid 0.25rem var(--color-green);
+}
+.yellow{
+    color: var(--color-yellow);
+    border: solid 0.25rem var(--color-yellow);
+}
+
+@media only screen and (min-width: 1025px) {
+    /* CSS rules for desktop */
+  }
+  @media only screen and (min-width: 1024px) {
+    /* CSS rules for iPad Pro */
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* CSS rules for tablets */
+  }
+  @media only screen and (max-width: 767px) {
+    /* CSS rules for mobile phones */
+  }
+  
+  @media (min-width: 480px) {
+    h1 {
+      max-width: none;
+    }
+  
+    p {
+      max-width: none;
+    }
+  }
+  
+  @media only screen and (max-width: 414px) {
+    /* CSS rules for iPhone 6/7/8 Plus */
+  }
+  
+  @media only screen and (max-width: 375px) {
+    /* CSS rules for iPhone 6/7/8 */
+  }
+  @media only screen and (max-width: 375px) {
+    /* CSS rules for iPhone X */
+  }

@@ -1,12 +1,31 @@
+:root{
+
+  /* color text */
+  --color-white:#FFFFFF;
+  --color-green:#6FCF97;
+  --color-yellow:#FFFB90;
+  /* color bg */
+  --bg-home:#10141E;
+  /* size text */
+  --size-text-1:1.5rem;
+  /* weight */
+  --weight-500:500;
+  /* font family */
+  --font-btn:'Outfit';
+  /* line height */
+  --line-height-1:1.9rem;
+}
+
 body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
-    background-color: #10141E;
+    background-color: var(--bg-home);
 }
 
 a {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
+  text-decoration: none;
 }
 
 main {
@@ -43,6 +62,9 @@ p {
 }
 @media only screen and (max-width: 767px) {
   /* CSS rules for mobile phones */
+  :root{
+    --size-text-1:1rem;
+  }
 }
 
 @media (min-width: 480px) {
@@ -59,10 +81,9 @@ p {
   /* CSS rules for iPhone 6/7/8 Plus */
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 374px) {
   /* CSS rules for iPhone 6/7/8 */
+  :root{
+    --size-text-1:0.8rem;
+  }
 }
-@media only screen and (max-width: 375px) {
-  /* CSS rules for iPhone X */
-}
-
