@@ -1,0 +1,30 @@
+.home-warrper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 6.25rem;
+}
+@media only screen and (min-width: 1025px) {
+    /* CSS rules for desktop */
+}
+@media only screen and (min-width: 1024px) {
+    /* CSS rules for iPad Pro */
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* CSS rules for tablets */
+}
+@media only screen and (max-width: 767px) {
+    /* CSS rules for mobile phones */
+}
+@media (min-width: 480px) {
+  
+}
+@media only screen and (max-width: 414px) {
+    /* CSS rules for iPhone 6/7/8 Plus */
+}
+@media only screen and (max-width: 375px) {
+    /* CSS rules for iPhone 6/7/8 */
+}
+@media only screen and (max-width: 375px) {
+    /* CSS rules for iPhone X */
+}
+

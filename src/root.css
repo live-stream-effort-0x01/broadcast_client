@@ -1,6 +1,8 @@
 body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: #10141E;
 }
 
 a {
@@ -29,6 +31,20 @@ p {
   line-height: 1.35;
 }
 
+
+@media only screen and (min-width: 1025px) {
+  /* CSS rules for desktop */
+}
+@media only screen and (min-width: 1024px) {
+  /* CSS rules for iPad Pro */
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* CSS rules for tablets */
+}
+@media only screen and (max-width: 767px) {
+  /* CSS rules for mobile phones */
+}
+
 @media (min-width: 480px) {
   h1 {
     max-width: none;
@@ -38,3 +54,15 @@ p {
     max-width: none;
   }
 }
+
+@media only screen and (max-width: 414px) {
+  /* CSS rules for iPhone 6/7/8 Plus */
+}
+
+@media only screen and (max-width: 375px) {
+  /* CSS rules for iPhone 6/7/8 */
+}
+@media only screen and (max-width: 375px) {
+  /* CSS rules for iPhone X */
+}
+

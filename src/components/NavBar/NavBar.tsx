@@ -1,6 +1,7 @@
 import { createSignal, Show } from 'solid-js';
 
 export default function NavBar() {
+  const [loggedIn, setLoggedIn] = createSignal(false);
   return (
     <header>
 
