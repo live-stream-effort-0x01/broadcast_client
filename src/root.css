@@ -2,28 +2,39 @@
 
   /* color text */
   --color-white:#FFFFFF;
+  --color-black:black;
   --color-green:#6FCF97;
   --color-yellow:#FFFB90;
   --color-title:rgba(255, 255, 255, 1);
+  --color-line: rgba(90, 105, 143, 1);
+ 
+
+
   /* color bg */
   --bg-home:#10141E;
   --bg-dark: rgba(16, 20, 30, 0.5);
   --bg-btn-mobile:#7c839580;
+  --bg-form: rgba(22, 29, 47, 1);
+  --bg-btn-user: rgba(252, 71, 71, 1);
+  --bg-popup:rgb(16 20 30 /80%);
 
   /* size text */
   --size-text-1:1.5rem;
   --size-text-2:0.813rem;
   --size-text-3:1.125rem;
   --size-text-4:2rem;
+  --sze-text-5:0.938rem;
   /* weight */
   --weight-500:500;
-  --weight-300:300
+  --weight-300:300;
   /* font family */
 
   /* line height */
   --line-height-1:1.9rem;
   --line-height-2:1.024rem;
-  --line-height-2:1.148rem;
+  --line-height-3:1.148rem;
+  --line-height-4:2.52rem;
+  --line-height-5:1.125rem;
 }
 
 body {

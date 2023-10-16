@@ -14,6 +14,11 @@
     font-size: var(--size-text-1);
     line-height: var(--line-height);
     margin-right: 1.5rem;
+    cursor: pointer;
+}
+.navigation-element:hover{
+ color: var(--color-green) !important;
+
 }
 .flex-end{
     justify-content: flex-end;

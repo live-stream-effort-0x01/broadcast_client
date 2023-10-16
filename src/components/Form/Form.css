@@ -1,0 +1,103 @@
+.form-wapper{
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    background-color: var(--bg-form);
+    padding: 2rem;
+    border-radius: 1.2rem;
+}
+.form-title{
+    font-size: var(--size-text-4);
+    line-height: var(--line-height-4);
+    color: var(--color-white);
+    text-align: start;
+    font-weight: var( --weight-300);
+
+}
+.form-main{
+    margin-bottom: 2rem;
+}
+.form-input-value{
+    border: none;
+    border-bottom: solid 0.1rem var(--color-line);
+    background-color: inherit;
+    color: var(--color-white);
+    width: 92%;
+    overflow: hidden;
+    padding: 1rem 1rem;
+    margin-top: 1.2rem;
+    font-size: var(--size-text-5);
+    line-height: var(--line-height-5);
+    font-weight: var( --weight-300);
+    cursor: pointer;
+}
+.form-input-value:focus{
+    outline: none;
+    background-color: inherit;
+}
+::placeholder{
+    color: var(--color-title);
+}
+.form-btn-submit{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    font-size: var(--size-text-5);
+    line-height: var(--line-height-5);
+    font-weight: var( --weight-300);
+    border-radius: 0.4rem;
+    background-color: var(--bg-btn-user);
+    margin-bottom: 2rem;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+
+}
+.form-btn-submit:hover{
+    background-color: var(--color-white);
+    color: var(  --color-black);
+}
+.form-more{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    font-weight: var(--weight-300);
+    font-size: var(--size-text-5);
+}
+.form-more-content{
+    padding:0;
+    margin: 0;
+    color: var(--color-white);
+}
+.form-more-link{
+    padding:0;
+    margin-left: 0.6rem;
+    color: var(--color-green);
+    cursor: pointer;
+}
+.form-more > p {
+    padding:0;
+    margin: 0; 
+}
+.form-error-message{
+    text-align: center;
+    color: var( --bg-btn-user);
+    font-weight: 700;
+  }
+  .form-success-message{
+    text-align: center;
+    color: var( --color-green);
+    font-weight: 700;
+  }
+@media only screen and (max-width: 767px) {
+    /* CSS rules for mobile phones */
+    .form-wapper{
+
+        width: 80%;
+    }
+
+}
