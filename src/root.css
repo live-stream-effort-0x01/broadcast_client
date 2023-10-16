@@ -1,10 +1,41 @@
+:root{
+
+  /* color text */
+  --color-white:#FFFFFF;
+  --color-green:#6FCF97;
+  --color-yellow:#FFFB90;
+  --color-title:rgba(255, 255, 255, 1);
+  /* color bg */
+  --bg-home:#10141E;
+  --bg-dark: rgba(16, 20, 30, 0.5);
+  --bg-btn-mobile:#7c839580;
+
+  /* size text */
+  --size-text-1:1.5rem;
+  --size-text-2:0.813rem;
+  --size-text-3:1.125rem;
+  --size-text-4:2rem;
+  /* weight */
+  --weight-500:500;
+  --weight-300:300
+  /* font family */
+
+  /* line height */
+  --line-height-1:1.9rem;
+  --line-height-2:1.024rem;
+  --line-height-2:1.148rem;
+}
+
 body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background-color: var(--bg-home);
 }
 
 a {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
+  text-decoration: none;
 }
 
 main {
@@ -29,6 +60,24 @@ p {
   line-height: 1.35;
 }
 
+
+@media only screen and (min-width: 1025px) {
+  /* CSS rules for desktop */
+}
+@media only screen and (min-width: 1024px) {
+  /* CSS rules for iPad Pro */
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* CSS rules for tablets */
+}
+@media only screen and (max-width: 767px) {
+  /* CSS rules for mobile phones */
+  :root{
+    /* --size-text-1:1rem; */
+    --size-text-4:1.4rem;
+  }
+}
+
 @media (min-width: 480px) {
   h1 {
     max-width: none;
@@ -36,5 +85,16 @@ p {
 
   p {
     max-width: none;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  /* CSS rules for iPhone 6/7/8 Plus */
+}
+
+@media only screen and (max-width: 374px) {
+  /* CSS rules for iPhone 6/7/8 */
+  :root{
+    --size-text-1:0.8rem;
   }
 }
