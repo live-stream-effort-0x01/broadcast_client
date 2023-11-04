@@ -1,0 +1,34 @@
+
+.popup-wapper {
+    position: fixed;
+    background: var(--bg-popup);
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .popup-container {
+    display: flex;
+    justify-content: flex-end;
+}
+  .popup-btn{
+    position: absolute;
+    border-radius: 0.4rem;
+    width: 2rem;
+    height: 1.5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var( --bg-btn-user);
+    color: var(--color-white);
+    cursor: pointer;
+
+  }
