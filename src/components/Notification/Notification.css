@@ -1,0 +1,63 @@
+.noti-wapper{
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    background-color: var(--bg-form);
+    padding: 2rem;
+    border-radius: 1.2rem;
+}
+.noti-title{
+    font-size: var(--size-text-1);
+    line-height: var(--line-height-4);
+    color: var(--color-white);
+    text-align: center;
+    font-weight: var( --weight-300);
+
+}
+.noti-btns{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+   
+}
+.noti-btn{
+    padding: 0.3rem 1.4rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+    margin: 0 1rem;
+    font-size: var(--size-text-3);
+    border: none;
+    font-weight: 500;
+    background-color: initial;
+}
+.noti-btn:hover{
+    opacity: 1;
+
+}
+.noti-green{
+    color: var(--color-green);
+    border: solid 0.25rem var(--color-green);
+}
+.noti-green:hover{
+    color: var(--color-white);
+    border: solid 0.25rem var(--color-green);
+    background-color:var(--color-green) ;
+}
+.noti-red{
+    color: var(--bg-chat-btn-red);
+    border: solid 0.25rem var(--bg-chat-btn-red);
+
+}
+.noti-red:hover{
+    color: var(--color-white);
+    border: solid 0.25rem var(--bg-chat-btn-red);
+background-color: var(--bg-chat-btn-red);
+}
+@media only screen and (max-width: 767px) {
+    /* CSS rules for mobile phones */
+    .noti-wapper{
+        width: 80%;
+    }
+
+}

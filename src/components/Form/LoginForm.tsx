@@ -27,6 +27,7 @@ export default function LoginForm  (props: {
       // Login success
       setSuccess(true);
       sessionStorage.setItem("token", data.token);
+      sessionStorage.setItem("userName", data.name ? data.name:'user');
       setTimeout(() => {
         window.location.reload()
       onClose()

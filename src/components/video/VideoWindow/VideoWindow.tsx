@@ -1,19 +1,27 @@
 import { createSignal, Show } from 'solid-js';
+import { useNavigate } from "solid-start";
+import { deleteRoom } from '~/lib/services/broadcasts';
 import Avatar from'~/components/images/img_avatar.png'
 import icon from '~/components/icon';
-
-
+import Popup from '~/components/Popup/Popup';
+import DisconnetNoti from '~/components/Notification/DisconnetNoti';
 import { Room ,createLocalVideoTrack,createLocalAudioTrack} from "livekit-client";
 import './VideoWinow.css'
 interface VideoWindowProps {
     room: Room;
   }
 export default function VideoWindow({ room}: VideoWindowProps) {
+    const navigate = useNavigate();
+   
     const [videoElement, setVideoElement] = createSignal<HTMLVideoElement | null>(null);
     const [turnCamera, setTurnCamera] = createSignal(false);
     const [turnShare, setTurnShare] = createSignal(false);
     const [turnMic, setTurnMic] = createSignal(false);
-
+    const [showModal, setShowModal] = createSignal(false);
+    const closeModal = () => {
+        setShowModal(false);
+      };
+     
     const toggleAudio = () => {
         setTurnMic(!turnMic())
         const turn = async ()=>{
@@ -42,14 +50,11 @@ export default function VideoWindow({ room}: VideoWindowProps) {
                 const enabled = room.localParticipant.isCameraEnabled;
                 await room.localParticipant.setCameraEnabled(!enabled);
                 const videoPublication = await room.localParticipant.publishTrack(videoTrack)
-              
-             
-
                 // Gắn video element vào bên trong thẻ div nếu nó tồn tại
                 if (divElement) {
                   divElement.appendChild(localVideoTrack.attach());
                 } else {
-                  console.error("Không tìm thấy thẻ div với class là 'huy'");
+                  console.log("Không tìm thấy thẻ div");
                 } 
              
             }
@@ -65,7 +70,7 @@ export default function VideoWindow({ room}: VideoWindowProps) {
                 if (divElement) {
                     divElement.style.display = 'none';
                   } else {
-                    console.error("Không tìm thấy thẻ div với class là 'huy'");
+                    console.log("Không tìm thấy thẻ div ");
                   } 
             }
         }
@@ -89,7 +94,13 @@ export default function VideoWindow({ room}: VideoWindowProps) {
     
       const disconnectRoom = async () => {
         await room.disconnect();
+        const roomName = sessionStorage.getItem('roomName')
+        await deleteRoom(roomName)
+        sessionStorage.setItem("live", 'false');
+        sessionStorage.setItem("roomName", '');
+        navigate('/')
       };
+     
     return (
         <div class='videowindow-wapper'>
             <div class='videowindow-container'>
@@ -130,7 +141,7 @@ export default function VideoWindow({ room}: VideoWindowProps) {
                         
                     </Show>
                 </div>
-                <div class='videowindow-tool-button'>
+                {/* <div class='videowindow-tool-button'>
                     <Show when={turnShare()} 
                     fallback={
                     <div class='videowindow-tool-icon gray share-screen'   onclick={shareScreen}>
@@ -141,11 +152,16 @@ export default function VideoWindow({ room}: VideoWindowProps) {
                      <img src={icon.offScreenIcon} alt=''/>
                      </div>    
                     </Show>
-                </div>
+                </div> */}
                 <div class='videowindow-tool-button'>
                     <div class='videowindow-tool-icon red'>
-                        <img src={icon.disconnectIcon} onClick={disconnectRoom} />
-                    </div>          
+                        <img src={icon.disconnectIcon} onClick={()=> setShowModal(true)} />
+                    </div>  
+                    {showModal()  && (
+              <Popup onClose={closeModal}>
+                 <DisconnetNoti onClose={closeModal} onDisconnet={disconnectRoom}  /> 
+              </Popup>
+            )}      
                 </div>
             </div>
 

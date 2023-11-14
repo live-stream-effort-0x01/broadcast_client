@@ -2,7 +2,6 @@ import { createSignal } from "solid-js";
 import { useNavigate } from "solid-start";
 import { createRoom } from "~/lib/services/broadcasts";
 export default function CreateRoomForm  (props: {
-
   onClose:()=>void;
 })  {
   
@@ -13,10 +12,11 @@ export default function CreateRoomForm  (props: {
   const [loading, setLoading] = createSignal<boolean>(false);
   const { onClose} = props;
   const navigate = useNavigate();
-  const login = async (e:Event) => {
+  const create = async (e:Event) => {
     e.preventDefault()
     setLoading(true);
     setSuccess(false);
+    setError("");
     try {
       const response: any = await createRoom({
         room_name: nameRoom(),
@@ -26,19 +26,20 @@ export default function CreateRoomForm  (props: {
       });
   
       setLoading(false);
-      sessionStorage.setItem("roomName", nameRoom() );
-      console.log(response)
+    
+    
       if (response.message) {
         setError(response.message);
 
         return;
       }
       setLoading(false);
-      if(response.code === 201 ){
+      if(!response.message ){
         setLoading(false);
         setSuccess(true);
         sessionStorage.setItem("roomName", nameRoom() );
         sessionStorage.setItem("roomOwner",owner() );
+        sessionStorage.setItem("live", 'true');
         setTimeout(() => {
           navigate('/chatRoom')
         onClose()
@@ -55,7 +56,7 @@ export default function CreateRoomForm  (props: {
   return (
     <div class='form-wapper'>
       <span class="form-title">Create new room</span>
-      <form class="form-post" id="login" onSubmit={login}>
+      <form class="form-post" id="login" onSubmit={create}>
         <div class="form-main">
           <div class="form-group-main">
             <input

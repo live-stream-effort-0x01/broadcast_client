@@ -8,13 +8,27 @@ import CreateRoomForm from '../Form/CreateRoomForm';
 import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
 export default function NavBar() {
-
   const navigate = useNavigate();
+
   const [loggedIn, setLoggedIn] = createSignal(false);
   const [live, setLive] = createSignal(false);
   const [showModal, setShowModal] = createSignal(false);
   const [showRoom, setShowRoom] = createSignal(false);
   const [typeModal, setTypeShowModal] = createSignal(true);
+
+  createEffect(()=>{
+    const status = async ()=>{
+      const value = sessionStorage.getItem('live')
+      if(value==='true'){
+        setLive(true)
+      }
+      else{
+        setLive(false)
+      }
+    }
+    status()
+  },[])
+
   const closeModal = () => {
     setShowModal(false);
   };
@@ -39,6 +53,9 @@ export default function NavBar() {
   const pressLivestream =()=>{
    setShowRoom(true)
   }
+  const pressContinute=()=>{
+    navigate('/chatRoom')
+   }
 
   return (
     <header class='header-wapper'>
@@ -71,9 +88,7 @@ export default function NavBar() {
 
         <nav id="inbetween" class="navigation between ">
         <div >  
-          <div 
-          // action={import.meta.env.VITE_STREAM_URL}
-          >
+          <div>
             <Show 
             when={live()}
             fallback={
@@ -86,8 +101,7 @@ export default function NavBar() {
               </>
             }
             >
-                <button onClick={pressLivestream} class={ "stream-button yellow show" }type="submit">Continute Streaming</button>
-             
+                <button onClick={pressContinute} class={ "stream-button yellow show" }type="submit">Continute Streaming</button>
             </Show>
             
           </div>

@@ -1,5 +1,6 @@
-import { createSignal } from "solid-js";
+import { createSignal,Show } from "solid-js";
 import "./Drawer.css"
+import { useNavigate } from "solid-start";
 import { FaSolidBars } from 'solid-icons/fa'
 import { FaSolidBarsStaggered } from 'solid-icons/fa'
 import Popup from "../Popup/Popup";
@@ -9,6 +10,7 @@ import CreateRoomForm from "../Form/CreateRoomForm";
 
 
 function Drawer(props:any) {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = createSignal(false);
   const [typeModal, setTypeShowModal] = createSignal(true);
   const [showRoom, setShowRoom] = createSignal(false);
@@ -32,7 +34,10 @@ function Drawer(props:any) {
   const pressLivestream =()=>{
     setShowRoom(true)
    }
- 
+   const pressContinute=()=>{
+    navigate('/chatRoom')
+   }
+
 
   const lable: object[] = props?.props
     const [isOpen, setIsOpen] = createSignal(true);
@@ -66,13 +71,27 @@ function Drawer(props:any) {
                 )}
                 </>
                 :
-                <div  class= {`drawer-item  ${item?.live ?  'green':'yellow'}`} >
-                <button  class={item?.live ?  'green':'yellow'}  onClick={()=>setShowRoom(true)}>{item?.name}</button>
+
+                <Show
+                when={!item.live }
+                fallback={
+
+                <div  class= 'drawer-item yellow' >
+                <button  class='yellow' onClick={pressContinute}>{item?.name}</button>
+              
+                </div>
+
+                }
+                >
+                 <div  class=  'drawer-item  green' >
+                <button  class= 'green'  onClick={pressLivestream}>{item?.name}</button>
                 {showRoom() &&   (
                 <Popup onClose={closeRoom}>
                   <CreateRoomForm onClose={closeRoom}/> 
                 </Popup> )}
                 </div>
+                </Show>
+             
             }</>
            ))}
           </div>
