@@ -1,9 +1,9 @@
 {
   "name": "broadcast_client",
   "scripts": {
-    "dev": "solid-start dev -p 443",
+    "dev": "solid-start dev -p 8080",
     "build": "solid-start build",
-    "start": "solid-start start -p 443"
+    "start": "solid-start start -p 8443"
   },
   "type": "module",
   "devDependencies": {
