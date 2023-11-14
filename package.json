@@ -1,9 +1,9 @@
 {
   "name": "my-app",
   "scripts": {
-    "dev": "solid-start dev",
+    "dev": "solid-start dev -p 443",
     "build": "solid-start build",
-    "start": "solid-start start"
+    "start": "solid-start start -p 443"
   },
   "type": "module",
   "devDependencies": {
