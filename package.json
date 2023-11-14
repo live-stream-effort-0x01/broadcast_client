@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "broadcast_client",
   "scripts": {
     "dev": "solid-start dev -p 443",
     "build": "solid-start build",
