@@ -21,7 +21,7 @@
     "axios": "^1.5.1",
     "livekit-client": "^1.14.1",
     "solid-icons": "^1.0.12",
-    "solid-js": "^1.8.0",
+    "solid-js": "^1.8.5",
     "solid-start": "^0.3.6"
   },
   "engines": {
