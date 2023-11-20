@@ -1,0 +1,49 @@
+.chat-footer {
+    position: relative;
+    padding: 0rem 1rem 1rem  1rem;
+}
+
+.chat-footer textarea.message-input {
+    font-family: Outfit;
+    padding: 15px 30px 15px 10px;
+    height: 50px !important;
+}
+
+.chat-footer textarea.message-input::placeholder{
+    font-family: Outfit;
+}
+
+/* .chat-footer .send-message {
+    position: absolute;
+    visibility: hidden;
+    font-size: 2rem;
+} */
+.send-message{
+    position: absolute;
+  
+    font-size: 2rem;
+    right: 1.5rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+
+  
+}
+.send-message-icon{
+    height: 2rem;
+    width: 2rem;
+    color: #3c7b8e;
+    visibility: hidden;
+}
+.chat-footer:hover .send-message-icon {
+    visibility: visible;
+ 
+}
+
+
+@media only screen and (max-width: 767px) {
+    /* CSS rules for mobile phones */
+    .send-message{
+    display: none;
+    }
+
+}

@@ -1,0 +1,13 @@
+.chatwindow-wapper{
+    background-color: var(--bg-chat);
+    height: 100%;
+    width: 100%;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+  
+  
+ 

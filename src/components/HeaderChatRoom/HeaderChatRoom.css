@@ -1,0 +1,30 @@
+
+.navigation-livestream{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    
+}
+
+.stream-title{
+    font-size: var(--size-text-1);
+    line-height: var(--line-height);
+    border-radius: 0.625rem;
+    background-color: initial;
+    box-shadow: none;
+    padding: 0.375rem 2.2rem 0.375rem 0;
+    color: var(--color-green);
+  
+}
+  @media only screen and (max-width: 767px) {
+
+    .navigation-livestream{
+      align-items: flex-start;
+      width: 100%;
+      position: relative;
+    }
+
+
+  }
+  

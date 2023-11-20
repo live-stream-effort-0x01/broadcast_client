@@ -1,0 +1,39 @@
+ .chat-body {
+    overflow-y: hidden;
+   position: relative;
+   padding: 1rem 1rem 0rem 1rem;
+
+}
+
+.message-list {
+  list-style-type: none;
+  padding: 1rem 1rem 0.5rem 1rem;
+  width: -webkit-fill-available;
+  height: 74vh;
+
+  position: relative;
+
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.send-button {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3c7b8e;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+
