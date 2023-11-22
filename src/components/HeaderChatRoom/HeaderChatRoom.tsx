@@ -1,11 +1,11 @@
-import { createSignal, Show,createEffect } from 'solid-js';
-
-import Drawer from '../Drawer/Drawer';
+import { createSignal,createEffect } from 'solid-js';
 import './HeaderChatRoom.css'
+import { Component } from "solid-js";
 
-export default function HeaderChatRoom() {
+const HeaderChatRoom:Component=()=> {
   const [title, setTitile] = createSignal<any>(true);
-  const [typeModal, setTypeShowModal] = createSignal(true);
+
+  
   createEffect(()=>{
      const move = async ()=>{
       const title =  sessionStorage.getItem('roomName')
@@ -26,3 +26,4 @@ export default function HeaderChatRoom() {
     </header>
   );
 }
+export default HeaderChatRoom;

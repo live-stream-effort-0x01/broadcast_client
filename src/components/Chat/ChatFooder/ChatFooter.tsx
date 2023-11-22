@@ -2,12 +2,12 @@ import { createSignal } from "solid-js";
 import "./ChatFooter.css";
 import { IoSend } from 'solid-icons/io'
 import icon from "~/components/icon";
-
+import { Component } from "solid-js";
 interface ListArg {
   sendMessage: (message: string) => Promise<void>;
 }
 
-export default function ChatFooter(props: ListArg) {
+const ChatFooter: Component <ListArg>= (props) => {
   const [height, setHeight] = createSignal(38);
  
   let input: any;
@@ -45,3 +45,4 @@ export default function ChatFooter(props: ListArg) {
     </div>
   );
 }
+export default ChatFooter;

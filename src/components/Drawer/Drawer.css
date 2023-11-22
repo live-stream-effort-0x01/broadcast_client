@@ -10,9 +10,13 @@
     color: var(--color-white);
     align-items: flex-start;
     transition: 0.4s;
-    font-size: 1.5rem;
+    
+
   }
-  
+.drawer-button-icon{
+      width: 1.5rem;
+      height: 1.5rem;
+  }
   .drawer-bar {
     width: 100%;
     height: 3px;

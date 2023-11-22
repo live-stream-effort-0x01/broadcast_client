@@ -6,6 +6,8 @@ import offCamera from './offCamera_icon.svg'
 import onScreen from './onScreen_icon.svg'
 import offScreen from './offScreen_icon.svg'
 import disconnect from './disconnect_icon.svg'
+import bars from'./bars_icon.svg'
+import barsStagg from'./barsStaggered_icon.svg'
 const icon: Record<string, string> = {
     sendIcon: send,
     offMicIcon:offMic,
@@ -15,6 +17,9 @@ const icon: Record<string, string> = {
     onScreenIcon:onScreen,
     offScreenIcon:offScreen,
     disconnectIcon:disconnect,
+    bars: bars,
+    barsStagg:barsStagg
+
     
   };
   

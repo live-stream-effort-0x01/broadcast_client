@@ -1,7 +1,8 @@
 import { MessageArg } from "~/types/message";
 import "./Message.css";
+import { Component } from "solid-js";
 
-export default function MessageAdmin(props: MessageArg) {
+const  MessageAdmin:Component<MessageArg>=(props) =>{
   return (
     <>
       <li class="message sent admin-msg">
@@ -13,3 +14,4 @@ export default function MessageAdmin(props: MessageArg) {
     </>
   );
 }
+export default MessageAdmin

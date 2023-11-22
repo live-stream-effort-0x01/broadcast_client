@@ -1,10 +1,14 @@
 import { createSignal } from "solid-js";
 
 import { authLogin } from "~/lib/services/auth";
-export default function LoginForm  (props: {
+import { Component } from "solid-js";
+
+interface LoginFormProps {
   onType: () => void;
   onClose:()=>void;
-})  {
+}
+
+const LoginForm :Component<LoginFormProps> = (props) => {
   
   const [email, setEmail] = createSignal<string>("");
   const [password, setPassword] = createSignal<string>("");
@@ -81,3 +85,4 @@ export default function LoginForm  (props: {
   );
 };
 
+export default LoginForm;

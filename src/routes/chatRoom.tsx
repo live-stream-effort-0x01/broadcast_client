@@ -8,7 +8,11 @@ import {createEffect } from "solid-js";
 import { connectRoom } from "~/lib/livekit/livekit-helper";
 import { inviteRoom } from '~/lib/services/broadcasts';
 import { useNavigate } from "solid-start";
-export default function ChatRoom() {
+import { Component } from "solid-js";
+
+
+
+const ChatRoom:Component=()=> {
   const room = new Room();
   const navigate = useNavigate();
   createEffect(()=>{
@@ -40,3 +44,4 @@ invite()
       </main>
   );
 }
+export default ChatRoom

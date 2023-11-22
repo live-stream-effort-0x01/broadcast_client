@@ -1,5 +1,5 @@
-import { httpRequests } from "../utils"
-import { fetcher } from "../utils/fetch";
+
+import { fetcher,fetcherGet } from "../utils/fetch";
 export type Broadcasts = {
   creation_time: number;
   duration: number;
@@ -21,10 +21,11 @@ export type CreateBroadcastsInput = {
 
 export const getBroadcasts = async () => {
   try {
-    const data = await httpRequests.get<GetBroadcastsResponse>("/broadcasts");
- 
-    const result: Broadcasts[] = Object.values(data.data);
-  
+    const data = await fetcherGet<GetBroadcastsResponse>("/broadcasts",{
+      method: "GET",
+    });
+    const result: Broadcasts[] = Object.values(data);
+
     return result;
   } catch (error) {
    const result: Broadcasts[] =[]

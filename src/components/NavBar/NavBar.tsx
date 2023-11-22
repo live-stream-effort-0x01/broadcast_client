@@ -7,7 +7,10 @@ import SignUpForm from '../Form/SignupForm';
 import CreateRoomForm from '../Form/CreateRoomForm';
 import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
-export default function NavBar() {
+import { Component } from "solid-js";
+
+
+const NavBar :Component=()=> {
   const navigate = useNavigate();
 
   const [loggedIn, setLoggedIn] = createSignal(false);
@@ -118,3 +121,4 @@ export default function NavBar() {
     </header>
   );
 }
+export default NavBar

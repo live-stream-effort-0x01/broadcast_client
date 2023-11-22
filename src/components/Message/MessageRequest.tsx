@@ -1,7 +1,7 @@
 import { MessageArg } from "~/types/message";
 import "./Message.css";
-
-export default function MessageRequest(props: MessageArg) {
+import { Component } from "solid-js";
+const MessageRequest:Component<MessageArg> =(props: MessageArg) =>{
   return (
     <>
       <li class="message recieve request-msg">
@@ -13,3 +13,4 @@ export default function MessageRequest(props: MessageArg) {
     </>
   );
 }
+export default  MessageRequest;

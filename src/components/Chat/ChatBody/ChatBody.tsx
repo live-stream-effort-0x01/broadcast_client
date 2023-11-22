@@ -6,19 +6,19 @@ import MessageError from "~/components/Message/MessageError";
 import MessageRequest from "~/components/Message/MessageRequest";
 import "./ChatBody.css";
 import { Message, MessageType } from "~/types/message";
-
+import { Component } from "solid-js";
 export interface ChatBodyProps {
   messages: () => Array<Message>;
   containerRef: any;
 }
 
-export default function ChatBody(props: ChatBodyProps) {
-  // createEffect(
-  //   on(
-  //     () => props.messages.length,
-  //     () => (props.containerRef.scrollTop = props.containerRef.scrollHeight)
-  //   )
-  // );
+const ChatBody: Component<ChatBodyProps> = (props) =>{
+  createEffect(
+    on(
+      () => props.messages.length,
+      () => (props.containerRef.scrollTop = props.containerRef.scrollHeight)
+    )
+  );
 
   return (
     <div class="chat-body " ref={props.containerRef}>
@@ -48,3 +48,4 @@ export default function ChatBody(props: ChatBodyProps) {
     </div>
   );
 }
+export default ChatBody;

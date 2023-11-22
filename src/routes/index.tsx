@@ -6,8 +6,12 @@ import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import {
   createResource,
   createEffect 
+  
 } from "solid-js";
-export default function Home() {
+import { Component } from "solid-js";
+
+
+const Home:Component=()=> {
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   createEffect(()=>{
     refetch()
@@ -24,3 +28,4 @@ export default function Home() {
       </main>
   );
 }
+export default Home

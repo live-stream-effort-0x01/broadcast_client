@@ -1,10 +1,11 @@
 import { createSignal } from "solid-js";
 import { authRegister } from "~/lib/services/auth";
 import "./Form.css";
-export default function SignUpForm (props: {
+import { Component } from "solid-js";
+interface SignUpFormProps{
   onType: () => void;
-
-})  {
+}
+const SignUpForm: Component <SignUpFormProps>= (props) => {
  
   const [username, setUsername] = createSignal<string>("");
   const [email, setEmail] = createSignal<string>("");
@@ -96,3 +97,4 @@ export default function SignUpForm (props: {
 };
 
 
+export default SignUpForm;

@@ -7,16 +7,20 @@ import Popup from '~/components/Popup/Popup';
 import DisconnetNoti from '~/components/Notification/DisconnetNoti';
 import { Room ,createLocalVideoTrack,createLocalAudioTrack} from "livekit-client";
 import './VideoWinow.css'
+import { Component } from "solid-js";
+
 interface VideoWindowProps {
     room: Room;
   }
-export default function VideoWindow({ room}: VideoWindowProps) {
+const VideoWindow:Component<VideoWindowProps>= (props)=> {
     const navigate = useNavigate();
-   
+    const {room}= props
+ 
     const [videoElement, setVideoElement] = createSignal<HTMLVideoElement | null>(null);
     const [turnCamera, setTurnCamera] = createSignal(false);
     const [turnShare, setTurnShare] = createSignal(false);
     const [turnMic, setTurnMic] = createSignal(false);
+    const [loading, setLoading] = createSignal(false);
     const [showModal, setShowModal] = createSignal(false);
     const closeModal = () => {
         setShowModal(false);
@@ -93,14 +97,19 @@ export default function VideoWindow({ room}: VideoWindowProps) {
       };
     
       const disconnectRoom = async () => {
-        await room.disconnect();
-        const roomName = sessionStorage.getItem('roomName')
-        await deleteRoom(roomName)
-        sessionStorage.setItem("live", 'false');
-        sessionStorage.setItem("roomName", '');
-        navigate('/')
-      };
+ 
+      const roomName = sessionStorage.getItem('roomName')
+      await Promise.all([
+        room.disconnect(),
+        deleteRoom(roomName) ,
+        sessionStorage.setItem("live", 'false'),
+        sessionStorage.setItem("roomName", ''),
+      ]);   
      
+      };
+      const clickOut =  () => {
+      navigate('/')    
+        };
     return (
         <div class='videowindow-wapper'>
             <div class='videowindow-container'>
@@ -159,7 +168,7 @@ export default function VideoWindow({ room}: VideoWindowProps) {
                     </div>  
                     {showModal()  && (
               <Popup onClose={closeModal}>
-                 <DisconnetNoti onClose={closeModal} onDisconnet={disconnectRoom}  /> 
+                 <DisconnetNoti onClose={closeModal} onDisconnet={disconnectRoom} onOut={clickOut} /> 
               </Popup>
             )}      
                 </div>
@@ -168,3 +177,4 @@ export default function VideoWindow({ room}: VideoWindowProps) {
         </div>
     );
   }
+  export default VideoWindow

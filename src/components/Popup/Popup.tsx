@@ -1,19 +1,26 @@
-import { Portal } from "solid-js/web";
 import { JSX } from "solid-js";
-import './Popup.css'
-export default function Popup(props: {
-    onClose: () => void;
-    children: JSX.Element;
-  }): JSX.Element {
-    const { onClose, children } = props;
-    return (
-      <Portal mount={document.body}>
-        <div class="popup-wapper">
-          <div class="popup-container">
-            <button onClick={onClose} class='popup-btn'>X</button>
-            {children}
-          </div>
+import { Portal } from "solid-js/web";
+import './Popup.css';
+import { Component } from "solid-js";
+
+interface PopupProps {
+  onClose: () => void;
+  children: JSX.Element;
+}
+
+const Popup: Component <PopupProps>= (props): JSX.Element => {
+  const { onClose, children } = props;
+
+  return (
+    <Portal mount={document.body}>
+      <div class="popup-wapper">
+        <div class="popup-container">
+          <button onClick={onClose} class='popup-btn'>X</button>
+          {children}
         </div>
-      </Portal>
-    );
-  }
+      </div>
+    </Portal>
+  );
+};
+
+export default Popup;

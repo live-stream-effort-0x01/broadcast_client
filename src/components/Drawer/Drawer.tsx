@@ -1,15 +1,17 @@
 import { createSignal,Show } from "solid-js";
 import "./Drawer.css"
 import { useNavigate } from "solid-start";
-import { FaSolidBars } from 'solid-icons/fa'
-import { FaSolidBarsStaggered } from 'solid-icons/fa'
+import icon from "../icon";
 import Popup from "../Popup/Popup";
 import SignUpForm from "../Form/SignupForm";
 import LoginForm from "../Form/LoginForm";
 import CreateRoomForm from "../Form/CreateRoomForm";
+import { Component } from "solid-js";
+interface DrawerProps{
+props:any
+}
 
-
-function Drawer(props:any) {
+const  Drawer: Component <DrawerProps> = (props) =>{
   const navigate = useNavigate();
   const [showModal, setShowModal] = createSignal(false);
   const [typeModal, setTypeShowModal] = createSignal(true);
@@ -48,7 +50,7 @@ function Drawer(props:any) {
     return (
       <div class="drawer-hamburger-menu">
         <div class={`drawer-button`} onClick={toggleMenu}>
-       {!isOpen()?<FaSolidBars />:<FaSolidBarsStaggered />
+       {!isOpen()?<img src={icon.bars} alt=''  class='drawer-button-icon'/>:<img src={icon.barsStagg} alt='' class='drawer-button-icon' />
        }
         </div>
         {isOpen() && (

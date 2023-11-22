@@ -1,8 +1,8 @@
 
 import { MessageArg } from "~/types/message";
 import "./Message.css";
-
-export default function MessageError(props: MessageArg) {
+import { Component } from "solid-js";
+const MessageError :Component<MessageArg> =(props: MessageArg) =>{
   return (
     <>
       <li class="message sent error-msg">
@@ -14,3 +14,4 @@ export default function MessageError(props: MessageArg) {
     </>
   );
 }
+export default MessageError

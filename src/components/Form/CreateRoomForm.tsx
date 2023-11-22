@@ -1,9 +1,13 @@
 import { createSignal } from "solid-js";
 import { useNavigate } from "solid-start";
 import { createRoom } from "~/lib/services/broadcasts";
-export default function CreateRoomForm  (props: {
+import { Component } from "solid-js";
+
+interface CreateRoomFormProps{
   onClose:()=>void;
-})  {
+}
+
+const CreateRoomForm : Component<CreateRoomFormProps>= (props)  =>{
   
   const [owner, setOwner] = createSignal<string>("");
   const [nameRoom, setNameRoom] = createSignal<string>("");
@@ -95,3 +99,4 @@ export default function CreateRoomForm  (props: {
   );
 };
 
+export default CreateRoomForm;

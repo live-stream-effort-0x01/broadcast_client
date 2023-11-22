@@ -7,8 +7,12 @@ import { Message, MessageType } from "~/types/message";
 import ChatBody from "~/components/Chat/ChatBody/ChatBody";
 import { MOCK_USER_ID } from "~/lib/constants/mock-data";
 import { state } from "~/lib/livekit/livekit-helper";
-
-export default function ChatWindow({ room }: { room: Room }) {
+import { Component } from "solid-js";
+interface ChatWindowProps {
+  room: Room;
+}
+const ChatWindow: Component<ChatWindowProps>= (props)=> {
+  const { room } = props;
   let containerRef: any;
   const [messages, setMessages] = createSignal<Array<Message>>([]);
 
@@ -61,3 +65,4 @@ export default function ChatWindow({ room }: { room: Room }) {
    
   );
 }
+export default ChatWindow;

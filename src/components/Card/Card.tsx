@@ -3,7 +3,15 @@ import './Card.css'
 import { FiBookmark } from 'solid-icons/fi'
 import { FaSolidBookmark } from 'solid-icons/fa'
 import { TbMovie } from 'solid-icons/tb'
-export default function Card(props:any) {
+import { Component } from 'solid-js';
+
+interface CardProps{
+props :any
+}
+
+
+
+const Card: Component <CardProps>= (props) =>{
  const name:string = props?.props?.name 
  const type:string = props?.props?.type
  const seri:string = props?.props?.seri
@@ -31,3 +39,4 @@ const icon:any = props?.props?.icon
     </div>
   );
 }
+export default Card;

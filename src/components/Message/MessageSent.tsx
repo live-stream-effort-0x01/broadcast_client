@@ -1,7 +1,7 @@
 import { MessageArg } from "~/types/message";
 import "./Message.css";
-
-export default function MessageSent(props: MessageArg) {
+import { Component } from "solid-js";
+const MessageSent:Component<MessageArg>=(props: MessageArg)=> {
   return (
     <>
       <li class="message sent">
@@ -12,3 +12,4 @@ export default function MessageSent(props: MessageArg) {
     </>
   );
 }
+export default MessageSent
