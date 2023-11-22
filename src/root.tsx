@@ -13,15 +13,18 @@ import {
   Title,
 } from "solid-start";
 import "./root.css";
-import { Component } from 'solid-js';
+import { Component } from "solid-js";
 
-
-const Root:Component=()=> {
+const Root: Component = () => {
   return (
     <Html lang="en">
       <Head>
         <Title>MVP Broadcast Client</Title>
         <Meta charset="utf-8" />
+        <Meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Body>
@@ -36,5 +39,5 @@ const Root:Component=()=> {
       </Body>
     </Html>
   );
-}
-export default Root
+};
+export default Root;
