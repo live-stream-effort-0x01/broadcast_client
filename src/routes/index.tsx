@@ -1,16 +1,31 @@
-import { Title } from "solid-start";
-import Counter from "~/components/Counter";
 
-export default function Home() {
+import NavBar from '~/components/NavBar/NavBar';
+import './styles.css'
+import ListCard from '~/components/Listcard/Listcard';
+import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
+import {
+  createResource,
+  createEffect 
+  
+} from "solid-js";
+import { Component } from "solid-js";
+
+
+const Home:Component=()=> {
+  const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
+  createEffect(()=>{
+    refetch()
+  },[broadcasts])
   return (
-    <main>
-        <h1 class="demo-title">Current Broadcasts</h1>
-        <div class="cards">
-            <div class="card">
-                <img src="images/broadcast.png" alt="broadcast image" width="320" height="240" class="card-image" />
-                <h1 class="card-title">Card 1</h1>
-            </div>
+    <main class='home-warrper' >
+      <div class='home-header'><NavBar/></div>
+      <div class='home-container'>    
+        <div class='home-title'>Recommended for you</div>
+        <div class='home-list'>
+          <ListCard />
         </div>
-    </main>
+      </div>
+      </main>
   );
 }
+export default Home

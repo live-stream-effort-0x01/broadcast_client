@@ -1,7 +1,8 @@
 import { Title } from "solid-start";
 import { HttpStatusCode } from "solid-start/server";
+import { Component } from "solid-js";
 
-export default function NotFound() {
+const  NotFound:Component = ()=> {
   return (
     <main>
       <Title>Not Found</Title>
@@ -17,3 +18,4 @@ export default function NotFound() {
     </main>
   );
 }
+export default  NotFound

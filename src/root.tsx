@@ -13,8 +13,10 @@ import {
   Title,
 } from "solid-start";
 import "./root.css";
+import { Component } from 'solid-js';
 
-export default function Root() {
+
+const Root:Component=()=> {
   return (
     <Html lang="en">
       <Head>
@@ -35,3 +37,4 @@ export default function Root() {
     </Html>
   );
 }
+export default Root
