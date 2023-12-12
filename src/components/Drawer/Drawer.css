@@ -27,16 +27,23 @@
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    width: 100%;
+  
     align-items: center;
     margin-top: 0.6rem;
     min-height: 2.5rem;
+   
   }
-  
+  .drawer-container{
+    width: 100%;
+    margin-bottom: 6.6rem;
+  }
+  .drawer-container-ac{
+    width: 100%;
+    margin-bottom: 0;
+  }
   .drawer-item{
     color: var(--color-white);
     font-size: var(--size-text-1);
-    background-color: var( --bg-btn-mobile);
     border-radius: 0.2rem;
     width: 100%;
     display: flex;
@@ -44,16 +51,17 @@
     justify-content: center;
     margin: 0.2rem;
     padding: 0.4rem 0;
-    position: absolute;
-    
+    position: absolute;                           
     left: -0.3rem;
-    border: solid va;
+   border: none;
+    flex-direction: column;
   }
   .drawer-item>button{
     background-color: var( --bg-btn-mobile);
-    border: none;
     width: 100%;
-    padding: 0.2rem 0;
+    padding: 0.5rem 0;
+    margin:0.2rem 0;
+    font-weight: 600;
   }
   .drawer-item-a{
     color: var(--color-white);
@@ -74,11 +82,33 @@
  
 opacity: 0.9;
   }
-  .green{
+.green{
     color: var(--color-green);
     border: solid 0.25rem var(--color-green);
 }
 .yellow{
     color: var(--color-yellow);
     border: solid 0.25rem var(--color-yellow);
+}
+.btn-green{
+  color: var(--color-white);
+  border: solid 0.25rem var(--color-green);
+}
+.btn-yellow{
+  color: var(--color-white);
+  border: solid 0.25rem var(--color-yellow);
+}
+.btn-logout{
+  color: var(--color-white);
+ border: solid 0.25rem var(--bg-btn-user);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.btn-logout > img{
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left:0.2rem;
+
 }

@@ -9,15 +9,19 @@
     flex-direction: row;
     align-items: center;
     margin: 0.938rem 0;
+    position: relative;
 }
 .navigation-element{
     font-size: var(--size-text-1);
     line-height: var(--line-height);
     margin-right: 1.5rem;
     cursor: pointer;
+    background: inherit;
+    border: none;
 }
 .navigation-element:hover{
  color: var(--color-green) !important;
+ opacity: 0.9;
 
 }
 .flex-end{
@@ -58,6 +62,41 @@
 .header-drawer {
   display: none;
 }
+.header-option{
+  color: white;
+  position: absolute;
+  right: 1.6rem;
+  top: 4.6rem;
+  width: 4rem;
+  display: flex;
+  background-color: gray;
+  padding: 0.6rem 4rem;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  border-radius: 0.6rem;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+
+}
+.header-option>span{
+  margin-right: 0.6rem;
+}
+.header-option >img{
+  width: 2rem;
+  height: 2rem;
+}
+.header-username{
+  max-width: 24rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+
 @media only screen and (min-width: 1025px) {
     /* CSS rules for desktop */
   }
@@ -66,9 +105,15 @@
   }
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     /* CSS rules for tablets */
+    
   }
   @media only screen and (max-width: 767px) {
     /* CSS rules for mobile phones */
+    .header-username{
+      max-width: 18rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .header-drawer{
    
       display: flex;
@@ -102,6 +147,10 @@
 .navigation-element{
  
   margin-right: 0;
+}
+.header-option{
+display: none;
+
 }
   }
   /* .header-line{

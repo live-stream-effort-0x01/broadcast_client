@@ -7,6 +7,7 @@ import SignUpForm from "../Form/SignupForm";
 import LoginForm from "../Form/LoginForm";
 import CreateRoomForm from "../Form/CreateRoomForm";
 import { Component } from "solid-js";
+
 interface DrawerProps{
 props:any
 }
@@ -40,6 +41,14 @@ const  Drawer: Component <DrawerProps> = (props) =>{
     navigate('/chatRoom')
    }
 
+   const logOut = ()=>{
+    sessionStorage.clear()
+    
+    setTimeout(() => {
+      window.location.reload()
+   
+    }, 1000);
+  }
 
   const lable: object[] = props?.props
     const [isOpen, setIsOpen] = createSignal(true);
@@ -55,11 +64,9 @@ const  Drawer: Component <DrawerProps> = (props) =>{
         </div>
         {isOpen() && (
           <div class="drawer-menu-items">
-          {lable.map((item:any, index) => (
-           <>
-           { 
-                item?.ac ===false ?
-                <>
+          {lable.map((item:any) => (
+           <>{ item?.ac ===false ?
+                <div class="drawer-container-ac">
                 <div class='drawer-item-a' onClick={item?.name==='Sign-Up'? typeSignup : typeLogin} >{item?.name}</div>
                 {showModal() && typeModal() && (
                   <Popup onClose={closeModal}>
@@ -71,29 +78,30 @@ const  Drawer: Component <DrawerProps> = (props) =>{
                     <LoginForm onType={changeType} onClose={closeModal}/> 
                   </Popup>
                 )}
-                </>
-                :
+                </div>  :
 
+                <div class="drawer-container">
                 <Show
-                when={!item.live }
+                when={!item.live}
                 fallback={
-
-                <div  class= 'drawer-item yellow' >
-                <button  class='yellow' onClick={pressContinute}>{item?.name}</button>
-              
-                </div>
-
-                }
-                >
-                 <div  class=  'drawer-item  green' >
-                <button  class= 'green'  onClick={pressLivestream}>{item?.name}</button>
+                <div  class= 'drawer-item ' >
+                <button  class='btn-green' onClick={pressLivestream}>{item?.name}</button>
+                <button class='btn-logout' onClick={logOut}>Logout  <img src={icon.logout} alt='' /></button>
                 {showRoom() &&   (
                 <Popup onClose={closeRoom}>
                   <CreateRoomForm onClose={closeRoom}/> 
                 </Popup> )}
                 </div>
+
+                }
+                >
+                 <div  class=  'drawer-item' >
+                    <button  class='btn-yellow'  onClick={pressContinute }>{item?.name}</button>
+                    <button  class='btn-logout' onClick={logOut}>Logout  <img src={icon.logout} alt='' /></button>
+                
+                </div>
                 </Show>
-             
+                </div>
             }</>
            ))}
           </div>

@@ -31,7 +31,7 @@ const LoginForm :Component<LoginFormProps> = (props) => {
       // Login success
       setSuccess(true);
       sessionStorage.setItem("token", data.token);
-      sessionStorage.setItem("userName", data.name ? data.name:'user');
+      sessionStorage.setItem("userName", data.username ? data.username:email());
       setTimeout(() => {
         window.location.reload()
       onClose()

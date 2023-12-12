@@ -31,6 +31,7 @@ export const authRegister = (
   return error.json()
  });
 };
+
 export const isLogin = (
 ) => {
   const token = sessionStorage.getItem('token')

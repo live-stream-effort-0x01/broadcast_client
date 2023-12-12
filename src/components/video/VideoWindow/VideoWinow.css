@@ -42,7 +42,7 @@
 }
 .red{
     background-color:var(--bg-chat-btn-red) ;
-    color: var( --color-white);
+    color: var(--color-white);
 }
 .video-window{
     height: 100%;

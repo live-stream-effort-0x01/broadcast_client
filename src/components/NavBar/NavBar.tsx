@@ -8,17 +8,19 @@ import CreateRoomForm from '../Form/CreateRoomForm';
 import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
 import { Component } from "solid-js";
-
+import icon from '../icon';
 
 const NavBar :Component=()=> {
-  const navigate = useNavigate();
 
+
+  const navigate = useNavigate();
+  const [userName, setUserName] = createSignal<any>('');
   const [loggedIn, setLoggedIn] = createSignal(false);
   const [live, setLive] = createSignal(false);
   const [showModal, setShowModal] = createSignal(false);
   const [showRoom, setShowRoom] = createSignal(false);
   const [typeModal, setTypeShowModal] = createSignal(true);
-
+  const [isDropdownOpen, setDropdownOpen] = createSignal(false);
   createEffect(()=>{
     const status = async ()=>{
       const value = sessionStorage.getItem('live')
@@ -31,7 +33,10 @@ const NavBar :Component=()=> {
     }
     status()
   },[])
-
+ createEffect(()=>{
+   const name = sessionStorage.getItem("userName")
+      setUserName(name)
+  },[])
   const closeModal = () => {
     setShowModal(false);
   };
@@ -59,6 +64,21 @@ const NavBar :Component=()=> {
   const pressContinute=()=>{
     navigate('/chatRoom')
    }
+
+
+   const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen());
+  };
+
+  const logOut = ()=>{
+    sessionStorage.clear()
+    
+    setTimeout(() => {
+      window.location.reload()
+   
+    }, 1000);
+  }
+
 
   return (
     <header class='header-wapper'>
@@ -112,8 +132,14 @@ const NavBar :Component=()=> {
             <Drawer props={[{name:live()?'Continute Streaming':'Start Streaming',link:'#',action:import.meta.env.VITE_STREAM_URL, ac:true,live:true}]}/>       
           </div>
         </div>
-          <a href="#" class="navigation-element">Username</a>
-        </nav>
+          <button class="navigation-element header-username"  onClick={toggleDropdown}>{userName()?userName():'UserName'}</button>
+          {isDropdownOpen() && (
+        <div class='header-option' onClick={logOut}>
+          <span>Logout</span>
+          <img src={icon.logout} alt='' />
+        </div>
+      )}
+        </nav> 
       </Show>
 
      
