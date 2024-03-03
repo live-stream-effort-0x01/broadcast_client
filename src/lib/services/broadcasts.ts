@@ -1,5 +1,5 @@
+import { fetcher, fetcherGet } from "../utils/fetch";
 
-import { fetcher,fetcherGet } from "../utils/fetch";
 export type Broadcasts = {
   creation_time: number;
   duration: number;
@@ -11,6 +11,7 @@ export type Broadcasts = {
   name: string;
   sid: string;
 };
+
 type GetBroadcastsResponse = { [key: string]: Broadcasts };
 export type CreateBroadcastsInput = {
   room_name: string;
@@ -21,45 +22,59 @@ export type CreateBroadcastsInput = {
 
 export const getBroadcasts = async () => {
   try {
-    const data = await fetcherGet<GetBroadcastsResponse>("/broadcasts",{
+    const response: Response = await fetcherGet("/broadcasts", {
       method: "GET",
     });
-    const result: Broadcasts[] = Object.values(data);
+    const responseData = await response.json();
+    console.log(responseData);
+    const result: Broadcasts[] = Object.values(responseData);
 
     return result;
   } catch (error) {
-   const result: Broadcasts[] =[]
-   console.log(error)
-   return result
-   
+    console.error(error);
+    return []; // Return an empty array in case of error
   }
 };
 
+export const createBroadcast = async () => {
+  const token = sessionStorage.getItem("token");
 
-export const createRoom = (data: CreateBroadcastsInput) => {
-  const formData = new FormData();
-  formData.append("room_name", data.room_name);
-  formData.append("owner", data.owner);
-  formData.append("owner", data.owner);
-  formData.append("description", data.description || "");
-  formData.append("video_source", data.video_source || "");
- 
-  return fetcher("/broadcasts", {
+  if (!token) {
+    throw new Error("Token not found in sessionStorage.");
+  }
+
+  const url = new URL("/broadcasts", import.meta.env.VITE_API_BASE_URL);
+
+  const requestOptions: RequestInit = {
     method: "POST",
-    body: formData,
-  })
-    .then((res) => res as Broadcasts)
-    .catch((error) => {
-      throw error;
-    });
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      roomID: "rooxxxx",
+      roomName: "thuy51",
+      Owner: "thuy",
+      roomSid: "thuy",
+      user_id: 1
+    }),
+  };
+
+  try {
+    const response = await fetcher(url.toString(), requestOptions);
+    return response;
+  } catch (error) {
+    throw new Error(`Error creating broadcast: ${error}`);
+  }
 };
 
-export type inviteRoomInput = {
+export type InviteRoomInput = {
   room_name: any;
   identity: any;
 };
-export const inviteRoom  = (data: inviteRoomInput) => {
-  return fetcher(`/broadcasts/invite/${data.room_name}?identity=${data.identity||'user'}`, {
+
+export const inviteRoom = (data: InviteRoomInput) => {
+  return fetcher(`/broadcasts/invite/${data.room_name}?identity=${data.identity || 'user'}`, {
     method: "GET",
   })
     .then((res) => res as Broadcasts)
@@ -68,8 +83,8 @@ export const inviteRoom  = (data: inviteRoomInput) => {
     });
 };
 
-export const deleteRoom  = (room_name:any) => {
-  console.log(room_name)
+export const deleteRoom = (room_name: any) => {
+  console.log(room_name);
   return fetcher(`/broadcasts/${room_name}`, {
     method: "DELETE",
   })
