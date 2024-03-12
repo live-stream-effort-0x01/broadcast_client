@@ -9,23 +9,23 @@
   },
   "type": "module",
   "devDependencies": {
-    "@types/node": "^18.17.5",
-    "esbuild": "^0.14.54",
-    "postcss": "^8.4.28",
+    "@types/node": "^20.11.26",
+    "esbuild": "^0.20.1",
+    "postcss": "^8.4.35",
     "solid-start-cloudflare-pages": "^0.3.10",
-    "solid-start-node": "^0.3.6",
-    "typescript": "^4.9.5",
-    "vite": "^4.5.0",
-    "wrangler": "^3.16.0"
+    "solid-start-node": "^0.3.10",
+    "typescript": "^5.4.2",
+    "vite": "^4.4.6",
+    "wrangler": "^3.32.0"
   },
   "dependencies": {
-    "@solidjs/meta": "^0.29.1",
-    "@solidjs/router": "^0.8.3",
-    "axios": "^1.5.1",
-    "livekit-client": "^1.14.1",
-    "solid-icons": "^1.0.12",
-    "solid-js": "^1.8.5",
-    "solid-start": "^0.3.6"
+    "@solidjs/meta": "^0.29.3",
+    "@solidjs/router": "^0.8.2",
+    "axios": "^1.6.7",
+    "livekit-client": "^2.0.5",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.15",
+    "solid-start": "^0.3.10"
   },
   "engines": {
     "node": ">=18"
