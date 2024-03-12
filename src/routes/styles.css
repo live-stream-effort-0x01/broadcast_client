@@ -3,8 +3,8 @@
 .home-warrper{
     display: flex;
     flex-direction: column;
-    padding-right: 3.125rem;
-    padding-left: 4.563rem;
+    /* padding-right: 3.125rem; */
+    /* padding-left: 4.563rem; */
 }
 
 .home-container{
