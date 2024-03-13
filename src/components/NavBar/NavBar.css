@@ -9,11 +9,12 @@
     justify-content: space-between;
     align-items: center;
     background-color: #161d2f;
+    height: 70px;
 }
 
 .logo {
     width: 120px;
-    margin-left: 3rem;
+    margin-left: 18rem;
 }
 
 .navigation-buttons {
@@ -22,23 +23,24 @@
 
 .signup-btn,
 .login-btn {
-    font-size: var(--size-text-3);
+    font-size: var(--size-text-2);
     padding: 0.2rem;
     cursor: pointer;
     width: 90px;
     border-radius: 0.5rem;
     color: var(--color-white);
+    font-weight: var(--weight-600);
 }
 
 .signup-btn {
-    margin-right: 0.6rem;
+    margin-right: 2rem;
     background-color: #161d2f;
     border: 2px solid #5A698F;
 }
 
 .login-btn {
     background-color: #5A698F;
-    margin-right: 3rem;
+    margin-right: 19rem;
 }
 
 .signup-btn:hover,

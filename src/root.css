@@ -25,12 +25,14 @@
 
   /* size text */
   --size-text-1: 1.5rem;
-  --size-text-2: 0.813rem;
+  --size-text-2: 1.25rem;
   --size-text-3: 1.3rem;
   --size-text-4: 2rem;
   --sze-text-5: 0.938rem;
   /* weight */
+  --weight-600: 600;
   --weight-500: 500;
+  --weight-400: 400;
   --weight-300: 300;
   /* font family */
 
