@@ -1,0 +1,8 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Divides the container into 4 equal columns */
+    gap: 20px; /* Adjust the gap between cards */
+    justify-content: center; /* Centers the cards horizontally */
+    align-items: center; /* Centers the cards vertically */
+  }
+  

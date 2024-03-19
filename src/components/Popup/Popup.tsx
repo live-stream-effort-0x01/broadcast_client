@@ -15,7 +15,7 @@ const Popup: Component <PopupProps>= (props): JSX.Element => {
     <Portal mount={document.body}>
       <div class="popup-wapper">
         <div class="popup-container">
-          <button onClick={onClose} class='popup-btn'>X</button>
+          <button onClick={onClose} class='popup-btn'>x</button>
           {children}
         </div>
       </div>

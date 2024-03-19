@@ -2,6 +2,7 @@ import { createEffect,createResource } from "solid-js";
 import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import Card from "../Card/Card";
 import { Component } from 'solid-js';
+import './Listcard.css';
 const ListCard:Component=()=> {
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   createEffect(()=>{
@@ -9,9 +10,11 @@ const ListCard:Component=()=> {
   },[broadcasts])
   return (
     <>
-       {broadcasts()?.map((item:any, index:number) => (
-        <Card  props={item} />  
-       ))}
+       <div class="card-container"> {/* Container for centering */}
+      {broadcasts()?.map((item: any, index: number) => (
+        <Card props={item} />
+      ))}
+    </div>
     </>
   );
 }

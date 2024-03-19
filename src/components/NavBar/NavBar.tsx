@@ -9,6 +9,7 @@ import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
 import { Component } from "solid-js";
 import icon from '../icon';
+import Logo from '../images/TO-Logo.png'
 
 const NavBar: Component = () => {
 
@@ -81,25 +82,28 @@ const NavBar: Component = () => {
 
 
   return (
-    <header class='header-wapper'>
+    // <header class='header-wapper'>
 
       <Show
         when={loggedIn()}
         fallback={
 
           <nav class="navigation flex-end ">
-            <div class="navigation-element show" onClick={typeSignup}>Sign-Up</div>
+            <img class='logo' src={Logo} alt='logo'/>
+            <div class="navigation-buttons">
+            <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
             {showModal() && typeModal() && (
               <Popup onClose={closeModal}>
                 <SignUpForm onType={changeType} />
               </Popup>
             )}
-            <div onClick={typeLogin} class="navigation-element show">Login</div>
+            <div onClick={typeLogin} class="login-btn show">Login</div>
             {showModal() && !typeModal() && (
               <Popup onClose={closeModal}>
                 <LoginForm onType={changeType} onClose={closeModal} />
               </Popup>
             )}
+            </div>
             <div class='header-drawer'>
               <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
             </div>
@@ -143,8 +147,8 @@ const NavBar: Component = () => {
       </Show>
 
 
-      <div class='header-line'></div>
-    </header>
+      // <div class='header-line'></div>
+    // </header>
   );
 }
 export default NavBar

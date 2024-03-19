@@ -19,8 +19,8 @@ const Home:Component=()=> {
   return (
     <main class='home-warrper' >
       <div class='home-header'><NavBar/></div>
+      <div class='home-title'>Recommended for you</div>
       <div class='home-container'>    
-        <div class='home-title'>Recommended for you</div>
         <div class='home-list'>
           <ListCard />
         </div>
