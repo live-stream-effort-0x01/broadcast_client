@@ -1,0 +1,169 @@
+
+--- 2023-11-22T10:11:16.513Z debug
+🐛 Writing logs to ".wrangler\logs\wrangler-2023-11-22_10-11-15_512.log"
+---
+
+--- 2023-11-22T10:11:16.512Z debug
+Retrieving cached values for account from node_modules\.cache\wrangler
+---
+
+--- 2023-11-22T10:11:16.534Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/f0ef7d37be634f31e9d7dedbe3391d27/pages/projects?per_page=10&page=1
+---
+
+--- 2023-11-22T10:11:16.535Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:11:16.535Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:11:16.535Z debug
+-- END CF API REQUEST
+---
+
+--- 2023-11-22T10:11:17.245Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2023-11-22T10:11:17.247Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:11:17.249Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:11:17.249Z debug
+-- END CF API RESPONSE
+---
+
+--- 2023-11-22T10:13:30.734Z debug
+-- START CF API REQUEST: POST https://api.cloudflare.com/client/v4/accounts/f0ef7d37be634f31e9d7dedbe3391d27/pages/projects
+---
+
+--- 2023-11-22T10:13:30.734Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:30.736Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:30.736Z debug
+-- END CF API REQUEST
+---
+
+--- 2023-11-22T10:13:34.117Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2023-11-22T10:13:34.119Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.119Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.119Z debug
+-- END CF API RESPONSE
+---
+
+--- 2023-11-22T10:13:34.120Z debug
+Saving to cache: {"account_id":"f0ef7d37be634f31e9d7dedbe3391d27","project_name":"borcad"}
+---
+
+--- 2023-11-22T10:13:34.123Z log
+✨ Successfully created the 'borcad' project.
+---
+
+--- 2023-11-22T10:13:34.137Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/user
+---
+
+--- 2023-11-22T10:13:34.137Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.137Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.137Z debug
+-- END CF API REQUEST
+---
+
+--- 2023-11-22T10:13:34.453Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2023-11-22T10:13:34.454Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.454Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:13:34.454Z debug
+-- END CF API RESPONSE
+---
+
+--- 2023-11-22T10:13:34.454Z debug
+Saving to cache: {"userId":"7da1fe7d4dfe79668999a2d76dda276e"}
+---
+
+--- 2023-11-22T10:14:15.625Z log
+Your choice has been saved in the following file: C:\Users\huy28\.wrangler\metrics.json.
+
+  You can override the user level setting for a project in `wrangler.toml`:
+
+   - to disable sending metrics for a project: `send_metrics = false`
+   - to enable sending metrics for a project: `send_metrics = true`
+---
+
+--- 2023-11-22T10:14:15.628Z debug
+Metrics dispatcher: Posting data {"type":"event","name":"create pages project","properties":{}}
+---
+
+--- 2023-11-22T10:14:16.438Z warn
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mWarning: Your working directory is a git repo and has uncommitted changes[0m
+
+  To silence this warning, pass in --commit-dirty=true
+
+
+---
+
+--- 2023-11-22T10:14:16.444Z debug
+-- START CF API REQUEST: GET https://api.cloudflare.com/client/v4/accounts/f0ef7d37be634f31e9d7dedbe3391d27/pages/projects/borcad
+---
+
+--- 2023-11-22T10:14:16.444Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:14:16.444Z debug
+INIT: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:14:16.444Z debug
+-- END CF API REQUEST
+---
+
+--- 2023-11-22T10:14:17.180Z debug
+-- START CF API RESPONSE: OK 200
+---
+
+--- 2023-11-22T10:14:17.180Z debug
+HEADERS: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:14:17.180Z debug
+RESPONSE: omitted; set WRANGLER_LOG_SANITIZE=false to include sanitized data
+---
+
+--- 2023-11-22T10:14:17.180Z debug
+-- END CF API RESPONSE
+---

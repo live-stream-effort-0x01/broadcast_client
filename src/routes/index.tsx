@@ -1,3 +1,4 @@
+
 import NavBar from '~/components/NavBar/NavBar';
 import './styles.css'
 import ListCard from '~/components/Listcard/Listcard';
@@ -18,11 +19,12 @@ const Home:Component=()=> {
   return (
     <main class='home-warrper' >
       <div class='home-header'><NavBar/></div>
+      <div class='home-container'>    
         <div class='home-title'>Recommended for you</div>
-        <div class='home-content'></div>
         <div class='home-list'>
           <ListCard />
         </div>
+      </div>
       </main>
   );
 }

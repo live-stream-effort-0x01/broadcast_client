@@ -9,7 +9,6 @@ import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
 import { Component } from "solid-js";
 import icon from '../icon';
-import Logo from '../images/Logo.png';
 
 const NavBar: Component = () => {
 
@@ -82,32 +81,30 @@ const NavBar: Component = () => {
 
 
   return (
-    // <header class='header-wapper'>
+    <header class='header-wapper'>
 
       <Show
         when={loggedIn()}
         fallback={
 
-          <nav class="navigation">
-            <img src={Logo} alt="Logo" class="logo" />
-            <div class="navigation-buttons">
-              <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
-              {showModal() && typeModal() && (
-                <Popup onClose={closeModal}>
-                  <SignUpForm onType={changeType} />
-                </Popup>
-              )}
-              <div class="login-btn show" onClick={typeLogin}>Login</div>
-              {showModal() && !typeModal() && (
-                <Popup onClose={closeModal}>
-                  <LoginForm onType={changeType} onClose={closeModal} />
-                </Popup>
-              )}
-            </div>
+          <nav class="navigation flex-end ">
+            <div class="navigation-element show" onClick={typeSignup}>Sign-Up</div>
+            {showModal() && typeModal() && (
+              <Popup onClose={closeModal}>
+                <SignUpForm onType={changeType} />
+              </Popup>
+            )}
+            <div onClick={typeLogin} class="navigation-element show">Login</div>
+            {showModal() && !typeModal() && (
+              <Popup onClose={closeModal}>
+                <LoginForm onType={changeType} onClose={closeModal} />
+              </Popup>
+            )}
             <div class='header-drawer'>
               <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
             </div>
           </nav>
+
 
         }
       >
@@ -135,7 +132,7 @@ const NavBar: Component = () => {
               <Drawer props={[{ name: live() ? 'Continute Streaming' : 'Start Streaming', link: '#', action: import.meta.env.VITE_STREAM_URL, ac: true, live: true }]} />
             </div>
           </div>
-          <button class="signup-btn header-username" onClick={toggleDropdown}>{userName() ? userName() : 'UserName'}</button>
+          <button class="navigation-element header-username" onClick={toggleDropdown}>{userName() ? userName() : 'UserName'}</button>
           {isDropdownOpen() && (
             <div class='header-option' onClick={logOut}>
               <span>Logout</span>
@@ -145,7 +142,9 @@ const NavBar: Component = () => {
         </nav>
       </Show>
 
-    // * </header> 
+
+      <div class='header-line'></div>
+    </header>
   );
 }
-export default NavBar;
+export default NavBar
