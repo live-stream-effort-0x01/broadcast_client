@@ -65,17 +65,18 @@ const LoginForm :Component<LoginFormProps> = (props) => {
               onInput={(event) => setPassword(event.target.value)} />
           </div>
         </div>
-        {error() && <p class="form-error-message">{error()}</p>}
+        <div class={`form-error-message ${error() ? 'active' : ''}`}>{error()}</div>
+
         {success() && <p class="form-success-message">Success!</p>}
         <div class="form-btn">
           <button type="submit"  class="form-btn-submit" 
           >
-            <div class="form-btn-submit-title"  >Login to your account</div>
+            <div class="form-btn-submit-title"  >Login</div>
           </button>
 
           <div class="form-more">
             <p class="form-more-content">Don't have an account?</p>
-            <div class="form-more-link" onClick={onType} >Signup</div>
+            <div class="form-more-link" onClick={onType} >Sign Up</div>
           </div>
         </div>
       </form>
