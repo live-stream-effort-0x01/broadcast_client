@@ -19,10 +19,6 @@ const HeaderChatRoom:Component=()=> {
         <div class={"navigation-element" }>{title()}</div>
           <div  class="navigation-element">Viewers: 0</div>
         </nav>
-    
-
-     
-      <div class='header-line'></div>
     </header>
   );
 }

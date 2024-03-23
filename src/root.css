@@ -3,7 +3,7 @@
   /* color text */
   --color-white: #FFFFFF;
   --color-black: black;
-  --color-green: #6FCF97;
+  --color-green: #60bb86;
   --color-yellow: #FFFB90;
   --color-title: rgba(255, 255, 255, 1);
   --color-line: rgba(90, 105, 143, 1);
@@ -11,7 +11,9 @@
   --color-secondary:#475372;
   --color-tertiary: #36415f;
 
-
+  /*hover color*/
+  --hover-green: #2f8352;
+  --hover-red: #a83025;
 
   /* color bg */
   --bg-home: #10141e;
@@ -26,6 +28,11 @@
   --bg-chat: #FFFFFF;
   --bg-chat-btn: #3c404399;
   --bg-chat-btn-red: #EA4335;
+
+
+  /*gradient bg*/
+  --gradient-start: #121827;
+  --gradient-end: #374464;
 
 
   /* size text */

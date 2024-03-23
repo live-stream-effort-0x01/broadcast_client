@@ -22,7 +22,7 @@ const ChatBody: Component<ChatBodyProps> = (props) =>{
 
   return (
     <div class="chat-body " ref={props.containerRef}>
-      <ul class="message-list scroll">
+      <ul class="message-list ">
         <For each={props.messages()}>
           {(msg, i) => (
             <Switch>

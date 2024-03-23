@@ -8,7 +8,7 @@
 }
 
 .message.received {
-  background-color: #a6bddb;
+  background-color: #1d1f22;
   align-self: flex-start;
   list-style-type: none; 
   width: fit-content;

@@ -4,13 +4,15 @@
 }
 
 .chat-footer textarea.message-input {
-    font-family: Outfit;
+    font-family: 'Poppins', sans-serif;
     padding: 15px 30px 15px 10px;
     height: 50px !important;
+    background-color: var(--gradient-end);
+    color: var(--color-white);
 }
 
 .chat-footer textarea.message-input::placeholder{
-    font-family: Outfit;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* .chat-footer .send-message {
@@ -20,7 +22,6 @@
 } */
 .send-message{
     position: absolute;
-  
     font-size: 2rem;
     right: 1.5rem;
     top: 0.5rem;
@@ -31,13 +32,11 @@
 .send-message-icon{
     height: 2rem;
     width: 2rem;
-    color: #3c7b8e;
-    visibility: hidden;
-}
-.chat-footer:hover .send-message-icon {
+    color: #ffffff;
     visibility: visible;
- 
+    cursor: pointer;
 }
+
 
 
 @media only screen and (max-width: 767px) {

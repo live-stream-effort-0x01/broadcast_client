@@ -79,9 +79,9 @@
   line-height: var(--line-height);
   margin-right: 1.5rem;
   cursor: pointer;
-  background: inherit;
+  background: var(--bg-home-nav);
   border: none;
-  width: 100px;
+  width: 95px;
 }
 
 .navigation-element:hover {
@@ -109,7 +109,7 @@
 }
 
 .header-line {
-  width: 100%;
+  width: 70%;
   border: solid 0.16rem var(--color-white);
 }
 
