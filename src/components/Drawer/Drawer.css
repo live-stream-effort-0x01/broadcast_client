@@ -86,6 +86,9 @@ opacity: 0.9;
     color: var(--color-green);
     border: solid 0.25rem var(--color-green);
 }
+.green:hover{
+  border-color: #59a87a;
+}
 .yellow{
     color: var(--color-yellow);
     border: solid 0.25rem var(--color-yellow);

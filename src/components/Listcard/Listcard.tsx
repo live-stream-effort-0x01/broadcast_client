@@ -10,7 +10,7 @@ const ListCard:Component=()=> {
   },[broadcasts])
   return (
     <>
-       <div class="card-container"> {/* Container for centering */}
+       <div class="card-container">
       {broadcasts()?.map((item: any, index: number) => (
         <Card props={item} />
       ))}

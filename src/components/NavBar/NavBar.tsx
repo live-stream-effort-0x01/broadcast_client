@@ -4,12 +4,12 @@ import Drawer from '../Drawer/Drawer';
 import './NavBar.css'
 import Popup from '../Popup/Popup';
 import SignUpForm from '../Form/SignupForm';
-import CreateRoomForm from '../Form/CreateRoomForm';
 import LoginForm from '../Form/LoginForm';
 import { isLogin } from '~/lib/services/auth';
 import { Component } from "solid-js";
 import icon from '../icon';
 import Logo from '../images/TO-Logo.png'
+import Avatar from '../images/F-Avatar.png'
 
 const NavBar: Component = () => {
 
@@ -84,13 +84,13 @@ const NavBar: Component = () => {
   return (
     // <header class='header-wapper'>
 
-      <Show
-        when={loggedIn()}
-        fallback={
+    <Show
+      when={loggedIn()}
+      fallback={
 
-          <nav class="navigation flex-end ">
-            <img class='logo' src={Logo} alt='logo'/>
-            <div class="navigation-buttons">
+        <nav class="navigation flex-end ">
+          <img class='logo' src={Logo} alt='logo' />
+          <div class="navigation-buttons">
             <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
             {showModal() && typeModal() && (
               <Popup onClose={closeModal}>
@@ -103,17 +103,29 @@ const NavBar: Component = () => {
                 <LoginForm onType={changeType} onClose={closeModal} />
               </Popup>
             )}
-            </div>
-            <div class='header-drawer'>
-              <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
-            </div>
-          </nav>
+          </div>
+          <div class='header-drawer'>
+            <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
+          </div>
+        </nav>
 
 
-        }
-      >
-
-        <nav id="inbetween" class="navigation between ">
+      }
+    >
+      <div class='header-drawer'>
+        <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
+      </div>
+      <nav class="navigation-login ">
+        <img class='logo1' src={Logo} alt='logo' />
+        <img class='avatar' src={Avatar} alt='avatar' onClick={toggleDropdown} />
+        {isDropdownOpen() && (
+          <div class='header-option' onClick={logOut}>
+            <img class= 'logout-icon' src={icon.logout} alt='' />
+            <span>Logout</span>
+          </div>
+        )}
+      </nav>
+      {/* <nav id="inbetween" class="navigation between ">
           <div >
             <div>
               <Show
@@ -143,11 +155,11 @@ const NavBar: Component = () => {
               <img src={icon.logout} alt='' />
             </div>
           )}
-        </nav>
-      </Show>
+        </nav> */}
+    </Show>
 
 
-      // <div class='header-line'></div>
+    // <div class='header-line'></div>
     // </header>
   );
 }

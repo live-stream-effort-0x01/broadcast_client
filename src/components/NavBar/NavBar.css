@@ -14,7 +14,27 @@
 
 .logo {
   width: 120px;
-  margin-right: 80rem;
+  margin-right: 60rem;
+}
+
+.logo1 {
+  width: 120px;
+  margin-left: 18rem;
+}
+.avatar {
+  width: 50px;
+  margin-right: 18rem;
+  cursor: pointer;
+  border: 0.3rem solid var(--color-secondary);
+  border-radius: 5rem;
+}
+
+.navigation-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #161d2f;  
+  height: 70px;
 }
 
 .navigation-buttons {
@@ -40,7 +60,7 @@
 
 .login-btn {
   background-color: #5A698F;
-  margin-right: 8rem;
+  margin-right: 18rem;
 }
 
 .signup-btn:hover,
@@ -99,8 +119,8 @@
   border-radius: 0.625rem;
   background-color: initial;
   box-shadow: none;
-  padding: 0.375rem 2.2rem;
-
+  padding: 0 0.9rem;
+  cursor: pointer;
 }
 
 .green {
@@ -122,9 +142,10 @@
   position: absolute;
   right: 1.6rem;
   top: 4.6rem;
-  width: 4rem;
+  width: 3rem;
   display: flex;
-  background-color: gray;
+  background-color: var(--color-secondary);
+  margin-right: 12.5rem;
   padding: 0.6rem 4rem;
   display: flex;
   align-items: center;
@@ -136,8 +157,17 @@
 
 }
 
+.header-option:hover {
+  background-color: var(--color-tertiary);
+}
+
 .header-option>span {
   margin-right: 0.6rem;
+}
+
+.logout-icon{
+  margin-right: 1rem;
+  font-size: var(--size-text-1);
 }
 
 .header-option>img {
