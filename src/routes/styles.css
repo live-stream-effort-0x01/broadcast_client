@@ -13,24 +13,24 @@
 
 .stream-nav {
     display: flex;
-    align-items: center; 
+    align-items: center;
     margin-left: 18rem;
-  }
-  
-  .stream-nav-content {
+}
+
+.stream-nav-content {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     margin-top: 3rem;
-  }
-  
-  .username {
+}
+
+.username {
     align-items: flex-end;
     margin-left: 65.5rem;
     color: var(--color-white);
     font-size: var(--size-text-4);
-  }
-    
+}
+
 .home-title {
     font-size: var(--size-text-4);
     color: var(--color-white);
@@ -58,13 +58,13 @@
     width: 50%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .chatroom-comment {
     height: 70vh;
     width: 25%;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }

@@ -21,6 +21,7 @@
   width: 120px;
   margin-left: 18rem;
 }
+
 .avatar {
   width: 50px;
   margin-right: 18rem;
@@ -33,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #161d2f;  
+  background-color: #161d2f;
   height: 70px;
 }
 
@@ -49,7 +50,7 @@
   width: 110px;
   border-radius: 0.7rem;
   color: var(--color-white);
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .signup-btn {
@@ -77,11 +78,15 @@
 .navigation-element {
   font-size: var(--size-text-1);
   line-height: var(--line-height);
-  margin-right: 1.5rem;
-  cursor: pointer;
-  background: var(--bg-home-nav);
-  border: none;
-  width: 95px;
+  margin-right: 40rem;
+  background: var(--bg-home);
+  width: 100px;
+}
+
+.navigation-element-viewers {
+  color: var(--color-green);
+  font-size: var(--size-text-1);
+  margin-right: 48rem;
 }
 
 .navigation-element:hover {
@@ -165,7 +170,7 @@
   margin-right: 0.6rem;
 }
 
-.logout-icon{
+.logout-icon {
   margin-right: 1rem;
   font-size: var(--size-text-1);
 }

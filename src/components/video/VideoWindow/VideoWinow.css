@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.videowindow-tool-icon .tooltip{
+.videowindow-tool-icon .tooltip {
     visibility: hidden;
     width: 5rem;
     background-color: #2f343e;

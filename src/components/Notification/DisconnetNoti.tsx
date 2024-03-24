@@ -33,7 +33,7 @@ const DisconnetNoti: Component<DisconnetNotiProps>= (props) => {
         <button class="noti-btn noti-red" onClick={onClose}>No</button>
         </>
           }>
-          <button class="noti-btn noti-red" onClick={onOut}> <img src={icon.disconnectIcon} /></button>
+          <button class="noti-btn noti-red" onClick={onOut}> <img src={icon.disconnectIcon} alt='disconnect'/></button>
         </Show>
         
       </div>
