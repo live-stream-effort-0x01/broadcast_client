@@ -1,7 +1,7 @@
 import NavBar from '~/components/NavBar/NavBar';
 import './styles.css'
 import ListCard from '~/components/Listcard/Listcard';
-import { getBroadcasts, Broadcasts } from '~/lib/services/broadcasts';
+import { getBroadcasts, Broadcasts, getRecentBroadcasts } from '~/lib/services/broadcasts';
 import { useNavigate } from "solid-start";
 import {
   createResource,
@@ -14,6 +14,7 @@ import { isLogin } from '~/lib/services/auth';
 import Drawer from '~/components/Drawer/Drawer';
 import CreateRoomForm from '~/components/Form/CreateRoomForm';
 import Popup from '~/components/Popup/Popup';
+// import HeaderChatRoom from '~/components/HeaderChatRoom/HeaderChatRoom';
 
 const Home: Component = () => {
   const [loggedIn, setLoggedIn] = createSignal(false);
@@ -22,11 +23,19 @@ const Home: Component = () => {
   const [showRoom, setShowRoom] = createSignal(false);
   const [userName, setUserName] = createSignal<any>('');
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
+  const [recentBroadcasts, setRecentBroadcasts] = createSignal<Broadcasts[]>([]); // Add state for recently broadcasted rooms
+  const [title, setTitle] = createSignal<any>(true);
 
   createEffect(() => {
     refetch()
   }, [broadcasts])
-
+  createEffect(() => {
+    const move = async () => {
+      const title = sessionStorage.getItem('roomName');
+      setTitle(title);
+    };
+    move();
+  }, []);
   createEffect(() => {
     const status = async () => {
       const value = sessionStorage.getItem('live')
@@ -43,6 +52,19 @@ const Home: Component = () => {
     const name = sessionStorage.getItem("userName")
     setUserName(name)
   }, [])
+
+  // (temporary) Fetch and update recently broadcasted rooms
+  createEffect(() => {
+    const fetchRecentBroadcasts = async () => {
+      try {
+        const recentBroadcastsData = await getRecentBroadcasts(); // Define a function to fetch recent broadcasts
+        setRecentBroadcasts(recentBroadcastsData);
+      } catch (error) {
+        console.error("Error fetching recent broadcasts:", error);
+      }
+    };
+    fetchRecentBroadcasts();
+  }, []);
 
   const pressLivestream = () => {
     setShowRoom(true)
@@ -91,8 +113,34 @@ const Home: Component = () => {
             </div>
             <div class='username'>{userName() ? userName() : 'UserName'}</div>
           </div>
+
         </div>
       )}
+
+      {/* temporary */}
+      <div class='subheader-wrapper'>
+        <div class='recent-title'>Recently Broadcasted</div>
+        <div class='token-balance'>Token Balance</div>
+      </div>
+      <div class='recent-token-wrapper'>
+        <div class='home-recent-container'>
+          <div class='home-recent-list'>
+            {/* {recentBroadcasts().map((broadcast, index) => ( */}
+            <div class="recent-broadcast-card" onclick={pressContinue}> {/* Remove the key prop */}
+              {/* <p>Room Name: {broadcast.name}</p> */}
+              <p class={"room-name"}>Room Name: {title()}</p>
+              {/* <p>Room ID: {broadcast.sid}</p> */}
+            </div>
+            {/* // ))} */}
+          </div>
+        </div>
+
+        <div class='token-title'></div>
+        <div class='token-container'>
+          <button class='add-token'>Add Tokens</button>
+        </div>
+      </div>
+
 
       <div class='home-title'>Recommended for you</div>
       <div class='home-container'>

@@ -27,7 +27,7 @@ const HeaderChatRoom: Component = () => {
           <img src={Back} alt='back' class='back-icon' onClick={navigateToHome} />
           <span class='tooltip'>Return to Home Page</span>
         </div>
-        <div class={"navigation-element"}>{title()}</div> {/* Display title */}
+        <div class={"navigation-element"}>{title()}</div> 
         <div class="navigation-element-viewers">Viewers: 0</div>
       </nav>
     </header>

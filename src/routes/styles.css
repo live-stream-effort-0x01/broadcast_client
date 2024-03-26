@@ -21,22 +21,92 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .username {
     align-items: flex-end;
     margin-left: 65.5rem;
-    color: var(--color-white);
+    color: var(--color-green);
     font-size: var(--size-text-4);
 }
 
 .home-title {
-    font-size: var(--size-text-4);
+    font-size: var(--size-text-1);
     color: var(--color-white);
     font-weight: var(--weight-300);
-    margin: 6rem 0 0 18rem; /* top right bottom left */
+    margin: 1rem 0 0 18rem; /* top right bottom left */
     align-self: flex-start;
+}
+
+.home-recent-container {
+    font-size: var(--size-text-5);
+    color: var(--color-white);
+    font-weight: var(--weight-300);
+    margin: 0rem 0 0 18rem; /* top right bottom left */
+    align-self: flex-start;
+}
+.recent-title{
+    font-size: var(--size-text-1);
+    color: var(--color-white);
+    font-weight: var(--weight-300);
+    margin: 1rem 0 1rem 18rem; /* top right bottom left */
+    align-self: flex-start;
+}
+
+.room-name {
+    color: var(--color-green);
+    font-size: var(--size-text-3);
+    align-items: flex-start;
+}
+
+.recent-broadcast-card {
+    background-color: var(--bg-home-nav);
+    width: 15rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+    cursor: pointer;
+}
+
+.recent-token-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.token-container{
+    font-size: var(--size-text-5);
+    color: var(--color-white);
+    font-weight: var(--weight-300);/* top right bottom left */
+    align-self: flex-end;
+    gap: 2rem;
+}
+
+.subheader-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .recent-title,
+  .token-balance {
+    display: inline-block;
+  }
+.add-token {
+    width: 8rem;
+    height: 2rem;
+    margin: 0rem 19rem 0rem 0rem;
+    background-color: var(--color-quaternary);
+    color: var(--color-white);
+    font-size: var(--size-text-3);
+    border-radius: 5rem;
+    border: 0.2rem solid ;
+    cursor: pointer;
+}
+
+.token-balance{
+    margin-right: 18rem;
+    color: var(--color-white);
+    font-size: var(--size-text-1);
 }
 
 .home-list {

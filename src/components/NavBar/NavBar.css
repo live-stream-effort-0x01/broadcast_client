@@ -76,7 +76,7 @@
 }
 
 .navigation-element {
-  font-size: var(--size-text-1);
+  font-size: var(--size-text-3);
   line-height: var(--line-height);
   margin-right: 40rem;
   background: var(--bg-home);
@@ -85,7 +85,7 @@
 
 .navigation-element-viewers {
   color: var(--color-green);
-  font-size: var(--size-text-1);
+  font-size: var(--size-text-3);
   margin-right: 48rem;
 }
 
