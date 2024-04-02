@@ -35,7 +35,8 @@
     font-size: var(--size-text-1);
     color: var(--color-white);
     font-weight: var(--weight-300);
-    margin: 1rem 0 0 18rem; /* top right bottom left */
+    margin: 1rem 0 0 18rem;
+    /* top right bottom left */
     align-self: flex-start;
 }
 
@@ -43,14 +44,39 @@
     font-size: var(--size-text-5);
     color: var(--color-white);
     font-weight: var(--weight-300);
-    margin: 0rem 0 0 18rem; /* top right bottom left */
+    margin: 0rem 0 0 18rem;
+    /* top right bottom left */
     align-self: flex-start;
 }
-.recent-title{
+
+.home-recent-list {
+    display: flex;
+    align-items: center;
+    /* Align items vertically */
+}
+
+
+.balance-card {
+    background-color: var(--bg-home);
+    border-radius: 0.5rem;
+    margin-left: 59.5rem;
+    width: 9rem;
+}
+
+.balance {
+    font-size: var(--size-text-4);
+    color: var(--color-green);
+    margin-left: 62rem;
+    font-weight: bold;
+}
+
+
+.recent-title {
     font-size: var(--size-text-1);
     color: var(--color-white);
     font-weight: var(--weight-300);
-    margin: 1rem 0 1rem 18rem; /* top right bottom left */
+    margin: 1rem 0 1rem 18rem;
+    /* top right bottom left */
     align-self: flex-start;
 }
 
@@ -74,10 +100,11 @@
     justify-content: space-between;
 }
 
-.token-container{
+.token-container {
     font-size: var(--size-text-5);
     color: var(--color-white);
-    font-weight: var(--weight-300);/* top right bottom left */
+    font-weight: var(--weight-300);
+    /* top right bottom left */
     align-self: flex-end;
     gap: 2rem;
 }
@@ -85,12 +112,18 @@
 .subheader-wrapper {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .recent-title,
-  .token-balance {
+}
+
+.tertiary-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recent-title,
+.token-balance {
     display: inline-block;
-  }
+}
+
 .add-token {
     width: 8rem;
     height: 2rem;
@@ -99,12 +132,17 @@
     color: var(--color-white);
     font-size: var(--size-text-3);
     border-radius: 5rem;
-    border: 0.2rem solid ;
+    border: 0.1rem solid var(--color-white);
     cursor: pointer;
 }
 
-.token-balance{
-    margin-right: 18rem;
+.add-token:hover {
+    color: var(--color-green);
+    opacity: 0.9;
+}
+
+.token-balance {
+    margin: 1rem 18rem 1rem 0rem;
     color: var(--color-white);
     font-size: var(--size-text-1);
 }

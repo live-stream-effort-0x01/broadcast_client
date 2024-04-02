@@ -1,7 +1,7 @@
 import NavBar from '~/components/NavBar/NavBar';
 import './styles.css'
 import ListCard from '~/components/Listcard/Listcard';
-import { getBroadcasts, Broadcasts, getRecentBroadcasts } from '~/lib/services/broadcasts';
+import { getBroadcasts, Broadcasts } from '~/lib/services/broadcasts';
 import { useNavigate } from "solid-start";
 import {
   createResource,
@@ -14,6 +14,7 @@ import { isLogin } from '~/lib/services/auth';
 import Drawer from '~/components/Drawer/Drawer';
 import CreateRoomForm from '~/components/Form/CreateRoomForm';
 import Popup from '~/components/Popup/Popup';
+import AddTokenForm from '~/components/Form/AddTokenForm';
 // import HeaderChatRoom from '~/components/HeaderChatRoom/HeaderChatRoom';
 
 const Home: Component = () => {
@@ -21,6 +22,8 @@ const Home: Component = () => {
   const navigate = useNavigate();
   const [live, setLive] = createSignal(false);
   const [showRoom, setShowRoom] = createSignal(false);
+  const [showModal, setShowModal] = createSignal(false);
+  const [typeModal, setTypeShowModal] = createSignal(true);
   const [userName, setUserName] = createSignal<any>('');
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   const [recentBroadcasts, setRecentBroadcasts] = createSignal<Broadcasts[]>([]); // Add state for recently broadcasted rooms
@@ -54,17 +57,17 @@ const Home: Component = () => {
   }, [])
 
   // (temporary) Fetch and update recently broadcasted rooms
-  createEffect(() => {
-    const fetchRecentBroadcasts = async () => {
-      try {
-        const recentBroadcastsData = await getRecentBroadcasts(); // Define a function to fetch recent broadcasts
-        setRecentBroadcasts(recentBroadcastsData);
-      } catch (error) {
-        console.error("Error fetching recent broadcasts:", error);
-      }
-    };
-    fetchRecentBroadcasts();
-  }, []);
+  // createEffect(() => {
+  //   const fetchRecentBroadcasts = async () => {
+  //     try {
+  //       const recentBroadcastsData = await getRecentBroadcasts(); // Define a function to fetch recent broadcasts
+  //       setRecentBroadcasts(recentBroadcastsData);
+  //     } catch (error) {
+  //       console.error("Error fetching recent broadcasts:", error);
+  //     }
+  //   };
+  //   fetchRecentBroadcasts();
+  // }, []);
 
   const pressLivestream = () => {
     setShowRoom(true)
@@ -82,6 +85,16 @@ const Home: Component = () => {
     setShowRoom(false);
   };
 
+  const addToken = () => {
+    setShowModal(true)
+    setTypeShowModal(false)
+  }
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  const changeType = () => {
+    setTypeShowModal(!typeModal());
+  };
 
   return (
     <main class='home-warrper' >
@@ -130,19 +143,30 @@ const Home: Component = () => {
               {/* <p>Room Name: {broadcast.name}</p> */}
               <p class={"room-name"}>Room Name: {title()}</p>
               {/* <p>Room ID: {broadcast.sid}</p> */}
+              
             </div>
+            {/* <div class='balance-card'> */}
+            <p class='balance'>$10</p>
+          {/* </div> */}
             {/* // ))} */}
           </div>
         </div>
 
-        <div class='token-title'></div>
-        <div class='token-container'>
-          <button class='add-token'>Add Tokens</button>
-        </div>
       </div>
 
-
-      <div class='home-title'>Recommended for you</div>
+        <div class='tertiary-wrapper'>
+        <div class='home-title'>Recommended for you</div>
+        <div class='token-title'></div>
+        <div class='token-container'>
+          <button class='add-token' onClick={addToken}>Add Tokens</button>
+          {showModal() && !typeModal() && (
+            <Popup onClose={closeModal}>
+              <AddTokenForm onType={changeType} onClose={closeModal} />
+            </Popup>
+          )}
+        </div>
+        </div>
+     
       <div class='home-container'>
         <div class='home-list'>
           <ListCard />

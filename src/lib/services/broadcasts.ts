@@ -1,4 +1,3 @@
-
 import { fetcher,fetcherGet } from "../utils/fetch";
 export type Broadcasts = {
   creation_time: number;
@@ -17,20 +16,6 @@ export type CreateBroadcastsInput = {
   owner: string;
   description?: string;
   video_source?: string;
-};
-
-//temporary
-export const getRecentBroadcasts = async () => {
-  try {
-    const data = await fetcherGet<GetBroadcastsResponse>("/recent-broadcasts", {
-      method: "GET",
-    });
-    const result: Broadcasts[] = Object.values(data);
-    return result;
-  } catch (error) {
-    console.error("Error fetching recent broadcasts:", error);
-    return [];
-  }
 };
 
 export const getBroadcasts = async () => {

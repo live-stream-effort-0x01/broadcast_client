@@ -1,8 +1,7 @@
-.form-wapper {
+.form-wrapper {
     display: flex;
     flex-direction: column;
     width: 25rem;
-    /* height: 25rem; */
     background-color: var(--bg-form);
     padding: 2rem;
     border-radius: 1rem;
@@ -16,17 +15,25 @@
     color: var(--color-white);
     text-align: center;
     font-weight: bold;
-
 }
 
 .form-main {
     margin-bottom: 2rem;
 }
 
-.form-input-value {
+.form-group-main {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+}
+
+.form-group-main label {
+    font-size: var(--size-text-5);
+    color: var(--color-title);
+    margin-right: 1rem;
+}
+
+.form-input-value {
     background-color: inherit;
     color: var(--color-white);
     width: 25rem;
@@ -42,8 +49,36 @@
     box-sizing: border-box;
 }
 
+.form-input-second-value {
+    background-color: inherit;
+    color: var(--color-white);
+    width: 12.2rem;
+    overflow: hidden;
+    padding: 1rem 1rem;
+    margin-top: 0rem;
+    margin-right: 0.5rem;
+    font-size: var(--size-text-5);
+    line-height: var(--line-height-5);
+    font-weight: var(--weight-300);
+    cursor: text;
+    border: 2px solid #5A698F;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-label label {
+    font-size: var(--size-text-5);
+    color: var(--color-title);
+    margin-top: 1.2rem;
+}
+
 .form-input-value:focus {
-    outline: none;
+    outline-color: var(--hover-green);
     background-color: inherit;
 }
 
@@ -66,13 +101,13 @@
     border: none;
     color: var(--color-white);
     cursor: pointer;
-
 }
 
 .form-btn-submit:hover {
     background-color: var(--bg-btn-submit-hover);
     color: var(--color-white);
 }
+
 
 .form-more {
     display: flex;
@@ -113,7 +148,7 @@
 
 .form-error-message.active {
     visibility: visible;
-  }
+}
 
 .form-success-message {
     text-align: center;

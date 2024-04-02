@@ -1,0 +1,37 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    /* height: 25rem; */
+    background-color: var(--bg-form);
+    padding: 2rem;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: var(--size-text-4);
+    line-height: var(--line-height-4);
+    color: var(--color-white);
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-main {
+    margin-bottom: 2rem;
+}
+
+.card-input-value{
+    display: flex;
+    justify-content: center;
+    height: 2.5rem;
+    width: 20rem;
+    background-color: var(--bg-form);
+    color: var(--color-white);
+    font-size: var(--size-text-5);
+    margin-top: 1.2rem;
+    border: 2px solid #5A698F;
+    border-radius: 1rem;
+    line-height: var(--line-height-5);
+}
