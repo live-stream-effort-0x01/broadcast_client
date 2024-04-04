@@ -27,7 +27,11 @@ export const fetcher = <T>(
         ...options?.headers,
       },
     })
-      .then((response) => response.json())
+    .then((response) => {
+      // Log the response data here
+      console.log('API Response:', response);
+      return response.json();
+    })
       .catch((error) => {
         throw error;
       });
