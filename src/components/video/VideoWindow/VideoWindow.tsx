@@ -128,12 +128,12 @@ const VideoWindow:Component<VideoWindowProps>= (props)=> {
                     <Show when={turnMic()} 
                     fallback={
                         <div class='videowindow-tool-icon gray' onclick={toggleAudio}>
-                            <img src={icon.onMicIcon} alt='' />
+                            <img src={icon.onMicIcon} alt='onmic' />
                             <span class='tooltip'>Turn Off Mic</span>
                         </div>     
                     }>
                         <div class='videowindow-tool-icon red' onclick={toggleAudio}> 
-                            <img src={icon.offMicIcon} alt='' />
+                            <img src={icon.offMicIcon} alt='offmic' />
                             <span class='tooltip'>Turn On Mic</span>
                         </div>
                         

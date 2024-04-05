@@ -1,4 +1,5 @@
 import NavBar from '~/components/NavBar/NavBar';
+import PricingPlan from './pricingPlan';
 import './styles.css'
 import ListCard from '~/components/Listcard/Listcard';
 import { getBroadcasts, Broadcasts } from '~/lib/services/broadcasts';
@@ -28,6 +29,7 @@ const Home: Component = () => {
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   const [recentBroadcasts, setRecentBroadcasts] = createSignal<Broadcasts[]>([]); // Add state for recently broadcasted rooms
   const [title, setTitle] = createSignal<any>(true);
+  const [showPricing, setShowPricing] = createSignal(false);
 
   createEffect(() => {
     refetch()
@@ -55,6 +57,10 @@ const Home: Component = () => {
     const name = sessionStorage.getItem("userName")
     setUserName(name)
   }, [])
+
+  const handleButtonClick = () => {
+    navigate('/pricingPlan');
+  }
 
   // (temporary) Fetch and update recently broadcasted rooms
   // createEffect(() => {
@@ -158,12 +164,13 @@ const Home: Component = () => {
         <div class='home-title'>Recommended for you</div>
         <div class='token-title'></div>
         <div class='token-container'>
-          <button class='add-token' onClick={addToken}>Add Tokens</button>
-          {showModal() && !typeModal() && (
+          <button class='add-token' onClick={handleButtonClick}>Add Tokens</button>
+          {showPricing() && <PricingPlan />}
+          {/* {showModal() && !typeModal() && (
             <Popup onClose={closeModal}>
               <AddTokenForm onType={changeType} onClose={closeModal} />
             </Popup>
-          )}
+          )} */}
         </div>
         </div>
      
