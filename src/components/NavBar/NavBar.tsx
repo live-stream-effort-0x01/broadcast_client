@@ -16,6 +16,7 @@ const NavBar: Component = () => {
 
   const navigate = useNavigate();
   const [userName, setUserName] = createSignal<any>('');
+  const [activeLink, setActiveLink] = createSignal('');
   const [loggedIn, setLoggedIn] = createSignal(false);
   const [live, setLive] = createSignal(false);
   const [showModal, setShowModal] = createSignal(false);
@@ -80,6 +81,10 @@ const NavBar: Component = () => {
     }, 1000);
   }
 
+  const handleNavLinkClick = (link: string) => {
+    setActiveLink(link);
+  };
+
 
   return (
     // <header class='header-wapper'>
@@ -90,6 +95,11 @@ const NavBar: Component = () => {
 
         <nav class="navigation flex-end ">
           <img class='logo' src={Logo} alt='logo' />
+          <div class='nav-links'>
+            <a href="/" class={`home-link ${activeLink() === '/' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/')}>Home</a>
+            <a href="/chatRoom" class={`chat-link ${activeLink() === '/chatRoom' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/chatRoom')}>Rooms</a>
+            <a href="/pricingPlan" class={`pricing-link ${activeLink() === '/pricingPlan' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/pricingPlan')}>Payment</a>
+          </div>
           <div class="navigation-buttons">
             <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
             {showModal() && typeModal() && (
@@ -120,7 +130,7 @@ const NavBar: Component = () => {
         <img class='avatar' src={Avatar} alt='avatar' onClick={toggleDropdown} />
         {isDropdownOpen() && (
           <div class='header-option' onClick={logOut}>
-            <img class= 'logout-icon' src={icon.logout} alt='' />
+            <img class='logout-icon' src={icon.logout} alt='' />
             <span>Logout</span>
           </div>
         )}

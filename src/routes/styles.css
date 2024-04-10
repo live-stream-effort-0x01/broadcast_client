@@ -24,6 +24,23 @@
     margin-top: 2rem;
 }
 
+.jumbotron{
+    justify-content: center;
+    align-content: center;
+    border: 0.5rem solid var(--color-quaternary);
+    border-radius: 2rem;
+    padding: 5rem;
+    margin-top: 6rem;
+}
+
+.jumbotron-header{
+    color: var(--color-green);
+}
+
+.jumbotron-text{
+    color: var(--color-white);
+}
+
 .username {
     align-items: flex-end;
     margin-left: 65.5rem;

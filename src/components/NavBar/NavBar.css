@@ -14,7 +14,7 @@
 
 .logo {
   width: 120px;
-  margin-right: 60rem;
+  margin-right: 23.5rem;
 }
 
 .logo1 {
@@ -50,6 +50,7 @@
   width: 6.875rem;
   border-radius: 0.7rem;
   color: var(--color-white);
+  text-align: center;
   font-weight: bold;
 }
 
@@ -70,6 +71,31 @@
   opacity: 0.9;
 }
 
+.nav-links {
+  text-align: center; 
+  margin-right: 20rem;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+/* 
+.nav-links a.active {
+  border-bottom: 2px solid #00ff00;
+} */
+
+.home-link,
+.chat-link,
+.pricing-link {
+  color: var(--color-white);
+  margin: 0 1rem;
+  position: relative;
+}
+
+.home-link:hover,
+.chat-link:hover,
+.pricing-link:hover {
+  border-bottom: 0.188rem solid var(--color-green);
+}
 
 .flex-end {
   justify-content: flex-end;

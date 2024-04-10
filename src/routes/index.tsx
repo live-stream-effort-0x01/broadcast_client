@@ -105,6 +105,8 @@ const Home: Component = () => {
   return (
     <main class='home-warrper' >
       <div class='home-header'><NavBar /></div>
+
+      {/* Jumbotron section */}
       {loggedIn() && (
         <div id="inbetween" class="stream-nav">
           <div class="stream-nav-content">
