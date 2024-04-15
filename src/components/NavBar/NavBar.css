@@ -14,17 +14,19 @@
 
 .logo {
   width: 120px;
-  margin-right: 23.5rem;
+  margin-left: 1.25rem;
+  cursor: pointer;
 }
 
 .logo1 {
   width: 120px;
-  margin-left: 18rem;
+  margin-left: 1.25rem;
+  cursor: pointer;
 }
 
 .avatar {
   width: 50px;
-  margin-right: 18rem;
+  margin-right: 1.25rem;
   cursor: pointer;
   border: 0.3rem solid var(--color-secondary);
   border-radius: 5rem;
@@ -40,29 +42,29 @@
 
 .navigation-buttons {
   display: flex;
+  margin-right: 1.25rem;
 }
 
 .signup-btn,
 .login-btn {
-  font-size: var(--size-text-1);
+  font-size: 1.3rem;
   padding: 0.2rem;
   cursor: pointer;
-  width: 6.875rem;
-  border-radius: 0.7rem;
+  width: 5rem;
+  border-radius: 0.5rem;
   color: var(--color-white);
   text-align: center;
   font-weight: bold;
 }
 
 .signup-btn {
-  margin-right: 2rem;
+  margin-right: 0.625rem;
   background-color: #161d2f;
   border: 2px solid #5A698F;
 }
 
 .login-btn {
   background-color: #5A698F;
-  margin-right: 18rem;
 }
 
 .signup-btn:hover,
@@ -71,34 +73,71 @@
   opacity: 0.9;
 }
 
-.nav-links {
-  text-align: center; 
-  margin-right: 20rem;
+.nav-links1 {
+  text-align: center;
   font-weight: bold;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-grow: 1;
+  margin-left: 9.5rem;
 }
-/* 
-.nav-links a.active {
-  border-bottom: 2px solid #00ff00;
-} */
+
+.nav-links {
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  flex-grow: 1;
+}
 
 .home-link,
 .chat-link,
-.pricing-link {
+.pricing-link,
+.about-link,
+.account-link {
   color: var(--color-white);
   margin: 0 1rem;
   position: relative;
+  cursor: pointer;
 }
 
 .home-link:hover,
 .chat-link:hover,
-.pricing-link:hover {
+.pricing-link:hover,
+.about-link:hover,
+.account-link:hover {
   border-bottom: 0.188rem solid var(--color-green);
+}
+
+.navigation-others {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.balance-container {
+  color: var(--color-white);
+  margin-right: 1rem;
+}
+
+.status {
+  color: var(--color-white)
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: 0.2rem;
 }
 
 .flex-end {
   justify-content: flex-end;
+}
+
+.center {
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .navigation-element {
@@ -106,13 +145,14 @@
   line-height: var(--line-height);
   margin-right: 40rem;
   background: var(--bg-home);
-  width: 100px;
+  width: 200px;
+  text-transform: capitalize;
 }
 
 .navigation-element-viewers {
   color: var(--color-green);
   font-size: var(--size-text-3);
-  margin-right: 48rem;
+  margin-right: 47rem;
 }
 
 .navigation-element:hover {
@@ -122,7 +162,7 @@
 }
 
 .flex-end {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .flex-end>.navigation-element {
@@ -150,18 +190,20 @@
   border-radius: 0.625rem;
   background-color: initial;
   box-shadow: none;
-  padding: 0 0.9rem;
+  /* padding: 0 0.9rem; */
   cursor: pointer;
 }
 
 .green {
   color: var(--color-green);
   border: solid 0.25rem var(--color-green);
+  width: 12.5rem;
 }
 
 .yellow {
   color: var(--color-yellow);
   border: solid 0.25rem var(--color-yellow);
+  width: 12.5rem;
 }
 
 .header-drawer {
@@ -176,8 +218,8 @@
   width: 3rem;
   display: flex;
   background-color: var(--color-secondary);
-  margin-right: 12.5rem;
-  padding: 0.6rem 4rem;
+  margin-left: 3rem;
+  padding: 0;
   display: flex;
   align-items: center;
   align-items: center;
@@ -192,13 +234,29 @@
   background-color: var(--color-tertiary);
 }
 
-.header-option>span {
-  margin-right: 0.6rem;
+.tooltip {
+  visibility: hidden;
+  width: 4rem;
+  background-color: #2f343e;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.header-option:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .logout-icon {
-  margin-right: 1rem;
-  font-size: var(--size-text-1);
+  font-size: var(--size-text-4);
 }
 
 .header-option>img {
@@ -239,7 +297,6 @@
   }
 
   .header-drawer {
-
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -10,13 +10,13 @@ import { Component } from "solid-js";
 import icon from '../icon';
 import Logo from '../images/TO-Logo.png'
 import Avatar from '../images/F-Avatar.png'
+import CreateRoomForm from '../Form/CreateRoomForm';
 
 const NavBar: Component = () => {
 
 
   const navigate = useNavigate();
   const [userName, setUserName] = createSignal<any>('');
-  const [activeLink, setActiveLink] = createSignal('');
   const [loggedIn, setLoggedIn] = createSignal(false);
   const [live, setLive] = createSignal(false);
   const [showModal, setShowModal] = createSignal(false);
@@ -66,7 +66,9 @@ const NavBar: Component = () => {
   const pressContinute = () => {
     navigate('/chatRoom')
   }
-
+  const pressHome = () => {
+    navigate('/')
+  }
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen());
@@ -81,11 +83,6 @@ const NavBar: Component = () => {
     }, 1000);
   }
 
-  const handleNavLinkClick = (link: string) => {
-    setActiveLink(link);
-  };
-
-
   return (
     // <header class='header-wapper'>
 
@@ -93,12 +90,13 @@ const NavBar: Component = () => {
       when={loggedIn()}
       fallback={
 
-        <nav class="navigation flex-end ">
-          <img class='logo' src={Logo} alt='logo' />
-          <div class='nav-links'>
-            <a href="/" class={`home-link ${activeLink() === '/' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/')}>Home</a>
-            <a href="/chatRoom" class={`chat-link ${activeLink() === '/chatRoom' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/chatRoom')}>Rooms</a>
-            <a href="/pricingPlan" class={`pricing-link ${activeLink() === '/pricingPlan' ? 'active' : ''}`} onClick={() => handleNavLinkClick('/pricingPlan')}>Payment</a>
+        <nav class="navigation">
+          <img class='logo' src={Logo} alt='logo' onClick={pressHome} />
+          <div class='nav-links center'>
+            <a href="/chatRoom" class='chat-link' >Continue Stream</a>
+            <a href="/pricingPlan" class='pricing-link'>Add Balance</a>
+            <a href='/account' class='account-link'>Account</a>
+            <a href='/aboutUs' class='about-link'>About Us</a>
           </div>
           <div class="navigation-buttons">
             <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
@@ -125,13 +123,29 @@ const NavBar: Component = () => {
       <div class='header-drawer'>
         <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }, { name: 'Login', link: '#', ac: false }]} />
       </div>
-      <nav class="navigation-login ">
-        <img class='logo1' src={Logo} alt='logo' />
+      <nav class="navigation-login">
+        <img class='logo1' src={Logo} alt='logo' onClick={pressHome} />
+        <div class='nav-links1 center'>
+          <a class='chat-link' onClick={live() ? pressContinute : pressLivestream}>{live() ? 'Continue Stream' : 'Start Stream'}</a>
+          {showRoom() && (
+            <Popup onClose={closeRoom}>
+              <CreateRoomForm onClose={closeRoom} />
+            </Popup>
+          )}
+          <a href="/pricingPlan" class='pricing-link'>Add Balance</a>
+          <a href='/account' class='account-link'>Account</a>
+          <a href='/aboutUs' class='about-link'>About Us</a>
+        </div>
+        <nav class='navigation-others'>
+          <div class='balance-container'>Balance: 100 Tokens </div>
+          <div class='status-indicator'></div>
+          <div class="status">Streaming</div>
+        </nav>
         <img class='avatar' src={Avatar} alt='avatar' onClick={toggleDropdown} />
         {isDropdownOpen() && (
           <div class='header-option' onClick={logOut}>
             <img class='logout-icon' src={icon.logout} alt='' />
-            <span>Logout</span>
+            <span class='tooltip'>Logout</span>
           </div>
         )}
       </nav>

@@ -1,0 +1,23 @@
+.about-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-green);
+}
+
+.about-card {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-form);
+    color: var(--color-white);
+    box-shadow: 0 0 0.625rem rgba(233, 232, 232, 0.2);
+}
+
+.about-description {
+    text-align: justify;
+}
+
+.about-us-container {
+    padding: 2rem;
+}

@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.videowindow-tool-icon .tooltip {
+.videowindow-tool-icon .c-tooltip {
     visibility: hidden;
     width: 5rem;
     background-color: #2f343e;
@@ -60,7 +60,7 @@
 }
 
 /* Show the tooltip on hover */
-.videowindow-tool-icon:hover .tooltip {
+.videowindow-tool-icon:hover .c-tooltip {
     visibility: visible;
 }
 

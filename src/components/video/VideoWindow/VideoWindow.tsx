@@ -129,12 +129,12 @@ const VideoWindow:Component<VideoWindowProps>= (props)=> {
                     fallback={
                         <div class='videowindow-tool-icon gray' onclick={toggleAudio}>
                             <img src={icon.onMicIcon} alt='onmic' />
-                            <span class='tooltip'>Turn Off Mic</span>
+                            <span class='c-tooltip'>Turn Off Mic</span>
                         </div>     
                     }>
                         <div class='videowindow-tool-icon red' onclick={toggleAudio}> 
                             <img src={icon.offMicIcon} alt='offmic' />
-                            <span class='tooltip'>Turn On Mic</span>
+                            <span class='c-tooltip'>Turn On Mic</span>
                         </div>
                         
                     </Show>
@@ -144,12 +144,12 @@ const VideoWindow:Component<VideoWindowProps>= (props)=> {
                     fallback={
                         <div class='videowindow-tool-icon gray'  onclick={toggleVideo}>
                               <img alt='on' src={icon.onCameraIcon} />
-                              <span class='tooltip'>Turn Off Camera</span>
+                              <span class='c-tooltip'>Turn Off Camera</span>
                         </div>     
                     }>
                         <div class='videowindow-tool-icon red' onclick={toggleVideo}>
                         <img alt='off' src={icon.offCameraIcon} />
-                        <span class='tooltip'>Turn On Camera</span>
+                        <span class='c-tooltip'>Turn On Camera</span>
                         </div>
                         
                     </Show>
@@ -169,7 +169,7 @@ const VideoWindow:Component<VideoWindowProps>= (props)=> {
                 <div class='videowindow-tool-button'>
                     <div class='videowindow-tool-icon red'>
                         <img src={icon.disconnectIcon} onClick={()=> setShowModal(true)} />
-                        <span class='tooltip'>End Broadcast</span>
+                        <span class='c-tooltip'>End Broadcast</span>
                     </div>  
                     {showModal()  && (
               <Popup onClose={closeModal}>

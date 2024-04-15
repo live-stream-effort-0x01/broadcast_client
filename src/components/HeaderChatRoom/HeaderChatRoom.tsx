@@ -39,7 +39,7 @@ const HeaderChatRoom: Component = () => {
           {loggedIn() && ( // Conditionally render back button and viewers if logged in
             <div class='back-container'>
               <img src={Back} alt='back' class='back-icon' onClick={navigateToHome} />
-              <span class='tooltip'>Return to Home Page</span>
+              <span class='b-tooltip'>Return to Home Page</span>
             </div>
           )}
           <div class={"navigation-element"}>{title()}</div>

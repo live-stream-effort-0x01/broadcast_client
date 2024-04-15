@@ -15,12 +15,13 @@
 
 .stream-title {
   font-size: var(--size-text-1);
-  line-height: var(--line-height);
+  /* line-height: var(--line-height); */
   border-radius: 0.625rem;
   background-color: var(--bg-home-nav);
   box-shadow: none;
   padding: 0.375rem 2.2rem 0.375rem 0;
   color: var(--color-green);
+  letter-spacing: 0.02em;
 }
 
 .back-container {
@@ -33,7 +34,7 @@
   height: 2rem;
 }
 
-.back-container .tooltip {
+.back-container .b-tooltip {
   visibility: hidden;
   width: 5rem;
   background-color: #2f343e;
@@ -46,7 +47,7 @@
   font-size: 12px;
 }
 
-.back-container:hover .tooltip {
+.back-container:hover .b-tooltip {
   visibility: visible;
 }
 
