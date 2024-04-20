@@ -10,6 +10,10 @@
   align-items: center;
   background-color: #161d2f;
   height: 70px;
+  font-family: 'Outfit', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
 }
 
 .logo {
