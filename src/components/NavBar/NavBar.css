@@ -47,25 +47,13 @@
 
 .signup-btn,
 .login-btn {
-  font-size: 1.3rem;
-  padding: 0.2rem;
+  font-size: 1.2rem;
   cursor: pointer;
   width: 5rem;
-  border-radius: 0.5rem;
   color: var(--color-white);
   text-align: center;
-  font-weight: bold;
 }
 
-.signup-btn {
-  margin-right: 0.625rem;
-  background-color: #161d2f;
-  border: 2px solid #5A698F;
-}
-
-.login-btn {
-  background-color: #5A698F;
-}
 
 .signup-btn:hover,
 .login-btn:hover {
@@ -75,7 +63,6 @@
 
 .nav-links1 {
   text-align: center;
-  font-weight: bold;
   display: flex;
   flex-grow: 1;
   margin-left: 9.5rem;
@@ -83,7 +70,6 @@
 
 .nav-links {
   text-align: center;
-  font-weight: bold;
   display: flex;
   flex-grow: 1;
 }

@@ -29,8 +29,9 @@
     align-content: center;
     background-color: var(--bg-form);
     border-radius: 2rem;
-    padding: 5rem;
-    margin-top: 6rem;
+    padding: 3rem;
+    margin-top: 10rem;
+    width: 35rem;
 }
 
 .jumbotron-header {

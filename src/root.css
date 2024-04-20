@@ -56,7 +56,10 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
   margin: 0;
   background-color: var(--bg-home);
 }

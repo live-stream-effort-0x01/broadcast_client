@@ -36,24 +36,16 @@ const ChatRoom: Component = () => {
         <HeaderChatRoom />
       </div>
       <div class="chatroom-container">
-        {/* Jumbotron section */}
-        {!loggedIn() && broadcasts()?.length === 0 && (
-          <div class="jumbotron">
-            <h1 class="jumbotron-header">No rooms created</h1>
-            <p class="jumbotron-text">Please login to create a room.</p>
-          </div>
-        )}
         {/* Video and chat windows */}
-        {loggedIn() && broadcasts()?.length === 0 && (
-          <>
+          
             <div class="chatroom-video">
               <VideoWindow room={room} />
             </div>
             <div class="chatroom-comment">
               <ChatWindow room={room} />
             </div>
-          </>
-        )}
+       
+    
       </div>
     </main>
   );

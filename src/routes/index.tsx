@@ -20,12 +20,9 @@ const Home: Component = () => {
   const navigate = useNavigate();
   const [live, setLive] = createSignal(false);
   const [showRoom, setShowRoom] = createSignal(false);
-  const [showModal, setShowModal] = createSignal(false);
-  const [typeModal, setTypeShowModal] = createSignal(true);
   const [userName, setUserName] = createSignal<any>('');
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   const [title, setTitle] = createSignal<any>(true);
-  const [showPricing, setShowPricing] = createSignal(false);
 
   createEffect(() => {
     refetch()
@@ -77,13 +74,10 @@ const Home: Component = () => {
 
   return (
     <main class='home-warrper' >
-      <div class='home-header'><NavBar /></div>
-
+      <div class='home-header'><NavBar /></div>  
       {loggedIn() && (
         <div id="inbetween" class="stream-nav">
           <div class="stream-nav-content">
-            <div>
-              <div>
                 <Show
                   when={live()}
                   fallback={
@@ -99,17 +93,22 @@ const Home: Component = () => {
                 >
                   <button onClick={pressContinue} class={"stream-button yellow show"} type="submit">Continue Stream</button>
                 </Show>
-              </div>
+             
               <div class='header-drawer'>
                 <Drawer props={[{ name: live() ? 'Continue Streaming' : 'Start Streaming', link: '#', action: import.meta.env.VITE_STREAM_URL, ac: true, live: true }]} />
               </div>
-            </div>
             <div class='username-card'><p class='username'>{userName() ? userName() : 'UserName'}</p></div>
           </div>
         </div>
       )}
 
       <div class='home-container'>
+      {!loggedIn() && broadcasts()?.length === 0 && (
+          <div class="jumbotron">
+            <h1 class="jumbotron-header">No rooms created</h1>
+            <p class="jumbotron-text">Please login to create a room.</p>
+          </div>
+      )}
         <div class='home-list'>
           <ListCard />
         </div>

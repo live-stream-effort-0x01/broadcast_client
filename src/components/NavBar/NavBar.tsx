@@ -96,7 +96,6 @@ const NavBar: Component = () => {
             <a href="/chatRoom" class='chat-link' >Continue Stream</a>
             <a href="/pricingPlan" class='pricing-link'>Add Balance</a>
             <a href='/account' class='account-link'>Account</a>
-            <a href='/aboutUs' class='about-link'>About Us</a>
           </div>
           <div class="navigation-buttons">
             <div class="signup-btn show" onClick={typeSignup}>Sign Up</div>
@@ -117,7 +116,6 @@ const NavBar: Component = () => {
           </div>
         </nav>
 
-
       }
     >
       <div class='header-drawer'>
@@ -134,7 +132,6 @@ const NavBar: Component = () => {
           )}
           <a href="/pricingPlan" class='pricing-link'>Add Balance</a>
           <a href='/account' class='account-link'>Account</a>
-          <a href='/aboutUs' class='about-link'>About Us</a>
         </div>
         <nav class='navigation-others'>
           <div class='balance-container'>Balance: 100 Tokens </div>
