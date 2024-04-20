@@ -24,6 +24,39 @@
     margin-top: 2rem;
 }
 
+.streamer-profile-container{
+    margin-left: 3rem;
+    width: 40rem;
+    padding: 1rem;
+}
+
+.streamer-avatar-container{
+    display: flex;
+    align-items: flex-start;
+    color: var(--color-white);
+}
+
+.streamer-avatar{
+    width: 4rem;
+    margin-right: 1rem;
+}
+
+.streamer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.streamer-name{
+    text-align: start;
+    margin: 0;
+}
+
+.streamer-description{
+    text-align: start;
+    margin: 0;
+}
+
+
 .jumbotron {
     justify-content: center;
     align-content: center;
@@ -86,12 +119,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .chatroom-video {
     height: 70vh;
-    width: 50%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: center;

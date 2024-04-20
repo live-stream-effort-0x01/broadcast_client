@@ -4,15 +4,15 @@
 }
 
 .chat-footer textarea.message-input {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Outfit', sans-serif;;
     padding: 15px 30px 15px 10px;
     height: 50px !important;
-    background-color: var(--gradient-end);
+    background-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: var(--color-white);
 }
 
 .chat-footer textarea.message-input::placeholder{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 /* .chat-footer .send-message {

@@ -62,6 +62,7 @@ const ChatWindow: Component<ChatWindowProps>= (props)=> {
         <ChatBody messages={messages} containerRef={containerRef} />
         <ChatFooter sendMessage={sendMessage} />
       </div>
+     
    
   );
 }

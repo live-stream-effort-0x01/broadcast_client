@@ -6,6 +6,7 @@ import HeaderChatRoom from "~/components/HeaderChatRoom/HeaderChatRoom";
 import { isLogin } from "~/lib/services/auth";
 import VideoWindow from "~/components/video/VideoWindow/VideoWindow";
 import ChatWindow from "~/components/Chat/ChatWindow/ChatWindow";
+import Avatar from "../components/images/F-Avatar.png"
 
 const ChatRoom: Component = () => {
   // Initialize Solid signals
@@ -37,16 +38,27 @@ const ChatRoom: Component = () => {
       </div>
       <div class="chatroom-container">
         {/* Video and chat windows */}
-          
-            <div class="chatroom-video">
-              <VideoWindow room={room} />
-            </div>
-            <div class="chatroom-comment">
-              <ChatWindow room={room} />
-            </div>
-       
-    
+
+        <div class="chatroom-video">
+          <VideoWindow room={room} />
+        </div>
+        <div class="chatroom-comment">
+          <ChatWindow room={room} />
+        </div>
+
+
       </div>
+      <div class='streamer-profile-container'>
+        <div class="streamer-avatar-container">
+          <img class="streamer-avatar" src={Avatar} alt="avatar" />
+          <div class="streamer-info">
+            <p class="streamer-name">QuantumQuest</p>
+            <p class="streamer-description">
+              Welcome to QuantumQuest, where gaming meets the infinite expanse of the universe!</p>
+          </div>
+        </div>
+      </div>
+
     </main>
   );
 };
