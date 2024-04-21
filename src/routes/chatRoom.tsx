@@ -7,7 +7,6 @@ import { isLogin } from "~/lib/services/auth";
 import VideoWindow from "~/components/video/VideoWindow/VideoWindow";
 import ChatWindow from "~/components/Chat/ChatWindow/ChatWindow";
 import Avatar from "../components/images/F-Avatar.png"
-import starIcon from '~/components/icon/send_icon.svg'
 
 const ChatRoom: Component = () => {
   // Initialize Solid signals
