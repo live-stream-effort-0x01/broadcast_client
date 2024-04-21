@@ -15,7 +15,7 @@ const ChatFooter: Component <ListArg>= (props) => {
     <div class="chat-footer">
       <textarea
         class="message-input"
-        placeholder="Type your message here..."
+        placeholder="Send a message"
         ref={input}
         rows={1}
         maxLength={200}

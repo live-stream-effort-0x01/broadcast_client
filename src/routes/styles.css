@@ -3,6 +3,7 @@
 .home-warrper {
     display: flex;
     flex-direction: column;
+
 }
 
 .home-container {
@@ -24,19 +25,21 @@
     margin-top: 2rem;
 }
 
-.streamer-profile-container{
-    margin-left: 3rem;
-    width: 40rem;
-    padding: 1rem;
+.streamer-profile-container {
+    width: 95rem;
+    height: 5rem;
+    padding: 0.6rem;
 }
 
-.streamer-avatar-container{
+.streamer-avatar-container {
+    height: 5rem;
     display: flex;
     align-items: flex-start;
     color: var(--color-white);
 }
 
-.streamer-avatar{
+
+.streamer-avatar {
     width: 4rem;
     margin-right: 1rem;
 }
@@ -46,16 +49,62 @@
     flex-direction: column;
 }
 
-.streamer-name{
+.streamer-name {
+    text-align: start;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.streamer-description {
     text-align: start;
     margin: 0;
 }
 
-.streamer-description{
-    text-align: start;
-    margin: 0;
+.streamer-follow-subscribe {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
+.subscribe-btn {
+    width: 6.5rem;
+    height: 1.8rem;
+    font-size: 1rem;
+    color: var(--color-white);
+    border-radius: 0.3rem;
+    background-color: #161d2f;
+    border: 0.1rem solid #1f2841 ;
+}
+
+.streamer-about-container {
+    margin-left: 10rem;
+    color: var(--color-white);
+    margin-top: 2rem;
+}
+
+.streamer-about-title {
+    text-align: start;
+    font-size: 1.5rem;
+    width: auto;
+    margin: auto;
+}
+
+.streamer-about-content {
+    background-color: #161d2f;
+    border-radius: 0.3rem;
+    height: auto;
+    text-align: start;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 75rem;
+    margin-left: 10rem;
+    color: var(--color-white);
+    margin-bottom: 2rem;
+}
+
+.streamer-about-description {
+    margin: auto;
+    height: auto;
+}
 
 .jumbotron {
     justify-content: center;
@@ -119,23 +168,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
 }
 
 .chatroom-video {
-    height: 70vh;
-    width: 70%;
+    height: 75vh;
+    width: 85%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .chatroom-comment {
-    height: 70vh;
-    width: 25%;
+    height: 75vh;
+    width: 18%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 

@@ -1,15 +1,14 @@
-.chatwindow-wapper{
-    background-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
-    height: 100%;
+.chatwindow-wapper {
+    background-color: #161d2f;
+    height: 140%;
     width: 100%;
-    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    border-left: 0.1rem solid #949494;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-top: 1rem;
 }
-
-
-  
-  
- 

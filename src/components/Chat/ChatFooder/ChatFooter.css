@@ -1,17 +1,21 @@
 .chat-footer {
     position: relative;
-    padding: 0rem 1rem 1rem  1rem;
+    padding: 0rem 1rem 1rem 1rem;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
 }
 
 .chat-footer textarea.message-input {
-    font-family: 'Outfit', sans-serif;;
+    font-family: 'Outfit', sans-serif;
+    ;
     padding: 15px 30px 15px 10px;
     height: 50px !important;
-    background-image: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    background-color: #1a2133;
     color: var(--color-white);
 }
 
-.chat-footer textarea.message-input::placeholder{
+.chat-footer textarea.message-input::placeholder {
     font-family: 'Outfit', sans-serif;
 }
 
@@ -20,18 +24,18 @@
     visibility: hidden;
     font-size: 2rem;
 } */
-.send-message{
+.send-message {
     position: absolute;
     font-size: 2rem;
     right: 1.5rem;
     top: 0.5rem;
     bottom: 0.5rem;
 
-  
+
 }
 
-.send-message-icon{
-    height: 2rem;
+.send-message-icon {
+    height: 1.5rem;
     width: 2rem;
     color: #ffffff;
     visibility: visible;
@@ -41,9 +45,10 @@
 
 
 @media only screen and (max-width: 767px) {
+
     /* CSS rules for mobile phones */
-    .send-message{
-    display: none;
+    .send-message {
+        display: none;
     }
 
 }

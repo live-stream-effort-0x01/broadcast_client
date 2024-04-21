@@ -1,4 +1,4 @@
-import { createSignal, Show, createEffect } from 'solid-js';
+import { createSignal, Show, createEffect, onMount } from 'solid-js';
 import { useNavigate } from "solid-start";
 import Drawer from '../Drawer/Drawer';
 import './NavBar.css'
@@ -83,6 +83,20 @@ const NavBar: Component = () => {
     }, 1000);
   }
 
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', function() {
+        const navigation = document.querySelector('.navigation');
+        if (navigation) { // Check if navigation exists
+          if (window.scrollY > 0) {
+            navigation.classList.add('sticky');
+          } else {
+            navigation.classList.remove('sticky');
+          }
+        }
+      });
+    }
+  });
   return (
     // <header class='header-wapper'>
 
