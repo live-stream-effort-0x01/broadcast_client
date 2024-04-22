@@ -1,5 +1,4 @@
-import { createSignal } from "solid-js";
-import { Component } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import '~/components/Pricing Plan/PricingPlan.css'
 import AddTokenForm from '~/components/Form/AddTokenForm';
 import Popup from '~/components/Popup/Popup';

@@ -1,0 +1,52 @@
+.account-title {
+    text-align: start;
+    margin-top: 20px;
+    font-weight: lighter;
+    color: var(--color-white);
+    margin-left: 35rem;
+}
+
+.account-container {
+    background-color: #161d2f;
+    width: 50rem;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    color: var(--color-white);
+}
+
+
+.account-choices {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.account-choices ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-section {
+    width: auto;
+    margin: auto;
+    padding: auto;
+}
+.section-title {
+    font-weight: lighter;
+    font-size: var(--size-text-3);
+  }
+  
+
+.account-section.active {
+    color: var(--color-green);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .account-section {
+        width: calc(100% - 40px);
+        /* Adjust width to accommodate margins */
+    }
+}
