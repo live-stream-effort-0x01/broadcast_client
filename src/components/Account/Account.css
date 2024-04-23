@@ -1,52 +1,140 @@
 .account-title {
-    text-align: start;
-    margin-top: 20px;
+    font-size: 1.5rem;
     font-weight: lighter;
+    margin-bottom: 1.25rem;
+    justify-content: center;
+    text-align: start;
     color: var(--color-white);
     margin-left: 35rem;
+}
+
+.account-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .account-container {
     background-color: #161d2f;
     width: 50rem;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+    height: 40rem;
+    color: var(--color-white);
     border-radius: 0.5rem;
+}
+
+.account-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 12.5rem;
+    padding: 1rem;
+}
+
+.tab {
+    text-decoration: none;
+    color: #000;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+    border-radius: 0.313rem;
     color: var(--color-white);
 }
 
-
-.account-choices {
-    display: flex;
-    justify-content: flex-start;
-    cursor: pointer;
-}
-
-.account-choices ul {
-    list-style: none;
-    padding: 0;
-}
-
-.account-section {
-    width: auto;
-    margin: auto;
-    padding: auto;
-}
-.section-title {
-    font-weight: lighter;
-    font-size: var(--size-text-3);
-  }
-  
-
-.account-section.active {
+.tab.active {
     color: var(--color-green);
 }
 
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    .account-section {
-        width: calc(100% - 40px);
-        /* Adjust width to accommodate margins */
-    }
+.tab-title {
+    margin: 0;
+    font-weight: lighter;
+}
+
+.account-content {
+    margin-left: 1.25rem;
+}
+
+.upload-label {
+    font-size: 0.8rem;
+}
+
+.avatar-box {
+    margin-top: 1.25rem;
+}
+
+.account-avatar {
+    width: 10rem;
+}
+
+.upload-btn {
+    display: none;
+  }
+  
+  .upload-label {
+    background-color: var(--bg-btn-submit);
+    color: white;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .upload-label:hover {
+    background-color: var(--bg-btn-submit-hover);
+  }
+  
+#profile-form{
+    margin-top: 2rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 0.2rem solid var(--bg-btn-submit);
+    border-radius: 0.5rem;
+    background-color: #161d2f;
+    color: var(--color-white);
+}
+
+textarea {
+    resize: none;
+}
+
+.account-buttons-container {
+    margin-top: 1.25rem;
+    margin-left: 72.3rem;
+}
+
+.account-buttons {
+    display: flex;
+}
+
+.submit-btn,
+.cancel-btn {
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 0.625rem;
+}
+
+.submit-btn {
+    background-color: var(--bg-btn-submit);
+    border: 0.15rem solid var(--color-white);
+    color: var(--color-white);
+}
+
+.submit-btn:hover {
+    background-color: var(--bg-btn-submit-hover);
+}
+
+.cancel-btn {
+    background-color: var(--bg-home);
+    border: 0.15rem solid var(--bg-btn-submit);
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    color: var(--color-white);
+    border: 0.15rem solid var(--bg-btn-submit-hover);
 }
