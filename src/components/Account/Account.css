@@ -27,6 +27,7 @@
     flex-direction: column;
     width: 12.5rem;
     padding: 1rem;
+    float: left;
 }
 
 .tab {
@@ -48,7 +49,11 @@
 }
 
 .account-content {
-    margin-left: 1.25rem;
+    margin-right: 2rem;
+    flex: 1;
+    float: right; /* Add this line */
+    width: calc(90% - 12rem);
+    margin-bottom: 2rem;
 }
 
 .upload-label {
