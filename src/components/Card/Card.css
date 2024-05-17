@@ -16,46 +16,69 @@
 }
 .card-favourite{
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    height: 2rem;
-    width: 2rem;
+    top: 0.6rem;
+    right: 0.6rem;
     border-radius: 100%;
     opacity: 0.9;
-    background-color: var(--bg-dark);
     display: flex;
+    background-color: inherit;
     justify-content: center;
     align-items: center;
 }
-
+.card-views-count{
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.4rem;
+    border-radius: 0.2rem;
+    opacity: 0.9;
+    display: flex;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--size-text-2);
+    font-weight: 400;
+    background-color: rgb(84, 202, 114);
+    padding: 0.2rem 0.8rem;
+}
 .card-favourite:hover{
     opacity: 1;
 
 }
 .card-image > img{
     height: 10.875rem;
-    width: 18.5rem;
+    width: fit-content;
     border-radius: 0.4rem;
 }
 .card-title{
     display: flex;
     flex-direction: row;
-    min-width:50% ;
-    align-items: center;
-    justify-content: flex-start;
+    min-width: 50%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 0.4rem;
 }
-.card-title > p{
-color:  var(--color-title);
-line-height: var(--line-height-2);
-font-size: var(--size-text-2);
-font-weight: var(--weight-300);
-margin: 0.5rem 0.8rem 0.5rem 0;
-
+.card-title-content{
+    margin-left: 0.8rem;
 }
 .card-name{
     display: flex;
-    font-size: var(--size-text-3);
-    color: var(--color-white);
+    font-size: var(--size-text-6);
+    color: var(--color-black);
+    font-weight: 550;
+    line-height: var(--line-height-3);
+}
+.card-price{
+    display: flex;
+    font-size: var(--size-text-6);
+    color: var(--color-green-2);
+    font-weight: 550;
+    line-height: var(--line-height-3);
+}
+.card-desc{
+    display: flex;
+    font-size: var(--size-text-2);
+    color: var(--color-black);
     font-weight: var(--weight-500);
     line-height: var(--line-height-3);
 }
@@ -69,3 +92,28 @@ margin: 0.5rem 0.8rem 0.5rem 0;
 
     margin: 0 0.2rem;
 }
+.red-point{
+    background-color: red;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 100%;
+}
+
+
+.card-title-avatar{
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 100%;
+  }
+  .card-title-left{
+    display: flex;
+    flex-direction: row;
+    min-width: 50%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .card-title-right> svg{
+    width: 1.2rem;
+    height: 1.2rem;
+  }

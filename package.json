@@ -16,12 +16,14 @@
     "wrangler": "^3.17.0"
   },
   "dependencies": {
+    "@digichanges/solid-slider": "^1.0.7",
     "@solidjs/meta": "^0.28.6",
     "@solidjs/router": "^0.8.3",
     "axios": "^1.5.1",
     "livekit-client": "^1.14.1",
     "solid-icons": "^1.0.12",
     "solid-js": "^1.8.0",
+    "solid-slider": "^1.3.17",
     "solid-start": "^0.3.5",
     "solid-start-cloudflare-pages": "^0.3.10"
   },

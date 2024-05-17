@@ -1,80 +1,94 @@
-.form-wapper {
+.form-wapper{
     display: flex;
     flex-direction: column;
-    width: 25rem;
-    /* height: 25rem; */
+    width:  44rem;
     background-color: var(--bg-form);
     padding: 2rem;
-    border-radius: 1rem;
-    align-items: center;
-    justify-content: center;
+    border-radius: 0.6rem;
 }
-
-.form-title {
-    font-size: var(--size-text-4);
+.form-title{
+    font-size: var(--size-text-7);
     line-height: var(--line-height-4);
-    color: var(--color-white);
+    color: var(--color-black);
     text-align: center;
-    font-weight: bold;
+    margin: 1rem 0;
+    font-weight: var( --weight-600);
 
 }
-
-.form-main {
+.form-main{
     margin-bottom: 2rem;
 }
-
-.form-input-value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: inherit;
-    color: var(--color-white);
-    width: 25rem;
-    overflow: hidden;
-    padding: 1rem 1rem;
-    margin-top: 1.2rem;
-    font-size: var(--size-text-5);
-    line-height: var(--line-height-5);
-    font-weight: var(--weight-300);
-    cursor: text;
-    border: 2px solid #5A698F;
-    border-radius: 1rem;
-    box-sizing: border-box;
+.form-group-main{
+    margin: 2rem 0;
 }
 
-.form-input-value:focus {
+.form-input-title{
+    font-size :var(--size-text-6);
+    font-weight: 550;
+}
+.form-input-group{
+
+    display: flex;
+    
+}
+  .s-1{
+    width:40% !important;
+    
+    margin-right:2%;
+  }
+.s-2{ 
+    width: 20% !important;
+    margin-right:2%;
+}
+.s-3{
+    width: 48% !important;
+    margin-right:2%;
+}
+.form-input-value{
+    border: solid 0.1rem var(--color-line);
+    border-radius: 0.4rem;
+    background-color: inherit;
+    color: var(--color-black);
+    width: -webkit-fill-available;
+    overflow: hidden;
+    padding: 1rem 1rem;
+    margin-top: 0.6rem;
+    font-size: var(--size-text-5);
+    line-height: var(--line-height-5);
+    font-weight: var( --weight-300);
+    cursor: pointer;
+    background-color: var(--bg-form-input);
+}
+
+
+.form-input-value:focus{
     outline: none;
     background-color: inherit;
 }
-
-::placeholder {
-    color: var(--color-title);
+::placeholder{
+    color: var(--color-black);
 }
-
-.form-btn-submit {
+.form-btn-submit{
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     height: 3rem;
-    font-size: var(--size-text-3);
+    font-size: var(--size-text-5);
     line-height: var(--line-height-5);
-    font-weight: var(--weight-300);
-    border-radius: 1rem;
-    background-color: var(--bg-btn-submit);
+    font-weight: var(--weight-600);
+    border-radius: 0.4rem;
+    background-color: var(--bg-btn-user);
     margin-bottom: 2rem;
     border: none;
     color: var(--color-white);
     cursor: pointer;
 
 }
-
-.form-btn-submit:hover {
-    background-color: var(--bg-btn-submit-hover);
-    color: var(--color-white);
+.form-btn-submit:hover{
+    opacity: 0.8;
 }
-
-.form-more {
+.form-more{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,52 +96,95 @@
     margin: 1rem 0;
     font-weight: var(--weight-300);
     font-size: var(--size-text-5);
+   
 }
-
-.form-more-content {
-    padding: 0;
+.form-more-sig{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1rem 0;
+    font-weight: var(--weight-300);
+    font-size: var(--size-text-5);
+}
+.form-more-content{
+    padding:0;
     margin: 0;
-    color: var(--color-white);
+    color: var(--color-green-2);
 }
-
-.form-more-link {
-    padding: 0;
+.form-more-link{
+    padding:0;
     margin-left: 0.6rem;
-    color: var(--color-green);
+    color: var(--color-black);
     cursor: pointer;
-}
+    text-decoration: underline;
 
-.form-more>p {
-    padding: 0;
+}
+.form-more-content-black{
+    padding:0;
     margin: 0;
+    color: var(--color-black);
+}
+.form-more-link-green{
+    padding:0;
+    margin-left: 0.6rem;
+    color: var(--color-green-2);
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.form-error-message {
+
+.form-more > p {
+    padding:0;
+    margin: 0; 
+}
+.form-error-message{
     text-align: center;
-    color: var(--color-red);
+    color: var( --bg-btn-user);
     font-weight: 700;
-    font-size: var(--size-text-2);
-    margin-bottom: 1rem;
-    visibility: hidden;
-}
-
-.form-error-message.active {
-    visibility: visible;
+  }
+  .form-success-message{
+    text-align: center;
+    color: var( --color-green);
+    font-weight: 700;
   }
 
-.form-success-message {
-    text-align: center;
-    color: var(--color-green);
-    font-weight: 700;
-    font-size: var(--size-text-2);
-    margin-bottom: 1rem;
+  .form-sig-aim{
+    border-radius: 0.6rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-sig-aim-yep{
+    background-color:  var(--bg-btn-user)!important;
+    color:white
+
+}
+.form-sig-aim > button{
+    border-radius: 0.4rem;
+    padding: 0.8rem 1rem;
+    border: solid 1px var(--color-green-2);
+    background-color: #F5FFFB;
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    margin:0 1rem
 }
 
+.form-sig-aim > button>svg{
+
+font-size:1.2rem;
+margin-right: 0.2rem
+}
+
+
+
 @media only screen and (max-width: 767px) {
-
     /* CSS rules for mobile phones */
-    .form-wapper {
-
+    .form-wapper{
         width: 80%;
     }
 

@@ -42,31 +42,32 @@ const LoginForm :Component<LoginFormProps> = (props) => {
   };
   return (
     <div class='form-wapper'>
-      <span class="form-title">Login</span>
+      <span class="form-title">Log in to ThirstyOasis</span>
       <form class="form-post" id="login" onSubmit={login}>
         <div class="form-main">
           <div class="form-group-main">
+            <span class="form-input-title">Username</span>
             <input
               class="form-input-value"
               type="text"
-              placeholder="Email address"
+             
               name="username"
               required
               onInput={(event) => setEmail(event.target.value)} />
             
           </div>
           <div class="form-group-main">
+          <span class="form-input-title"> Password</span>
             <input
               class="form-input-value"
               type="password"
               name="password"
-              placeholder="Password"
+             
               required
               onInput={(event) => setPassword(event.target.value)} />
           </div>
         </div>
-        <div class={`form-error-message ${error() ? 'active' : ''}`}>{error()}</div>
-
+        {error() && <p class="form-error-message">{error()}</p>}
         {success() && <p class="form-success-message">Success!</p>}
         <div class="form-btn">
           <button type="submit"  class="form-btn-submit" 

@@ -1,0 +1,48 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.slide-tag {
+ 
+
+  height: 6vh;
+  color: text;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.slide-tag-title{
+  background-color: var(--color-white);
+    border: solid 1px var(--color-green-2);
+    color: var(--color-black);
+    padding: 0.4rem 1rem;
+    font-weight: 550;
+    border-radius: 0.4rem;
+}
+.tag-true{
+  background-color: var(--color-green-2);
+
+  color: var(--color-white);
+}
+
+
+.slider-tag-button-left,.slider-tag-button-right{
+  border: none;
+  background-color: inherit;
+  top: 30%;
+  color: var(--color-green-2);
+  cursor: pointer;
+
+}
+.slider-tag-button-left{
+  left: 1rem;
+  width: 2rem;
+}
+.slider-tag-button-right{
+  right: 1rem;
+  width: 2rem;
+}
+
+
+
+

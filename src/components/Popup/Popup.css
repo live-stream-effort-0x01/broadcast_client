@@ -1,6 +1,7 @@
+
 .popup-wapper {
   position: fixed;
-  /* background: var(--bg-popup); */
+  background: var(--bg-popup);
   width: 100%;
   top: 0;
   left: 0;
@@ -11,30 +12,28 @@
   justify-content: center;
 
 }
-
 .popup-container {
   display: flex;
   justify-content: flex-end;
-
+  position: relative;
 }
-
-.popup-btn {
+.popup-btn{
   position: absolute;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   width: 2rem;
-  height: 2rem;
-  padding-right: 1rem;
+  top: 3rem;
+  right: 2rem;
+  height: 1.5rem;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  font-weight: lighter;
-  color: var(--color-white);
-  background-color: var(--bg-form);
+  font-weight: 700;
+  background-color: inherit;
+
   cursor: pointer;
 }
-
-.popup-btn:hover {
-  color: var(--color-green);
+.popup-btn > svg{
+  color: var(--color-green-2);
 }

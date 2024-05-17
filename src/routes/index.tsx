@@ -1,7 +1,10 @@
 
 import NavBar from '~/components/NavBar/NavBar';
 import './styles.css'
-import ListCard from '~/components/Listcard/Listcard';
+import NavUser from "~/components/NavUser/index"
+import ListCardI from '~/components/Listcard/ListcardI';
+import Slider from '~/components/Slider/index'
+import SliderTag from"~/components/SliderTag/index"
 import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import {
   createResource,
@@ -17,14 +20,18 @@ const Home:Component=()=> {
     refetch()
   },[broadcasts])
   return (
-    <main class='home-warrper' >
+    <main class='home-warper' >
       <div class='home-header'><NavBar/></div>
-      <div class='home-title'>Recommended for you</div>
-      <div class='home-container'>    
-        <div class='home-list'>
-          <ListCard />
+      <div class='home-container'>   
+      <div class='home-nav-user'> <NavUser /></div>
+      <div class='home-main'>
+      <div class='home-slider'> <Slider />  </div>
+      <div class='home-slider-tag'> <SliderTag/>  </div>
+      <div class='home-list'>
+          <ListCardI />
         </div>
       </div>
+      </div>       
       </main>
   );
 }

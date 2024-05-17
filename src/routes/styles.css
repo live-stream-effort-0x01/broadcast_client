@@ -1,169 +1,171 @@
 /* ---home--- */
 
-.home-warrper {
+.home-warper{
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.home-title {
-    font-size: var(--size-text-4);
-    color: var(--color-white);
-    font-weight: var(--weight-300);
-    padding: 7rem 3.5rem 0 18rem;
-    align-self: flex-start;
-}
-
-.home-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.chatroom-container {
+.home-container{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    background-color: #F5FFFB;
+    justify-content: space-between;
+ 
+
+}
+.chatroom-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    
+}
+.home-title{
+font-size: var(--size-text-4);
+color: var(--color-white);
+font-weight: var(--weight-300);
+margin: 1rem 0 1rem 1rem;
+    
+}
+.home-slider {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+}
+.home-slider-tag {
+    width: -webkit-fill-available;
+    margin:1rem 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.home-list{
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content:flex-start;
+    width: 100%;
 }
 
-.chatroom-video {
-    height: 90vh;
-    width: 75%;
+.chatroom-video{
+height: 90vh;
+width: 75%;
 }
-
-.chatroom-comment {
+.chatroom-comment{
     height: 90vh;
     width: 25%;
-
+   
 }
-
+.home-main {
+    display: flex;
+    width: calc(97.5% - var(--nav-user-width));
+    flex-direction: column;
+    align-items: center;
+   
+}
 /* ---user--- */
 
 
 @media only screen and (min-width: 1025px) {
-    .home-list {
-        justify-content: flex-start;
+    .home-list{
+        justify-content:flex-start;   
     }
 }
-
 @media only screen and (min-width: 1024px) {
-
     /* CSS rules for iPad Pro */
-    .home-list {
-        justify-content: flex-start;
+    .home-list{
+        justify-content:flex-start;   
     }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-
     /* CSS rules for tablets */
-    .home-list {
-        justify-content: center;
+    .home-list{  
+        justify-content:center;
     }
-
-    .home-container {
+    .home-container{
         padding-left: 0;
     }
-
-    .chatroom-container {
+    .chatroom-container{
         flex-direction: column;
-    }
-
-    .chatroom-video {
+     }  
+     .chatroom-video{
         height: 60vh;
         width: 100%;
-    }
-
-    .chatroom-comment {
-        height: 28vh;
-        width: 100%;
-        margin-top: 2vh;
-    }
-
+        }
+        .chatroom-comment{
+            height: 28vh;
+            width: 100%;
+            margin-top: 2vh;
+        }
+        
 }
-
 @media only screen and (max-width: 767px) {
-
     /* CSS rules for mobile phones */
-    .home-warrper {
+    .home-warrper{
         display: flex;
         flex-direction: column;
         padding-left: 1rem;
-        padding-right: 1rem;
+        padding-right:1rem;
     }
-
-    .home-list {
-        justify-content: center;
+    .home-list{  
+        justify-content:center;
     }
+   
+    .home-container{
 
-    .home-container {
-
-        padding-left: 0;
+        padding-left: 0; 
     }
-
-    .chatroom-video {
+    .chatroom-video{
         height: 50vh;
-
-    }
-
-    .chatroom-comment {
-        height: 43vh;
-    }
-
-    .chatroom-container {
+       
+        }
+    .chatroom-comment{
+            height: 43vh; 
+        }
+    .chatroom-container{
         flex-direction: column;
-    }
-
-    .chatroom-video {
+     }  
+     .chatroom-video{
         height: 80vh;
         width: 100%;
-    }
-
-    .chatroom-comment {
-        height: 28vh;
-        width: 100%;
-        margin-top: 2vh;
-    }
-
+        }
+        .chatroom-comment{
+            height: 28vh;
+            width: 100%;
+            margin-top: 2vh;
+        }
+        
 }
-
-@media (min-width: 480px) {}
-
+@media (min-width: 480px) {
+ 
+}
 @media only screen and (max-width: 414px) {
     /* CSS rules for iPhone 6/7/8 Plus */
 }
-
 @media only screen and (max-width: 375px) {
     /* CSS rules for iPhone 6/7/8 */
 }
-
 @media only screen and (max-width: 375px) {
     /* CSS rules for iPhone X */
 }
 
-@media only screen and (min-width: 321px) and (max-width: 767px) {
+@media only screen and (min-width: 321px)  and (max-width: 767px) {
     /* CSS rules for mobile phones */
-
-    .chatroom-container {
-        flex-direction: column;
-    }
-
-    .chatroom-video {
-        height: 80vh;
-        width: 100%;
-    }
-
-    .chatroom-comment {
-        height: 40vh;
-        width: 100%;
-        margin-top: 2vh;
-    }
-
+  
+        .chatroom-container{
+            flex-direction: column;
+         }  
+         .chatroom-video{
+            height: 80vh;
+            width: 100%;
+            }
+            .chatroom-comment{
+                height: 40vh;
+                width: 100%;
+                margin-top: 2vh;
+            }
+            
 }

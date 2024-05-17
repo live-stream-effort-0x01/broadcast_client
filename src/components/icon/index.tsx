@@ -7,8 +7,12 @@ import onScreen from './onScreen_icon.svg'
 import offScreen from './offScreen_icon.svg'
 import disconnect from './disconnect_icon.svg'
 import bars from'./bars_icon.svg'
+import barsII from './bars2_icon.svg'
 import barsStagg from'./barsStaggered_icon.svg'
 import logout from './logout_icon.svg'
+import next from "./next_icon.svg"
+import prev from "./prev_icon.svg"
+
 const icon: Record<string, string> = {
     sendIcon: send,
     offMicIcon:offMic,
@@ -20,8 +24,10 @@ const icon: Record<string, string> = {
     disconnectIcon:disconnect,
     bars: bars,
     barsStagg:barsStagg,
-    logout:logout
-    
+    logout:logout,
+    next:next,
+    prev:prev,
+    barsII: barsII
   };
   
   export default icon;

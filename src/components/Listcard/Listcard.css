@@ -1,8 +1,48 @@
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Divides the container into 4 equal columns */
-    gap: 20px; /* Adjust the gap between cards */
-    justify-content: center; /* Centers the cards horizontally */
-    align-items: center; /* Centers the cards vertically */
-  }
-  
+.list-warper{
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 1.6rem;
+    width: 100%;
+}
+.list-top{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
+    text-align: start;
+
+}
+.list-top-title{
+    border: none;
+    margin-right: 0.6rem;
+    font-size: var(--size-text-7);
+}
+.list-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    text-align:end;
+}
+.list-main{
+    display:flex
+}
+.line-list{
+    width: 100%; 
+    height: 1px; 
+    background-color:var(--color-green-2); 
+}
+.list-bottom-title{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 8%;
+    justify-content: flex-end;
+    font-size: var(--size-text-5);
+    margin-right: 0.2rem;
+    cursor: pointer;
+
+
+}
+
+
