@@ -99,13 +99,13 @@ const NavBar :Component=()=> {
                         <nav class="navigation flex-end">
                           <div onClick={typeLogin} class="navigation-element show nav-log">Login</div>
                             {showModal() && !typeModal() && (
-                              <Popup onClose={closeModal}>
+                              <Popup onClose={closeModal} buttonClose={true}>
                               <LoginForm onType={changeType} onClose={closeModal}/> 
                               </Popup>
                             )}
                           <div  class="navigation-element show nav-sig" onClick={typeSignup}>Sign-Up</div>
                           {showModal() && typeModal() && (
-                            <Popup onClose={closeModal}>
+                            <Popup onClose={closeModal} buttonClose={true}>
                                 <SignUpForm onType={changeType}  /> 
                             </Popup>
                           )}
@@ -125,7 +125,7 @@ const NavBar :Component=()=> {
                             <>
                             <button onClick={pressLivestream} class={'stream-button green show' }type="submit">Start Streaming</button>
                             {showRoom() &&  (
-                              <Popup onClose={closeRoom}>
+                              <Popup onClose={closeRoom} buttonClose={true}>
                                 <CreateRoomForm onClose={closeRoom}/> 
                               </Popup> )}
                             </>

@@ -59,6 +59,7 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     background-color: var(--bg-home);
+    overflow-block:hidden !important;
 }
 
 a {
@@ -90,10 +91,19 @@ p {
 .green{
   color: var(--color-green-2);
 }
+.bg-green{
+  color: var(--color-white);
+  background-color: var(--color-green-2);
+}
+.border-green{
+  border: 1px solid var(--color-green-2);
+}
 .black{
   color: var(--color-black);
 }
-
+.border-black{
+  border: 2px solid var(--color-black);
+}
 .bold{
   font-weight: var(--weight-600);
 }
@@ -103,7 +113,7 @@ p {
   overflow-y: scroll;
 }
 .scroll::-webkit-scrollbar{
-  width: 10px;
+  width: 0px;
 }
 .scroll::-webkit-scrollbar-track{
   background-color: #fafafa;

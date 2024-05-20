@@ -15,9 +15,10 @@
 .slide>img{
  padding: 0 1rem;
  width: 100%;
- height: 100%;
+ height: min-content;
  object-fit: cover;
  border-radius: 0.6rem;
+ max-height: min-content;
 }
 .slide-img{
   height: 40vh;
@@ -27,6 +28,7 @@
   width: 100%;
   position: relative;
   margin: 0 2rem;
+
 }
 
 .slide-hover{

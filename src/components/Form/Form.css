@@ -155,6 +155,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: -webkit-fill-available;
 }
 .form-sig-aim-yep{
     background-color:  var(--bg-btn-user)!important;
@@ -186,6 +187,18 @@ margin-right: 0.2rem
     /* CSS rules for mobile phones */
     .form-wapper{
         width: 80%;
+    }
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .form-wapper{
+        width: 80%;
+    }
+}
+@media only screen and (max-height: 800px) {
+    /* CSS rules for mobile phones */
+    .form-wapper{
+       zoom: 0.76;
     }
 
 }

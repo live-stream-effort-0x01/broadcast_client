@@ -167,7 +167,7 @@ const VideoWindow:Component<VideoWindowProps>= (props)=> {
                         <img src={icon.disconnectIcon} onClick={()=> setShowModal(true)} />
                     </div>  
                     {showModal()  && (
-              <Popup onClose={closeModal}>
+              <Popup onClose={closeModal} >
                  <DisconnetNoti onClose={closeModal} onDisconnet={disconnectRoom} onOut={clickOut} /> 
               </Popup>
             )}      

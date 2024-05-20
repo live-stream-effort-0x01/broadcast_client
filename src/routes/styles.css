@@ -4,6 +4,9 @@
     display: flex;
     flex-direction: column;
     padding: 0;
+    height:100vh;
+    overflow-y:hidden;
+   
 }
 
 .home-container{
@@ -61,10 +64,25 @@ width: 75%;
 }
 .home-main {
     display: flex;
-    width: calc(97.5% - var(--nav-user-width));
+    width: calc(97% - var(--nav-user-width));
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
+    height:120vh;
    
+}
+.home-popup{
+    position: fixed;
+    z-index: 1;
+    background: var(--bg-popup);
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* ---user--- */
 
@@ -168,4 +186,19 @@ width: 75%;
                 margin-top: 2vh;
             }
             
+}
+@media (min-width: 1280px) and (max-width: 1440px) {
+    .home-warper{
+        zoom:0.9;
+height:120vh
+    }
+
+  }
+  @media only screen and (max-width: 1280px) {
+  
+    .home-warper{
+        zoom:0.9;
+height:120vh
+    }
+
 }

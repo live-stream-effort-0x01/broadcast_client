@@ -2,13 +2,13 @@ import { createEffect,createResource } from "solid-js";
 import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import Card from "../Card/Card";
 import { Component } from 'solid-js';
-
+import './ListCard.css';
 const ListCardI:Component=()=> {
   const [broadcasts, { refetch }] = createResource<Broadcasts[]>(getBroadcasts);
   createEffect(()=>{
     refetch()
   },[broadcasts])
- 
+ console.log(broadcasts())
   return (
     <div class="list-warper">
       <div class="list-top">

@@ -1,18 +1,31 @@
 .noti-wapper{
     display: flex;
     flex-direction: column;
-    width: 25rem;
+    width: 40%;
     background-color: var(--bg-form);
-    padding: 2rem;
-    border-radius: 1.2rem;
+    padding: 3rem 16rem;
+    border-radius: 0.8rem;
+    align-items: center;
 }
 .noti-title{
-    font-size: var(--size-text-1);
+    font-size: var(--size-text-7);
     line-height: var(--line-height-4);
-    color: var(--color-white);
+    color: var(--color-green-2);
     text-align: center;
-    font-weight: var( --weight-300);
+    font-weight: 740;
+    padding-bottom: 1rem;
 
+}
+.noti-content{
+    font-size: var(--size-text-3);
+   width: 120%;
+   font-weight: 500;padding-bottom: 0.6rem;
+   text-align: center;
+}
+.noti-content>span{
+    text-decoration: underline;
+    line-height: var(--line-height-4);
+    padding: 0 0.4rem;
 }
 .noti-btns{
     display: flex;
@@ -21,15 +34,14 @@
    
 }
 .noti-btn{
-    padding: 0.3rem 1.4rem;
+    padding: 1rem 1.4rem;
     border-radius: 0.2rem;
     cursor: pointer;
-    opacity: 0.8;
-    margin: 0 1rem;
+    opacity: 0.9;
+    margin: 1rem 1rem;
     font-size: var(--size-text-3);
-    border: none;
-    font-weight: 500;
-    background-color: initial;
+    width: 100%;
+   font-weight: 550;
 }
 .noti-btn:hover{
     opacity: 1;
@@ -57,7 +69,15 @@ background-color: var(--bg-chat-btn-red);
 @media only screen and (max-width: 767px) {
     /* CSS rules for mobile phones */
     .noti-wapper{
-        width: 80%;
+        
+        zoom: 0.8;
+    }
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .noti-wapper{
+        
+        zoom: 0.8;
     }
 
 }

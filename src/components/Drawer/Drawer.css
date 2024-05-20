@@ -82,10 +82,7 @@
  
 opacity: 0.9;
   }
-.green{
-    color: var(--color-green);
-    border: solid 0.25rem var(--color-green);
-}
+
 .yellow{
     color: var(--color-yellow);
     border: solid 0.25rem var(--color-yellow);

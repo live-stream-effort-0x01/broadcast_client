@@ -28,7 +28,15 @@ export const getBroadcasts = async () => {
 
     return result;
   } catch (error) {
-   const result: Broadcasts[] =[]
+   const result: Broadcasts[] =[{  creation_time: 10,
+    duration: 10,
+    empty_timeout: 10,
+    Metadata: {
+      description: '',
+      video_source: '',
+    },
+    name:  'losing My Mind',
+    sid: 'HLK',} ]
    console.log(error)
    return result
    

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
-
+const linkURL = import.meta.env.VITE_API_BASE_URL || 'http://broadcast.demothesoftwarepls.site/api/v1'
 const httpRequest = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: linkURL,
   headers: {
     'Content-Type': 'application/json',
   },

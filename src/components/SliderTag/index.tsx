@@ -46,12 +46,10 @@ const SliderComponent: Component = () => {
           <div class="slide-tag-title tag-true">{item.name}</div> 
           <div class="slide-tag-title tag-true">{item.name}</div> 
           <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
+         
+         
+      
+          
           
           </div>
          

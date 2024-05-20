@@ -1,6 +1,6 @@
 
 .card-wapper{
-    width:fit-content;
+    /* width:fit-content; */
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     padding: 1rem 1rem;
     cursor: pointer;
     overflow: hidden;
+    flex: 1 1 calc(18% - 1em);
 }
 .card-image{
     position: relative;
@@ -117,3 +118,16 @@
     width: 1.2rem;
     height: 1.2rem;
   }
+  @media (min-width: 1280px) and (max-width: 1440px) {
+
+    .card-wapper{
+        flex: 1 1 calc(24% - 30px); /* Hiển thị 3 card */
+    }
+
+}
+@media only screen and (max-width: 1280px) {
+  
+    .card-wapper{
+        flex: 1 1 calc(24% - 30px); /* Hiển thị 3 card */
+    }
+}

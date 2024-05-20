@@ -1,8 +1,9 @@
 .list-warper{
     display: flex;
     flex-direction: column;
-    margin: 4rem 1.6rem;
-    width: 100%;
+    margin: 4rem 1.6rem 1.6rem 1.6rem;
+    width: 98%;
+    max-width: -webkit-fill-available;
 }
 .list-top{
     display: flex;
@@ -45,4 +46,26 @@
 
 }
 
+@media only screen and (max-width: 1280px) {
+    /* CSS rules for mobile phones */
+    .list-bottom-title {
+        width: 12%;
+    }
+    .list-main {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        height: 17rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+    .list-main {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        height: 17rem;
+    }
+ 
+}
 

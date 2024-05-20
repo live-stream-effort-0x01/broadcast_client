@@ -6,9 +6,9 @@ export const state = {
   defaultDevices: new Map<MediaDeviceKind, string>(),
   bitrateInterval: undefined as any,
 };
-
+const linkURL = import.meta.env.VITE_LIVEKIT_URL || 'http://localhost:8080/api/v1'
 export const connectRoom =  async (room: Room, token:any) =>{
-  room.connect(import.meta.env.VITE_LIVEKIT_URL,token).then((value) => {
+  room.connect(linkURL ,token).then((value) => {
     console.log("Connected to room", room.name);
   
 

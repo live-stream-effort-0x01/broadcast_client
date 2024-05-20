@@ -18,6 +18,11 @@
     padding: 0.4rem 1rem;
     font-weight: 550;
     border-radius: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 3rem;
+    margin:0 1rem
 }
 .tag-true{
   background-color: var(--color-green-2);
@@ -44,5 +49,14 @@
 }
 
 
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .slide-tag {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      height: 2rem;
+  }
+
+}
 
 

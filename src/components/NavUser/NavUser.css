@@ -9,7 +9,7 @@
     justify-content: flex-start;
     padding: 20px;
     background-color: #defaee;
-    min-height: 100vh;
+    min-height: 120vh;
     box-shadow: 1.95px rgba(0, 0, 0, 0.15) 1.95px  2.6px  ;
 }
 
@@ -239,4 +239,4 @@
       }
     }
   }
-  
+ 

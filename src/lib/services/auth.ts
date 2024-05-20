@@ -1,5 +1,7 @@
+const linkURL = import.meta.env.VITE_AUTH_API_URL|| 'http://localhost:8080/api/v1'
+
 export const authLogin = (email: string, password: string) => {
-  return fetch(`${import.meta.env.VITE_AUTH_API_URL}/token`, {
+  return fetch(`${linkURL }/token`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -18,7 +20,7 @@ export const authRegister = (
   email: string,
   password: string
 ) => {
-  return fetch(`${import.meta.env.VITE_AUTH_API_URL}/user/register`, {
+  return fetch(`${linkURL }/user/register`, {
     method: "POST",
     body: JSON.stringify({
       username,
