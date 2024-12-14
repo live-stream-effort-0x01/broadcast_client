@@ -12,15 +12,14 @@ props :any
 
 
 const Card: Component <CardProps>= (props) =>{
- const name:string = props?.props?.name 
- const type:string = props?.props?.type
- const seri:string = props?.props?.seri
- const img:string = props?.props?.img
- const year:string = props?.props?.year
- const description:string= props?.props?.description
+const name:string = props?.props?.name 
+const type:string = props?.props?.type
+const seri:string = props?.props?.seri
+const img:string = props?.props?.img
+const year:string = props?.props?.year
+const description:string= props?.props?.description
 const icon:any = props?.props?.icon
-
- const [live, setLive] = createSignal(true);
+const [live, setLive] = createSignal(true);
 
   return (
     <div class='card-wapper'>

@@ -68,11 +68,12 @@ const  Drawer: Component <DrawerProps> = (props) =>{
            <>{ item?.ac ===false ?
                 <div class="drawer-container-ac">
                 <div class='drawer-item-a' onClick={item?.name==='Sign-Up'? typeSignup : typeLogin} >{item?.name}</div>
-                {showModal() && typeModal() && (
+                {/*           {showModal() && typeModal() && (
                   <Popup onClose={closeModal}>
                     <SignUpForm onType={changeType} /> 
                   </Popup>
-                 )}
+                 )} */}
+     
                  {showModal() && !typeModal() && (
                   <Popup onClose={closeModal}>
                     <LoginForm onType={changeType} onClose={closeModal}/> 

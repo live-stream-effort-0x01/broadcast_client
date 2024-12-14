@@ -4,6 +4,7 @@ import "./Form.css";
 import { Component } from "solid-js";
 interface SignUpFormProps{
   onType: () => void;
+  onClose:()=>void;
 }
 const SignUpForm: Component <SignUpFormProps>= (props) => {
  
@@ -15,7 +16,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
   const [error, setError] = createSignal<string>("");
   const [success, setSuccess] = createSignal<boolean>(false);
   const [live, setLive] = createSignal<boolean>(true);
-  const { onType} = props;
+  const {onClose, onType} = props;
 
 
   const handlePasswordChange =async  (e:Event,value:any) =>{
@@ -44,32 +45,36 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
       setPasswordError(null);
     }
   }
-
-
-
-
-
   const register = async (e:Event) => {
     e.preventDefault()
     setError("");
 
     if (!passwordError()) {
+      
       try {
-        const data = await authRegister(username(), email(), password());
-  
-        if (data.error) {
+        
+        const data = await authRegister(
+          // username(),
+           email(), 
+           password());
+        if (! data.user_id) {
           setSuccess(false);
-          setError( data.error||"Sign up failed");
+          setError( data.message||"Sign up failed");
   
         }else{ 
           setSuccess(true);
+          sessionStorage.setItem("user_id", data.user_id);
+          sessionStorage.setItem("userName",  email());
           setTimeout(() => {
-          onType()
-        
-          }, 2000);}
+          // onType()
+          window.location.reload()
+          onClose()
+          }, 2000);
+        }
       
       } catch (error) {
-        setError( "Sign up failed");
+    
+        setError(error.message|| "Sign up failed");
       }
     } else {
       setError( "Sign up failed");
@@ -81,26 +86,27 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
        <span class="form-title">Join ThirstyOasis</span>
        <form class="form-post" id="register" onSubmit={register}>
       <div class="form-main">
-      <div class="form-group-main">
-      <span class="form-input-title">Username</span>
-          <input
+        {/*   <div class="form-group-main">
+        <span class="form-input-title">Username</span>
+         <input
             class="form-input-value"
             type="text"
             name="username"
       
             onInput={(event) => setUsername(event.target.value)}
           ></input>
-        </div>
-        {/* <div class="form-group-main">
+        </div> */}
+       <div class="form-group-main">
+       <span class="form-input-title">Email</span>
           <input
             class="form-input-value"
-            type="text"
+            type="email"
             placeholder="Email address"
             name="register-username"
             required
             onInput={(event) => setEmail(event.target.value)}
           ></input>
-        </div> */}
+        </div>
         <div class="form-group-main">
         <span class="form-input-title"> Password</span>
           <input
@@ -120,7 +126,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
                 type="month"
                 name="month"
                 placeholder="month"
-                required
+                // required
                 onInput={(event) => handlePasswordChange(event,event.target.value)}
               ></input>
                 <input
@@ -128,7 +134,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
                 type="text"
                 name="day"
                 placeholder="day"
-                required
+                // required
                 onInput={(event) => handlePasswordChange(event,event.target.value)}
               ></input>
                   <input
@@ -136,7 +142,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
                 type="text"
                 name="year"
                 placeholder="year"
-                required
+                // required
                 onInput={(event) => handlePasswordChange(event,event.target.value)}
               ></input>
             </div>
@@ -150,7 +156,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
                 type="country code"
                 name="month"
                 placeholder="Country Code"
-                required
+                // required
                 onInput={(event) => handlePasswordChange(event,event.target.value)}
               ></input>
                 <input
@@ -158,7 +164,7 @@ const SignUpForm: Component <SignUpFormProps>= (props) => {
                 type="text"
                 name="number"
                 placeholder="Number"
-                required
+                // required
                 onInput={(event) => handlePasswordChange(event,event.target.value)}
               ></input>         
             </div>

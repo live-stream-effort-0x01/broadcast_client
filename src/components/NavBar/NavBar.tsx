@@ -44,7 +44,6 @@ const NavBar :Component=()=> {
     setShowRoom(false);
   };
   createEffect(() => {
-  
     setLoggedIn(isLogin())
   },);
   const changeType = () => {
@@ -72,7 +71,6 @@ const NavBar :Component=()=> {
 
   const logOut = ()=>{
     sessionStorage.clear()
-    
     setTimeout(() => {
       window.location.reload()
    
@@ -97,20 +95,28 @@ const NavBar :Component=()=> {
                       when={loggedIn()}
                       fallback={
                         <nav class="navigation flex-end">
-                          <div onClick={typeLogin} class="navigation-element show nav-log">Login</div>
+                          {/*   <div onClick={typeLogin} class="navigation-element show nav-log">Login</div>*/}
                             {showModal() && !typeModal() && (
                               <Popup onClose={closeModal} buttonClose={true}>
                               <LoginForm onType={changeType} onClose={closeModal}/> 
                               </Popup>
                             )}
-                          <div  class="navigation-element show nav-sig" onClick={typeSignup}>Sign-Up</div>
+                        <div  class="navigation-element show nav-sig" onClick={typeSignup}>Sign-Up</div> 
+                         
                           {showModal() && typeModal() && (
                             <Popup onClose={closeModal} buttonClose={true}>
                                 <SignUpForm onType={changeType}  /> 
                             </Popup>
                           )}
                             <div class='header-drawer'>
-                              <Drawer props={[{name:'Sign-Up',link:'#',ac:false},{name:'Login',link:'#',ac:false}]}/>       
+                              <Drawer props={[
+                                {name:'Sign-Up',link:'#',ac:false},
+                                
+                                // {name:'Login',link:'#',ac:false}
+                              
+                              ]}
+                                
+                                />       
                               </div>
                         </nav>
                       }
@@ -140,12 +146,12 @@ const NavBar :Component=()=> {
                         </div>
                       </div>
                         <button class="navigation-element header-username"  onClick={toggleDropdown}>{userName()?userName():'UserName'}</button>
-                        {isDropdownOpen() && (
+                 {/*       {isDropdownOpen() && (
                       <div class='header-option' onClick={logOut}>
                         <span>Logout</span>
                         <img src={icon.logout} alt='' />
                       </div>
-                    )}
+                    )}     */}  
                       </nav> 
           </Show>
             </div>

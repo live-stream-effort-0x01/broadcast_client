@@ -7,7 +7,7 @@ import ListCardI from '~/components/Listcard/ListcardI';
 import Slider from '~/components/Slider/index'
 import SliderTag from"~/components/SliderTag/index"
 import AgeNoti from '~/components/Notification/AgeNoti';
-
+import { isLogin } from '~/lib/services/auth';
 import { getBroadcasts,Broadcasts  } from '~/lib/services/broadcasts';
 import {
   createResource,
@@ -22,19 +22,26 @@ const Home:Component=()=> {
   createEffect(()=>{
     refetch()
   },[broadcasts])
+  const [loggedIn, setLoggedIn] = createSignal(false);
+
   const [showModal, setShowModal] = createSignal(true);
   const closeModal = () => {
     setShowModal(false);
   };
-
+  createEffect(() => {
+    setLoggedIn(isLogin())
+  },);
 
   return (
     <main class='home-warper' >
     
       <div class='home-header'><NavBar/></div>
       <div class='home-container'>   
-      <div class='home-nav-user'> <NavUser /></div>
-      <div class='home-main scroll'>
+      {loggedIn() && <div class='home-nav-user'> <NavUser /></div>   }
+      <div  classList={{
+        "home-main scroll": loggedIn() === true,
+        "home-main-full scroll": loggedIn() !== true
+      }}>
       <div class={showModal()? 'home-popup': ''}>
       
       { showModal() && (<AgeNoti onClose={closeModal}/> ) }

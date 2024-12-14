@@ -25,7 +25,7 @@ const LoginForm :Component<LoginFormProps> = (props) => {
     try {
       const data = await authLogin(email(), password());
       if (!data.token) {
-        setError(data.error|| "Sign in failed");
+        setError(data.message|| "Sign in failed");
         return;
       }
       // Login success
@@ -36,8 +36,9 @@ const LoginForm :Component<LoginFormProps> = (props) => {
         window.location.reload()
       onClose()
       }, 2000);
-    } catch (error) {
-      setError("Sign in failed");
+    } catch (error :any) {
+     console.log(error)
+      setError(error ? error:"Sign in failed");
     }
   };
   return (
@@ -74,11 +75,11 @@ const LoginForm :Component<LoginFormProps> = (props) => {
           >
             <div class="form-btn-submit-title"  >Login</div>
           </button>
-
-          <div class="form-more">
+{/*      <div class="form-more">
             <p class="form-more-content">Don't have an account?</p>
             <div class="form-more-link" onClick={onType} >Sign Up</div>
-          </div>
+          </div> */}
+    
         </div>
       </form>
 
