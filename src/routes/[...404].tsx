@@ -1,21 +1,17 @@
-import { Title } from "solid-start";
-import { HttpStatusCode } from "solid-start/server";
-import { Component } from "solid-js";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 
-const  NotFound:Component = ()=> {
+const NotFound = () => {
   return (
     <main>
-      <Title>Not Found</Title>
-      <HttpStatusCode code={404} />
+      <Helmet>
+        <title>Not Found</title>
+      </Helmet>
       <h1>Page Not Found</h1>
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
+
     </main>
   );
-}
-export default  NotFound
+};
+
+export default NotFound;

@@ -1,114 +1,104 @@
-import { createSignal,Show } from "solid-js";
-import "./Drawer.css"
-import { useNavigate } from "solid-start";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Sử dụng react-router-dom thay thế cho solid-start
 import icon from "../icon";
 import Popup from "../Popup/Popup";
 import SignUpForm from "../Form/SignupForm";
 import LoginForm from "../Form/LoginForm";
 import CreateRoomForm from "../Form/CreateRoomForm";
-import { Component } from "solid-js";
+import "./Drawer.css";
 
-interface DrawerProps{
-props:any
-}
-
-const  Drawer: Component <DrawerProps> = (props) =>{
+const Drawer = ({ props }) => {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = createSignal(false);
-  const [typeModal, setTypeShowModal] = createSignal(true);
-  const [showRoom, setShowRoom] = createSignal(false);
-  const closeModal = () => {
-    setShowModal(false);
+  const [showModal, setShowModal] = useState(false);
+  const [typeModal, setTypeModal] = useState(true);
+  const [showRoom, setShowRoom] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const closeModal = () => setShowModal(false);
+  const closeRoom = () => setShowRoom(false);
+  const changeType = () => setTypeModal(!typeModal);
+  const typeLogin = () => {
+    setShowModal(true);
+    setTypeModal(false);
   };
-  const closeRoom = () => {
-    setShowRoom(false);
+  const typeSignup = () => {
+    setShowModal(true);
+    setTypeModal(true);
   };
-  const changeType = () => {
-    setTypeShowModal(!typeModal());
+  const pressLivestream = () => setShowRoom(true);
+  const pressContinue = () => navigate("/chatRoom");
+  const logOut = () => {
+    localStorage.clear();
+    setTimeout(() => window.location.reload(), 1000);
   };
-  const typeLogin = ()=>{
-    setShowModal(true)
-    setTypeShowModal(false)
-  }
-  const typeSignup = ()=>{
-    setShowModal(true)
-    setTypeShowModal(true)
-  }
-  const pressLivestream =()=>{
-    setShowRoom(true)
-   }
-   const pressContinute=()=>{
-    navigate('/chatRoom')
-   }
 
-   const logOut = ()=>{
-    sessionStorage.clear()
-    
-    setTimeout(() => {
-      window.location.reload()
-   
-    }, 1000);
-  }
+  const lable = props?.props || [];
 
-  const lable: object[] = props?.props
-    const [isOpen, setIsOpen] = createSignal(true);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-    const toggleMenu = () => {
-      setIsOpen(!isOpen());
-    };
-    return (
-      <div class="drawer-hamburger-menu">
-        <div class={`drawer-button`} onClick={toggleMenu}>
-       {!isOpen()?<img src={icon.bars} alt=''  class='drawer-button-icon'/>:<img src={icon.barsStagg} alt='' class='drawer-button-icon' />
-       }
-        </div>
-        {isOpen() && (
-          <div class="drawer-menu-items">
-          {lable.map((item:any) => (
-           <>{ item?.ac ===false ?
-                <div class="drawer-container-ac">
-                <div class='drawer-item-a' onClick={item?.name==='Sign-Up'? typeSignup : typeLogin} >{item?.name}</div>
-                {/*           {showModal() && typeModal() && (
-                  <Popup onClose={closeModal}>
-                    <SignUpForm onType={changeType} /> 
-                  </Popup>
-                 )} */}
-     
-                 {showModal() && !typeModal() && (
-                  <Popup onClose={closeModal}>
-                    <LoginForm onType={changeType} onClose={closeModal}/> 
-                  </Popup>
-                )}
-                </div>  :
-
-                <div class="drawer-container">
-                <Show
-                when={!item.live}
-                fallback={
-                <div  class= 'drawer-item ' >
-                <button  class='btn-green' onClick={pressLivestream}>{item?.name}</button>
-                <button class='btn-logout' onClick={logOut}>Logout  <img src={icon.logout} alt='' /></button>
-                {showRoom() &&   (
-                <Popup onClose={closeRoom}>
-                  <CreateRoomForm onClose={closeRoom}/> 
-                </Popup> )}
-                </div>
-
-                }
-                >
-                 <div  class=  'drawer-item' >
-                    <button  class='btn-yellow'  onClick={pressContinute }>{item?.name}</button>
-                    <button  class='btn-logout' onClick={logOut}>Logout  <img src={icon.logout} alt='' /></button>
-                
-                </div>
-                </Show>
-                </div>
-            }</>
-           ))}
-          </div>
+  return (
+    <div className="drawer-hamburger-menu">
+      <div className="drawer-button" onClick={toggleMenu}>
+        {!isOpen ? (
+          <img src={icon.bars} alt="" className="drawer-button-icon" />
+        ) : (
+          <img src={icon.barsStagg} alt="" className="drawer-button-icon" />
         )}
       </div>
-    );
-}
+      {isOpen && (
+        <div className="drawer-menu-items">
+          {lable.map((item, index) => (
+            <React.Fragment key={index}>
+              {item?.ac === false ? (
+                <div className="drawer-container-ac">
+                  <div
+                    className="drawer-item-a"
+                    onClick={item?.name === "Sign-Up" ? typeSignup : typeLogin}
+                  >
+                    {item?.name}
+                  </div>
+
+                  {/* Modal for Login */}
+                  {showModal && !typeModal && (
+                    <Popup onClose={closeModal}>
+                      <LoginForm onType={changeType} onClose={closeModal} />
+                    </Popup>
+                  )}
+                </div>
+              ) : (
+                <div className="drawer-container">
+                  {item.live ? (
+                    <div className="drawer-item">
+                      <button className="btn-green" onClick={pressLivestream}>
+                        {item?.name}
+                      </button>
+                      <button className="btn-logout" onClick={logOut}>
+                        Logout <img src={icon.logout} alt="" />
+                      </button>
+                      {showRoom && (
+                        <Popup onClose={closeRoom}>
+                          <CreateRoomForm onClose={closeRoom} />
+                        </Popup>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="drawer-item">
+                      <button className="btn-yellow" onClick={pressContinue}>
+                        {item?.name}
+                      </button>
+                      <button className="btn-logout" onClick={logOut}>
+                        Logout <img src={icon.logout} alt="" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Drawer;

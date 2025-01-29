@@ -1,17 +1,20 @@
-
-import { MessageArg } from "~/types/message";
+import React from "react";
 import "./Message.css";
-import { Component } from "solid-js";
-const MessageError :Component<MessageArg> =(props: MessageArg) =>{
-  return (
-    <>
-      <li class="message sent error-msg">
-        <div class="message-content">
-          <div class="message-sender">{props.username}</div>
-          <div class="message-text"> {props.content} </div>
-        </div>
-      </li>
-    </>
-  );
+
+interface MessageArg {
+  username: string;
+  content: string;
 }
-export default MessageError
+
+const MessageError: React.FC<MessageArg> = (props) => {
+  return (
+    <li className="message sent error-msg">
+      <div className="message-content">
+        <div className="message-sender">{props.username}</div>
+        <div className="message-text">{props.content}</div>
+      </div>
+    </li>
+  );
+};
+
+export default MessageError;

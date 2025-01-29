@@ -1,32 +1,32 @@
-
-import { createSignal, onCleanup, onMount } from "solid-js";
+import React, { useEffect, useState, useRef } from "react";
 import ChatFooter from "../ChatFooder/ChatFooter";
 import "./ChatWindow.css";
 import { DataPacket_Kind, Room, RoomEvent } from "livekit-client";
-import { Message, MessageType } from "~/types/message";
-import ChatBody from "~/components/Chat/ChatBody/ChatBody";
-import { MOCK_USER_ID } from "~/lib/constants/mock-data";
-import { state } from "~/lib/livekit/livekit-helper";
-import { Component } from "solid-js";
+import { Message, MessageType } from "../../../types/message";
+import ChatBody from "../../../components/Chat/ChatBody/ChatBody";
+import { MOCK_USER_ID } from "../../../lib/constants/mock-data";
+import { state } from "../../../lib/livekit/livekit-helper";
+
 interface ChatWindowProps {
   room: Room;
 }
-const ChatWindow: Component<ChatWindowProps>= (props)=> {
-  const { room } = props;
-  let containerRef: any;
-  const [messages, setMessages] = createSignal<Array<Message>>([]);
+
+const ChatWindow: React.FC<ChatWindowProps> = ({ room }) => {
+  const containerRef = useRef<HTMLDivElement>(null); // Thay ref cho container
+  const [messages, setMessages] = useState<Array<Message>>([]);
 
   const addMessage = async (message: Message) => {
-    setMessages([...messages(), message]);
-    if (messages().length > 1000) {
-      const tempMessages = [...messages()];
-      tempMessages.shift();
-      setMessages(tempMessages);
-    }
+    setMessages((prevMessages) => {
+      const updatedMessages = [...prevMessages, message];
+      if (updatedMessages.length > 1000) {
+        updatedMessages.shift();
+      }
+      return updatedMessages;
+    });
   };
 
-  onMount(() => {
-    room.on(RoomEvent.DataReceived, (payload, participation) => {
+  useEffect(() => {
+    const handleDataReceived = (payload: ArrayBuffer, participation: any) => {
       addMessage({
         content: {
           username: participation?.name || "Unknown user",
@@ -34,13 +34,14 @@ const ChatWindow: Component<ChatWindowProps>= (props)=> {
         },
         type: MessageType.RECEIVE,
       });
-    });
-    onCleanup(() => {
-      room.off(RoomEvent.DataReceived, () => {
-        console.log("Stop listening RoomEvent.DataReceived");
-      });
-    });
-  });
+    };
+
+    room.on(RoomEvent.DataReceived, handleDataReceived);
+
+    return () => {
+      room.off(RoomEvent.DataReceived, handleDataReceived);
+    };
+  }, [room]);
 
   const sendMessage = async (msg: string) => {
     addMessage({
@@ -57,12 +58,11 @@ const ChatWindow: Component<ChatWindowProps>= (props)=> {
   };
 
   return (
-   
-      <div class='chatwindow-wapper'>
-        <ChatBody messages={messages} containerRef={containerRef} />
-        <ChatFooter sendMessage={sendMessage} />
-      </div>
-   
+    <div className="chatwindow-wapper">
+      <ChatBody messages={messages} containerRef={containerRef} />
+      <ChatFooter sendMessage={sendMessage} />
+    </div>
   );
-}
+};
+
 export default ChatWindow;

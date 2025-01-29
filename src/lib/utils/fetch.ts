@@ -4,7 +4,7 @@ export const fetcher = <T>(
     options?: RequestInit
   ): Promise<T> => {
   
-    var token = sessionStorage.getItem("token") 
+    var token = localStorage.getItem("token") 
    
     return fetch(linkURL + endpoint, {
       ...options,

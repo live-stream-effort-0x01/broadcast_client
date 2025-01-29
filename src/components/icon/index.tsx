@@ -15,19 +15,19 @@ import prev from "./prev_icon.svg"
 
 const icon: Record<string, string> = {
     sendIcon: send,
-    offMicIcon:offMic,
+    offMicIcon: offMic,
     onMicIcon: onMic,
-    onCameraIcon:onCamera,
-    offCameraIcon:offCamera,
-    onScreenIcon:onScreen,
-    offScreenIcon:offScreen,
-    disconnectIcon:disconnect,
+    onCameraIcon: onCamera,
+    offCameraIcon: offCamera,
+    onScreenIcon: onScreen,
+    offScreenIcon: offScreen,
+    disconnectIcon: disconnect,
     bars: bars,
-    barsStagg:barsStagg,
-    logout:logout,
-    next:next,
-    prev:prev,
+    barsStagg: barsStagg,
+    logout: logout,
+    next: next,
+    prev: prev,
     barsII: barsII
-  };
-  
-  export default icon;
+};
+
+export default icon;

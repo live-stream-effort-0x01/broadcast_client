@@ -211,3 +211,7 @@ height:120vh
     }
 
 }
+header.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}

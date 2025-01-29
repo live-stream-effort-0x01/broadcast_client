@@ -1,29 +1,26 @@
-import { createSignal,createEffect } from 'solid-js';
-import './HeaderChatRoom.css'
-import { Component } from "solid-js";
+import React, { useEffect, useState } from "react";
+import "./HeaderChatRoom.css";
 
-const HeaderChatRoom:Component=()=> {
-  const [title, setTitile] = createSignal<any>(true);
+const HeaderChatRoom = () => {
+  const [title, setTitle] = useState<string | null>(null); // Sử dụng useState để lưu trạng thái
 
-  
-  createEffect(()=>{
-     const move = async ()=>{
-      const title =  sessionStorage.getItem('roomName')
-      setTitile(title)
-     }
-     move()
-  },[])
+  useEffect(() => {
+    const move = async () => {
+      const roomName = localStorage.getItem("roomName"); // Lấy dữ liệu từ localStorage
+      setTitle(roomName); // Cập nhật state
+    };
+    move();
+  }, []); // useEffect chạy một lần khi component được mount
+
   return (
-    <header class='header-wapper'>
-        <nav id="inbetween" class="navigation-livestream between ">
-        <div class={"navigation-element" }>{title()}</div>
-          <div  class="navigation-element">Viewers: 0</div>
-        </nav>
-    
-
-     
-      <div class='header-line'></div>
+    <header className="header-wapper">
+      <nav id="inbetween" className="navigation-livestream between">
+        <div className="navigation-element">{title || "Room"}</div> {/* Hiển thị "Room" nếu title null */}
+        <div className="navigation-element">Viewers: 0</div>
+      </nav>
+      <div className="header-line"></div>
     </header>
   );
-}
+};
+
 export default HeaderChatRoom;

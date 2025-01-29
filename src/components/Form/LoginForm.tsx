@@ -1,90 +1,77 @@
-import { createSignal } from "solid-js";
-
-import { authLogin } from "~/lib/services/auth";
-import { Component } from "solid-js";
+import React, { useState } from "react";
+import { authLogin } from "../..//lib/services/auth";
+import "./Form.css";
 
 interface LoginFormProps {
   onType: () => void;
-  onClose:()=>void;
+  onClose: () => void;
 }
 
-const LoginForm :Component<LoginFormProps> = (props) => {
-  
-  const [email, setEmail] = createSignal<string>("");
-  const [password, setPassword] = createSignal<string>("");
-  const [error, setError] = createSignal<string>("");
-  const [success, setSuccess] = createSignal<boolean>(false);
-  const { onType,onClose} = props;
+const LoginForm: React.FC<LoginFormProps> = ({ onType, onClose }) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
 
-
-
-  const login = async (e:Event) => {
-    e.preventDefault()
+  const login = async (e: React.FormEvent) => {
+    e.preventDefault();
     setError("");
     setSuccess(false);
     try {
-      const data = await authLogin(email(), password());
+      const data = await authLogin(email, password);
       if (!data.token) {
-        setError(data.message|| "Sign in failed");
+        setError(data.message || "Sign in failed");
         return;
       }
       // Login success
       setSuccess(true);
-      sessionStorage.setItem("token", data.token);
-      sessionStorage.setItem("userName", data.username ? data.username:email());
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userName", data.username ? data.username : email);
       setTimeout(() => {
-        window.location.reload()
-      onClose()
+        window.location.reload();
+        onClose();
       }, 2000);
-    } catch (error :any) {
-     console.log(error)
-      setError(error ? error:"Sign in failed");
+    } catch (error: any) {
+      console.log(error);
+      setError(error ? error : "Sign in failed");
     }
   };
+
   return (
-    <div class='form-wapper'>
-      <span class="form-title">Log in to ThirstyOasis</span>
-      <form class="form-post" id="login" onSubmit={login}>
-        <div class="form-main">
-          <div class="form-group-main">
-            <span class="form-input-title">Username</span>
+    <div className="form-wapper">
+      <span className="form-title">Log in to ThirstyOasis</span>
+      <form className="form-post" id="login" onSubmit={login}>
+        <div className="form-main">
+          <div className="form-group-main">
+            <span className="form-input-title">Username</span>
             <input
-              class="form-input-value"
+              className="form-input-value"
               type="text"
-             
               name="username"
               required
-              onInput={(event) => setEmail(event.target.value)} />
-            
+              onInput={(event) => setEmail(event.target.value)}
+            />
           </div>
-          <div class="form-group-main">
-          <span class="form-input-title"> Password</span>
+          <div className="form-group-main">
+            <span className="form-input-title">Password</span>
             <input
-              class="form-input-value"
+              className="form-input-value"
               type="password"
               name="password"
-             
               required
-              onInput={(event) => setPassword(event.target.value)} />
+              onInput={(event) => setPassword(event.target.value)}
+            />
           </div>
         </div>
-        {error() && <p class="form-error-message">{error()}</p>}
-        {success() && <p class="form-success-message">Success!</p>}
-        <div class="form-btn">
-          <button type="submit"  class="form-btn-submit" 
-          >
-            <div class="form-btn-submit-title"  >Login</div>
+        {error && <p className="form-error-message">{error}</p>}
+        {success && <p className="form-success-message">Success!</p>}
+        <div className="form-btn">
+          <button type="submit" className="form-btn-submit">
+            <div className="form-btn-submit-title">Login</div>
           </button>
-{/*      <div class="form-more">
-            <p class="form-more-content">Don't have an account?</p>
-            <div class="form-more-link" onClick={onType} >Sign Up</div>
-          </div> */}
-    
         </div>
       </form>
-
     </div>
-
   );
 };
 

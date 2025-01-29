@@ -1,163 +1,150 @@
-import { createSignal, Show,createEffect } from 'solid-js';
-import { useNavigate } from "solid-start";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';  // React Router
 import Drawer from '../Drawer/Drawer';
-import './NarBar.css'
 import Popup from '../Popup/Popup';
 import SignUpForm from '../Form/SignupForm';
 import CreateRoomForm from '../Form/CreateRoomForm';
 import LoginForm from '../Form/LoginForm';
-import { isLogin } from '~/lib/services/auth';
-import { Component } from "solid-js";
-import icon from '../icon';
+import { isLogin } from '../../lib/services/auth'
+import './NarBar.css';
 
-const NavBar :Component=()=> {
-
-
+const NavBar = () => {
   const navigate = useNavigate();
-  const [userName, setUserName] = createSignal<any>('');
-  const [loggedIn, setLoggedIn] = createSignal(false);
-  const [live, setLive] = createSignal(false);
-  const [showModal, setShowModal] = createSignal(false);
-  const [showRoom, setShowRoom] = createSignal(false);
-  const [typeModal, setTypeShowModal] = createSignal(true);
-  const [isDropdownOpen, setDropdownOpen] = createSignal(false);
-  createEffect(()=>{
-    const status = async ()=>{
-      const value = sessionStorage.getItem('live')
-      if(value==='true'){
-        setLive(true)
-      }
-      else{
-        setLive(false)
-      }
-    }
-    status()
-  },[])
- createEffect(()=>{
-   const name = sessionStorage.getItem("userName")
-      setUserName(name)
-  },[])
-  const closeModal = () => {
-    setShowModal(false);
-  };
-  const closeRoom = () => {
-    setShowRoom(false);
-  };
-  createEffect(() => {
-    setLoggedIn(isLogin())
-  },);
-  const changeType = () => {
-    setTypeShowModal(!typeModal());
-  };
-  const typeLogin = ()=>{
-    setShowModal(true)
-    setTypeShowModal(false)
-  }
-  const typeSignup = ()=>{
-    setShowModal(true)
-    setTypeShowModal(true)
-  }
-  const pressLivestream =()=>{
-   setShowRoom(true)
-  }
-  const pressContinute=()=>{
-    navigate('/chatRoom')
-   }
+  const [userName, setUserName] = useState<string | null>('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showRoom, setShowRoom] = useState(false);
+  const [isSignupModal, setIsSignupModal] = useState(true);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
+  // Kiểm tra trạng thái live từ localStorage
+  useEffect(() => {
+    const liveStatus = localStorage.getItem("live") === "true";
+    setIsStreaming(liveStatus);
+  }, []);
 
-   const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen());
+  // Kiểm tra tên người dùng từ localStorage
+  useEffect(() => {
+    const name = localStorage.getItem("userName");
+    setUserName(name);
+  }, []);
+
+  // Kiểm tra trạng thái đăng nhập
+  useEffect(() => {
+    setLoggedIn(isLogin());
+  }, []);
+
+  const closeModal = () => setShowModal(false);
+  const closeRoom = () => setShowRoom(false);
+  const toggleModalType = () => setIsSignupModal(!isSignupModal());
+
+  const startStreaming = () => setShowRoom(true);
+  const continueStreaming = () => navigate("/chatRoom");
+
+  const logOut = () => {
+    localStorage.clear();
+    setTimeout(() => window.location.reload(), 1000);
   };
 
-  const logOut = ()=>{
-    sessionStorage.clear()
-    setTimeout(() => {
-      window.location.reload()
-   
-    }, 1000);
-  }
+  const toggleDropdown = () => setDropdownOpen(!isDropdownOpen());
+
   return (
-<header class='header-wapper'>
-            <div class=" header-left ">
-            <div class='header-logo'>
-            <span class='logo-left'>Thirsty</span>
-            <span class='logo-right'>Oasis</span>
+    <header className="header-wrapper">
+      <div className="header-left">
+        <div className="header-logo">
+          <span className="logo-left">Thirsty</span>
+          <span className="logo-right">Oasis</span>
+        </div>
+        <ul className="header-list-nav">
+          <li className="header-nav">Browse</li>
+          <li className="header-nav">Private Calls</li>
+          <li className="header-nav">Following</li>
+        </ul>
+      </div>
+      <div className="header-right">
+        {loggedIn ? (
+          <nav className="navigation between">
+            <div>
+              {isStreaming ? (
+                <button
+                  onClick={continueStreaming}
+                  className="stream-button yellow show"
+                  type="button"
+                >
+                  Continue Streaming
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={startStreaming}
+                    className="stream-button green show"
+                    type="button"
+                  >
+                    Start Streaming
+                  </button>
+                  {showRoom && (
+                    <Popup onClose={closeRoom} buttonClose={true}>
+                      <CreateRoomForm onClose={closeRoom} />
+                    </Popup>
+                  )}
+                </>
+              )}
             </div>
-            <ul class="header-list-nav">
-              <li class='header-nav'>Browse</li>
-              <li class='header-nav'>Private Calls</li>
-              <li class='header-nav'>Following</li>
-            </ul>
-            
+            <div className="header-drawer">
+              <Drawer
+                props={[
+                  {
+                    name: isStreaming ? "Continue Streaming" : "Start Streaming",
+                    link: "#",
+                    action: import.meta.env.VITE_STREAM_URL,
+                    ac: true,
+                    live: true,
+                  },
+                ]}
+              />
             </div>
-            <div class=" header-right "> 
-            <Show
-                      when={loggedIn()}
-                      fallback={
-                        <nav class="navigation flex-end">
-                          {/*   <div onClick={typeLogin} class="navigation-element show nav-log">Login</div>*/}
-                            {showModal() && !typeModal() && (
-                              <Popup onClose={closeModal} buttonClose={true}>
-                              <LoginForm onType={changeType} onClose={closeModal}/> 
-                              </Popup>
-                            )}
-                        <div  class="navigation-element show nav-sig" onClick={typeSignup}>Sign-Up</div> 
-                         
-                          {showModal() && typeModal() && (
-                            <Popup onClose={closeModal} buttonClose={true}>
-                                <SignUpForm onType={changeType}  /> 
-                            </Popup>
-                          )}
-                            <div class='header-drawer'>
-                              <Drawer props={[
-                                {name:'Sign-Up',link:'#',ac:false},
-                                
-                                // {name:'Login',link:'#',ac:false}
-                              
-                              ]}
-                                
-                                />       
-                              </div>
-                        </nav>
-                      }
-                    >
-
-                      <nav id="inbetween" class="navigation between ">
-                      <div >  
-                        <div>
-                          <Show 
-                          when={live()}
-                          fallback={
-                            <>
-                            <button onClick={pressLivestream} class={'stream-button green show' }type="submit">Start Streaming</button>
-                            {showRoom() &&  (
-                              <Popup onClose={closeRoom} buttonClose={true}>
-                                <CreateRoomForm onClose={closeRoom}/> 
-                              </Popup> )}
-                            </>
-                          }
-                          >
-                              <button onClick={pressContinute} class={ "stream-button yellow show" }type="submit">Continute Streaming</button>
-                          </Show>
-                          
-                        </div>
-                        <div class='header-drawer'>
-                          <Drawer props={[{name:live()?'Continute Streaming':'Start Streaming',link:'#',action:import.meta.env.VITE_STREAM_URL, ac:true,live:true}]}/>       
-                        </div>
-                      </div>
-                        <button class="navigation-element header-username"  onClick={toggleDropdown}>{userName()?userName():'UserName'}</button>
-                 {/*       {isDropdownOpen() && (
-                      <div class='header-option' onClick={logOut}>
-                        <span>Logout</span>
-                        <img src={icon.logout} alt='' />
-                      </div>
-                    )}     */}  
-                      </nav> 
-          </Show>
+            <button
+              className="navigation-element header-username"
+              onClick={toggleDropdown}
+            >
+              {userName || 'UserName'}
+            </button>
+            {isDropdownOpen && (
+              <div className="header-option" onClick={logOut}>
+                <span>Logout</span>
+              </div>
+            )}
+          </nav>
+        ) : (
+          <nav className="navigation flex-end">
+            {showModal && !isSignupModal && (
+              <Popup onClose={closeModal} buttonClose={true}>
+                <LoginForm onType={toggleModalType} onClose={closeModal} />
+              </Popup>
+            )}
+            <div
+              className="navigation-element show nav-sig"
+              onClick={() => {
+                setShowModal(true);
+                setIsSignupModal(true);
+              }}
+            >
+              Sign-Up
             </div>
-            
-    
+            {showModal && isSignupModal && (
+              <Popup onClose={closeModal} buttonClose={true}>
+                <SignUpForm onType={toggleModalType} />
+              </Popup>
+            )}
+            <div className="header-drawer">
+              <Drawer props={[{ name: 'Sign-Up', link: '#', ac: false }]} />
+            </div>
+          </nav>
+        )}
+      </div>
     </header>
   );
-}
-export default NavBar
+};
+
+export default NavBar;

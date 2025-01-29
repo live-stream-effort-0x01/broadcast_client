@@ -1,13 +1,14 @@
-import { createSignal } from "solid-js";
+import React, { useState } from "react";
 import "./Counter.css";
-import { Component } from "solid-js";
 
-const Counter:Component=()=> {
-  const [count, setCount] = createSignal(0);
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
   return (
-    <button class="increment" onClick={() => setCount(count() + 1)}>
-      Clicks: {count()}
+    <button className="increment" onClick={() => setCount(count + 1)}>
+      Clicks: {count}
     </button>
   );
-}
-export default Counter
+};
+
+export default Counter;

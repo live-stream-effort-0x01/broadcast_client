@@ -1,15 +1,18 @@
-import { MessageArg } from "~/types/message";
+import React from "react";
 import "./Message.css";
-import { Component } from "solid-js";
-const MessageSent:Component<MessageArg>=(props: MessageArg)=> {
-  return (
-    <>
-      <li class="message sent">
-        <div class="message-content">
-          <div class="message-text"> {props.content} </div>
-        </div>
-      </li>
-    </>
-  );
+
+interface MessageArg {
+  content: string;
 }
-export default MessageSent
+
+const MessageSent: React.FC<MessageArg> = (props) => {
+  return (
+    <li className="message sent">
+      <div className="message-content">
+        <div className="message-text">{props.content}</div>
+      </div>
+    </li>
+  );
+};
+
+export default MessageSent;

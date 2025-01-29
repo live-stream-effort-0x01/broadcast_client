@@ -5,6 +5,7 @@
   height: 36vh;
   color: text;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 55px;
@@ -184,4 +185,14 @@
   padding: 0.4rem 1.2rem;
   background-color: var(--color-green-2);
   border-radius: 0.2rem;
+}
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-track {
+  display: flex;
+  flex-direction: row;
 }

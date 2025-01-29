@@ -1,45 +1,40 @@
-import './Notification.css'
-import { Component } from "solid-js";
-import { createSignal, Show } from 'solid-js';
+import React, { useState } from 'react';
+import './Notification.css';
 import icon from '~/components/icon'; 
-interface DisconnetNotiProps{
-  onDisconnet: () => void;
-  onClose:()=>void;
-  onOut:()=>void
 
+interface DisconnetNotiProps {
+  onDisconnet: () => void;
+  onClose: () => void;
+  onOut: () => void;
 }
 
+const DisconnetNoti: React.FC<DisconnetNotiProps> = ({ onDisconnet, onClose, onOut }) => {
+  const [change, setChange] = useState<boolean>(false);
 
-const DisconnetNoti: Component<DisconnetNotiProps>= (props) => {
-  const [change,setChange]= createSignal<boolean>(false);
-  const { onDisconnet,onClose,onOut} = props;
-  
   return (
-    <div class='noti-wapper'>
-      <Show when={change()}
-          fallback={
-          <>
-          <span class="noti-title">Do you want to stop broadcasting?</span> 
-        </>
-          }>
-           <span class="noti-title">Return to the home Page </span>
-        </Show>
+    <div className='noti-wapper'>
+      {change ? (
+        <span className="noti-title">Return to the home Page</span>
+      ) : (
+        <span className="noti-title">Do you want to stop broadcasting?</span>
+      )}
       
-      <div class="noti-btns">
-        <Show when={change()}
-          fallback={
+      <div className="noti-btns">
+        {change ? (
+          <button className="noti-btn noti-red" onClick={onOut}>
+            <img src={icon.disconnectIcon} alt="Disconnect" />
+          </button>
+        ) : (
           <>
-          <button class="noti-btn noti-green" onClick={()=>{onDisconnet(),setChange(true)}}>Yes</button>
-        <button class="noti-btn noti-red" onClick={onClose}>No</button>
-        </>
-          }>
-          <button class="noti-btn noti-red" onClick={onOut}> <img src={icon.disconnectIcon} /></button>
-        </Show>
-        
+            <button className="noti-btn noti-green" onClick={() => { onDisconnet(); setChange(true); }}>
+              Yes
+            </button>
+            <button className="noti-btn noti-red" onClick={onClose}>No</button>
+          </>
+        )}
       </div>
     </div>
-
   );
 };
 
-export default  DisconnetNoti
+export default DisconnetNoti;

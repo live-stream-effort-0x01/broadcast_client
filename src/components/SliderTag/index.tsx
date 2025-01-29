@@ -1,68 +1,63 @@
-import { Component, createSignal, For ,onMount} from "solid-js";
-import { Slider, createSlider } from "solid-slider";
-
+import React, { useState } from "react";
 import './SliderTag.css';
-import '@digichanges/solid-slider/dist/slider.css';
-
-
-
-
-
+// import '@digichanges/solid-slider/dist/slider.css';
 import icon from "../icon";
 
-
-const SliderComponent: Component = () => {
-
-
+const SliderComponent = () => {
+  // Sample tag list to display in the slider
   const sampleTagList = [
-    {
-        name: "Tag",
-        action: "true",
-    },
-    {  
-        name: "Tag Tag",
-        action: "false",
-    },
-
+    { name: "Tag", action: "true" },
+    // { name: "Tag Tag", action: "false" },
   ];
 
-    const options = {duration: 1000, loop: true,  slidesToShow:3,   slidesToScroll:3 ,  perView: 2, spacing: 15,} ;
-        const [ slider, {next, prev } ] = createSlider( options);
-        slider ; 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const slidesToShow = 3;
+  const totalSlides = sampleTagList.length; // Adjust for dynamic list length
 
-      return <>
-      <button class="slider-tag-button-left" onClick={prev}><img src={icon.prev}></img></button>
-          
-        <div use:slider>
-        {sampleTagList?.map((item:any, index:number) => (
-          <>
-          <div class="slide-tag">
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title tag-true">{item.name}</div> 
-          <div class="slide-tag-title">{item.name}</div> 
-         
-         
-      
-          
-          
-          </div>
-         
-          </>
-          
-         ))}
-            
+  // Calculate the next slide
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+  };
+
+  // Calculate the previous slide
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
+  };
+
+  return (
+    <>
+      <button className="slider-tag-button-left" onClick={prevSlide}>
+        <img src={icon.prev} alt="Previous" />
+      </button>
+
+      <div className="slider-container">
+        {/* Display the tags */}
+        <div className="slider-content">
+          {sampleTagList.map((item, index) => (
+            <div key={index} className="slide-tag">
+              <div className={`slide-tag-title ${item.action === "true" ? "tag-true" : ""}`}>
+                {item.name}
+              </div>
+              {/* Repeating items based on your initial code */}
+              <div className="slide-tag-title">{item.name}</div>
+              <div className="slide-tag-title tag-true">{item.name}</div>
+              <div className="slide-tag-title">{item.name}</div>
+              <div className="slide-tag-title">{item.name}</div>
+              <div className="slide-tag-title">{item.name}</div>
+              <div className="slide-tag-title tag-true">{item.name}</div>
+              <div className="slide-tag-title tag-true">{item.name}</div>
+              <div className="slide-tag-title tag-true">{item.name}</div>
+              <div className="slide-tag-title">{item.name}</div>
+            </div>
+          ))}
         </div>
-      
-          
-          <button class="slider-tag-button-right" onClick={next}><img src={icon.next}></img></button>
-       
-      </>;
-    };
+      </div>
+
+      <button className="slider-tag-button-right" onClick={nextSlide}>
+        <img src={icon.next} alt="Next" />
+      </button>
+    </>
+  );
+};
 
 export default SliderComponent;

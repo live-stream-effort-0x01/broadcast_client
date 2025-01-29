@@ -1,48 +1,51 @@
-import { createSignal } from "solid-js";
+import React, { useState, useRef } from "react";
 import "./ChatFooter.css";
-import { IoSend } from 'solid-icons/io'
-import icon from "~/components/icon";
-import { Component } from "solid-js";
+
+import icon from "../../../components/icon";
+
 interface ListArg {
   sendMessage: (message: string) => Promise<void>;
 }
 
-const ChatFooter: Component <ListArg>= (props) => {
-  const [height, setHeight] = createSignal(38);
- 
-  let input: any;
+const ChatFooter: React.FC<ListArg> = (props) => {
+  const [height, setHeight] = useState(38);
+  const inputRef = useRef<HTMLTextAreaElement>(null); // Sử dụng useRef thay vì createSignal cho tham chiếu DOM
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && e.shiftKey) {
+      e.preventDefault();
+      if (inputRef.current) inputRef.current.value += "\n";
+      if (height < 152) {
+        setHeight(height + 19);
+      }
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (!inputRef.current?.value.trim()) return;
+      props.sendMessage(inputRef.current.value);
+      if (inputRef.current) inputRef.current.value = "";
+      setHeight(38);
+    }
+  };
+
   return (
-    <div class="chat-footer">
+    <div className="chat-footer">
       <textarea
-        class="message-input"
+        className="message-input"
         placeholder="Type your message here..."
-        ref={input}
+        ref={inputRef}
         rows={1}
         maxLength={200}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" && e.shiftKey) {
-            e.preventDefault();
-            input.value += "\n";
-            if (height() < 152) {
-              setHeight(height() + 19);
-            }
-          } else if (e.key === "Enter") {
-            e.preventDefault();
-            if (!input.value.trim()) return;
-            props.sendMessage(input.value);
-            input.value = "";
-            setHeight(38);
-          }
-        }}
+        onKeyDown={handleKeyDown}
         style={{
           resize: "none",
-          height: `${height()}px`,
+          height: `${height}px`,
         }}
       />
-      <div class="send-message">
-        <img src={icon.sendIcon} alt=""class="send-message-icon" />
+      <div className="send-message">
+        <img src={icon.sendIcon} alt="" className="send-message-icon" />
       </div>
     </div>
   );
-}
+};
+
 export default ChatFooter;

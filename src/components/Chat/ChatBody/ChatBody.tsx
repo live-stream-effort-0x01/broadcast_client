@@ -1,51 +1,46 @@
-import { For, Switch, Match, createEffect, on } from "solid-js";
-import MessageReceive from "~/components/Message/MessageReceive";
-import MessageSent from "~/components/Message/MessageSent";
-import MessageAdmin from "~/components/Message/MessageAdmin";
-import MessageError from "~/components/Message/MessageError";
-import MessageRequest from "~/components/Message/MessageRequest";
+import React, { useEffect } from "react";
+import MessageReceive from "../../../components/Message/MessageReceive";
+import MessageSent from "../../../components/Message/MessageSent";
+import MessageAdmin from "../../../components/Message/MessageAdmin";
+import MessageError from "../../../components/Message/MessageError";
+import MessageRequest from "../../../components/Message/MessageRequest";
 import "./ChatBody.css";
-import { Message, MessageType } from "~/types/message";
-import { Component } from "solid-js";
-export interface ChatBodyProps {
-  messages: () => Array<Message>;
-  containerRef: any;
+import { Message, MessageType } from "../../../types/message";
+
+interface ChatBodyProps {
+  messages: Message[];
+  containerRef: React.RefObject<HTMLDivElement>;
 }
 
-const ChatBody: Component<ChatBodyProps> = (props) =>{
-  createEffect(
-    on(
-      () => props.messages.length,
-      () => (props.containerRef.scrollTop = props.containerRef.scrollHeight)
-    )
-  );
+const ChatBody: React.FC<ChatBodyProps> = ({ messages, containerRef }) => {
+  useEffect(() => {
+    if (messages.length > 0 && containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [messages, containerRef]);
 
   return (
-    <div class="chat-body " ref={props.containerRef}>
-      <ul class="message-list scroll">
-        <For each={props.messages()}>
-          {(msg, i) => (
-            <Switch>
-              <Match when={msg.type == MessageType.SEND}>
-                <MessageSent {...msg.content} />
-              </Match>
-              <Match when={msg.type == MessageType.RECEIVE}>
-                <MessageReceive {...msg.content} />
-              </Match>
-              <Match when={msg.type == MessageType.ADMIN}>
-                <MessageAdmin {...msg.content} />
-              </Match>
-              <Match when={msg.type == MessageType.ERROR}>
-                <MessageError {...msg.content} />
-              </Match>
-              <Match when={msg.type == MessageType.SPECIAL_REQUEST}>
-                <MessageRequest {...msg.content} />
-              </Match>
-            </Switch>
-          )}
-        </For>
+    <div className="chat-body" ref={containerRef}>
+      <ul className="message-list scroll">
+        {messages.map((msg, i) => {
+          switch (msg.type) {
+            case MessageType.SEND:
+              return <MessageSent key={i} {...msg.content} />;
+            case MessageType.RECEIVE:
+              return <MessageReceive key={i} {...msg.content} />;
+            case MessageType.ADMIN:
+              return <MessageAdmin key={i} {...msg.content} />;
+            case MessageType.ERROR:
+              return <MessageError key={i} {...msg.content} />;
+            case MessageType.SPECIAL_REQUEST:
+              return <MessageRequest key={i} {...msg.content} />;
+            default:
+              return null;
+          }
+        })}
       </ul>
     </div>
   );
-}
+};
+
 export default ChatBody;

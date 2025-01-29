@@ -39,7 +39,7 @@ export const authRegister = (
 
 export const isLogin = (
 ) => {
-  const user_id = sessionStorage.getItem('user_id')
+  const user_id = localStorage.getItem('user_id')
   if(user_id&& user_id !==''){
     return true
   }
